@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { repository } from '../db/repository.js';
+import { repository } from '../db/repository';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'emp_commercial_super_secure_jwt_secret_2026_99cc663d';
 

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
-import { repository } from '../db/repository.js';
-import { notificationService } from '../services/notificationService.js';
+import { repository } from '../db/repository';
+import { notificationService } from '../services/notificationService';
 
 const router = Router();
 

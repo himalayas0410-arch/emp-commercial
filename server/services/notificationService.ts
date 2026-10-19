@@ -1,4 +1,4 @@
-import { repository } from '../db/repository.js';
+import { repository } from '../db/repository';
 
 export interface NotificationPayload {
   incidentId: string;

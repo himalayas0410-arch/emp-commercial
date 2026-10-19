@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 import fs from 'fs';
 import path from 'path';
-import { supabase } from './supabase.js';
+import { supabase } from './supabase';
 
 const READ_DATA_FILE = path.join(process.cwd(), 'emp_local_data.json');
 const WRITE_DATA_FILE = process.env.VERCEL

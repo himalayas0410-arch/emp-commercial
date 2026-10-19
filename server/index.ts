@@ -1,16 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { testSupabaseConnection } from './db/supabase.js';
-import { initSeedData } from './db/repository.js';
+import { testSupabaseConnection } from './db/supabase';
+import { initSeedData } from './db/repository';
 
-import authRoutes from './routes/authRoutes.js';
-import profileRoutes from './routes/profileRoutes.js';
-import qrRoutes from './routes/qrRoutes.js';
-import emergencyRoutes from './routes/emergencyRoutes.js';
-import familyRoutes from './routes/familyRoutes.js';
-import companyRoutes from './routes/companyRoutes.js';
-import adminRoutes from './routes/adminRoutes.js';
+import authRoutes from './routes/authRoutes';
+import profileRoutes from './routes/profileRoutes';
+import qrRoutes from './routes/qrRoutes';
+import emergencyRoutes from './routes/emergencyRoutes';
+import familyRoutes from './routes/familyRoutes';
+import companyRoutes from './routes/companyRoutes';
+import adminRoutes from './routes/adminRoutes';
 
 dotenv.config();
 

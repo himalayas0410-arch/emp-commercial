@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
-import { repository } from '../db/repository.js';
-import { verifyAuth, requireRole, AuthenticatedRequest } from '../middleware/auth.js';
+import { repository } from '../db/repository';
+import { verifyAuth, requireRole, AuthenticatedRequest } from '../middleware/auth';
 
 const router = Router();
 

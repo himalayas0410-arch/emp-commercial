@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { repository } from '../db/repository.js';
-import { verifyAuth, AuthenticatedRequest } from '../middleware/auth.js';
+import { repository } from '../db/repository';
+import { verifyAuth, AuthenticatedRequest } from '../middleware/auth';
 
 const router = Router();
 

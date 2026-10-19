@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import request from 'supertest';
-import { app } from '../index.js';
-import { initSeedData, resetStoreForTesting } from '../db/repository.js';
+import { app } from '../index';
+import { initSeedData, resetStoreForTesting } from '../db/repository';
 
 describe('EMP Commercial Full-Stack API Test Suite', () => {
   let employeeToken = '';
