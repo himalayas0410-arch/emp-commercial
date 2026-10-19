@@ -1,16 +1,25 @@
-import { app } from '../server/app';
-import { initSeedData } from '../server/db/repository';
-
 let initialized = false;
 
 export default async function handler(req: any, res: any) {
-  if (!initialized) {
-    try {
+  try {
+    const { app } = await import('../server/app');
+    const { initSeedData } = await import('../server/db/repository');
+    
+    if (!initialized) {
       await initSeedData();
-    } catch (e) {
-      console.error('[Vercel Seed Init Error]', e);
+      initialized = true;
     }
-    initialized = true;
+    
+    return app(req, res);
+  } catch (err: any) {
+    console.error('[Vercel Handler Caught Error]', err);
+    if (!res.headersSent) {
+      res.status(500).json({
+        error: 'Vercel Serverless Function Error',
+        message: err?.message || String(err),
+        stack: err?.stack,
+        code: err?.code
+      });
+    }
   }
-  return app(req, res);
 }
