@@ -78,6 +78,14 @@ function MainApp() {
   const [showCondModal, setShowCondModal] = useState(false);
   const [newCondName, setNewCondName] = useState('');
 
+  const [showSurgeryModal, setShowSurgeryModal] = useState(false);
+  const [newSurgeryProcedure, setNewSurgeryProcedure] = useState('');
+  const [newSurgeryYear, setNewSurgeryYear] = useState('');
+
+  const [showDeviceModal, setShowDeviceModal] = useState(false);
+  const [newDeviceName, setNewDeviceName] = useState('');
+  const [newDeviceDetails, setNewDeviceDetails] = useState('');
+
   const [showContactModal, setShowContactModal] = useState(false);
   const [newContactName, setNewContactName] = useState('');
   const [newContactRel, setNewContactRel] = useState('Spouse');
@@ -423,6 +431,94 @@ function MainApp() {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ conditions: updated })
+      });
+      const data = await res.json();
+      if (res.ok) setProfile(data.profile);
+    } catch (e: any) {
+      Alert.alert('Error', e.message);
+    }
+  };
+
+  // Surgery Handlers
+  const handleAddSurgery = async () => {
+    if (!newSurgeryProcedure.trim()) return Alert.alert('Required', 'Enter procedure or surgery name.');
+    const updatedSurgeries = [
+      ...(profile.surgeries || []),
+      {
+        id: 'sur_' + Date.now().toString(36),
+        procedure: newSurgeryProcedure.trim(),
+        year: newSurgeryYear.trim() || new Date().getFullYear().toString()
+      }
+    ];
+    try {
+      const res = await fetch(`${apiUrl}/profiles/me`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ surgeries: updatedSurgeries })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setProfile(data.profile);
+        setNewSurgeryProcedure('');
+        setNewSurgeryYear('');
+        setShowSurgeryModal(false);
+      }
+    } catch (e: any) {
+      Alert.alert('Error', e.message);
+    }
+  };
+
+  const handleDeleteSurgery = async (id: string) => {
+    const updated = (profile.surgeries || []).filter((s: any) => s.id !== id);
+    try {
+      const res = await fetch(`${apiUrl}/profiles/me`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ surgeries: updated })
+      });
+      const data = await res.json();
+      if (res.ok) setProfile(data.profile);
+    } catch (e: any) {
+      Alert.alert('Error', e.message);
+    }
+  };
+
+  // Medical Device Handlers
+  const handleAddDevice = async () => {
+    if (!newDeviceName.trim()) return Alert.alert('Required', 'Enter medical device or implant name.');
+    const updatedDevices = [
+      ...(profile.devices || []),
+      {
+        id: 'dev_' + Date.now().toString(36),
+        device_name: newDeviceName.trim(),
+        details: newDeviceDetails.trim() || 'Medical device'
+      }
+    ];
+    try {
+      const res = await fetch(`${apiUrl}/profiles/me`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ devices: updatedDevices })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setProfile(data.profile);
+        setNewDeviceName('');
+        setNewDeviceDetails('');
+        setShowDeviceModal(false);
+      }
+    } catch (e: any) {
+      Alert.alert('Error', e.message);
+    }
+  };
+
+  const handleDeleteDevice = async (id: string) => {
+    const updated = (profile.devices || []).filter((d: any) => d.id !== id);
+    try {
+      const res = await fetch(`${apiUrl}/profiles/me`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ devices: updated })
       });
       const data = await res.json();
       if (res.ok) setProfile(data.profile);
@@ -972,6 +1068,64 @@ function MainApp() {
                   <View key={c.id} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#F1F5F9' }}>
                     <Text style={{ fontWeight: '700', color: '#0F172A', fontSize: 14 }}>{c.condition}</Text>
                     <TouchableOpacity onPress={() => handleDeleteCondition(c.id)}>
+                      <Text style={{ color: '#EF4444', fontSize: 13, fontWeight: '700' }}>🗑️</Text>
+                    </TouchableOpacity>
+                  </View>
+                ))
+              )}
+            </View>
+
+            {/* Surgeries with Add & Delete */}
+            <View style={styles.card}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <Text style={styles.cardTitle}>Surgeries & Procedures ({profile?.surgeries?.length || 0})</Text>
+                <TouchableOpacity
+                  onPress={() => setShowSurgeryModal(true)}
+                  style={{ backgroundColor: '#F8FAFC', paddingHorizontal: 10, paddingVertical: 5, borderRadius: 6, borderWidth: 1, borderColor: '#CBD5E1' }}
+                >
+                  <Text style={{ color: '#0F172A', fontWeight: '700', fontSize: 12 }}>➕ Add Surgery</Text>
+                </TouchableOpacity>
+              </View>
+
+              {(!profile?.surgeries || profile.surgeries.length === 0) ? (
+                <Text style={{ color: '#94A3B8', fontSize: 13 }}>No surgical procedures recorded.</Text>
+              ) : (
+                profile.surgeries.map((s: any) => (
+                  <View key={s.id} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#F1F5F9' }}>
+                    <View>
+                      <Text style={{ fontWeight: '700', color: '#0F172A', fontSize: 14 }}>{s.procedure}</Text>
+                      {s.year ? <Text style={{ color: '#64748B', fontSize: 12 }}>Year: {s.year}</Text> : null}
+                    </View>
+                    <TouchableOpacity onPress={() => handleDeleteSurgery(s.id)}>
+                      <Text style={{ color: '#EF4444', fontSize: 13, fontWeight: '700' }}>🗑️</Text>
+                    </TouchableOpacity>
+                  </View>
+                ))
+              )}
+            </View>
+
+            {/* Medical Devices & Implants with Add & Delete */}
+            <View style={styles.card}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <Text style={styles.cardTitle}>Implants & Devices ({profile?.devices?.length || 0})</Text>
+                <TouchableOpacity
+                  onPress={() => setShowDeviceModal(true)}
+                  style={{ backgroundColor: '#F8FAFC', paddingHorizontal: 10, paddingVertical: 5, borderRadius: 6, borderWidth: 1, borderColor: '#CBD5E1' }}
+                >
+                  <Text style={{ color: '#0F172A', fontWeight: '700', fontSize: 12 }}>➕ Add Device</Text>
+                </TouchableOpacity>
+              </View>
+
+              {(!profile?.devices || profile.devices.length === 0) ? (
+                <Text style={{ color: '#94A3B8', fontSize: 13 }}>No implants or medical devices recorded.</Text>
+              ) : (
+                profile.devices.map((d: any) => (
+                  <View key={d.id} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#F1F5F9' }}>
+                    <View>
+                      <Text style={{ fontWeight: '700', color: '#0F172A', fontSize: 14 }}>{d.device_name}</Text>
+                      {d.details ? <Text style={{ color: '#64748B', fontSize: 12 }}>{d.details}</Text> : null}
+                    </View>
+                    <TouchableOpacity onPress={() => handleDeleteDevice(d.id)}>
                       <Text style={{ color: '#EF4444', fontSize: 13, fontWeight: '700' }}>🗑️</Text>
                     </TouchableOpacity>
                   </View>
@@ -1556,6 +1710,73 @@ function MainApp() {
               </TouchableOpacity>
               <TouchableOpacity onPress={handleAddDependent} style={styles.saveBtn}>
                 <Text style={{ color: '#FFFFFF', fontWeight: '700' }}>Enroll & Mint QR</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
+      {/* MODAL 7: Add Surgery / Procedure */}
+      <Modal visible={showSurgeryModal} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Add Surgery / Procedure</Text>
+            <Text style={styles.inputLabel}>Procedure Name</Text>
+            <TextInput
+              style={[styles.input, { backgroundColor: '#F8FAFC', color: '#0F172A', borderColor: '#CBD5E1', marginBottom: 10 }]}
+              value={newSurgeryProcedure}
+              onChangeText={setNewSurgeryProcedure}
+              placeholder="e.g. Appendectomy, Knee Arthroscopy"
+              placeholderTextColor="#94A3B8"
+            />
+            <Text style={styles.inputLabel}>Year Performed</Text>
+            <TextInput
+              style={[styles.input, { backgroundColor: '#F8FAFC', color: '#0F172A', borderColor: '#CBD5E1', marginBottom: 16 }]}
+              value={newSurgeryYear}
+              onChangeText={setNewSurgeryYear}
+              placeholder="e.g. 2018"
+              placeholderTextColor="#94A3B8"
+              keyboardType="number-pad"
+            />
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', gap: 10 }}>
+              <TouchableOpacity onPress={() => setShowSurgeryModal(false)} style={styles.cancelBtn}>
+                <Text style={{ color: '#0F172A', fontWeight: '600' }}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleAddSurgery} style={styles.saveBtn}>
+                <Text style={{ color: '#FFFFFF', fontWeight: '700' }}>Save Procedure</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
+      {/* MODAL 8: Add Medical Device / Implant */}
+      <Modal visible={showDeviceModal} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Add Implant or Medical Device</Text>
+            <Text style={styles.inputLabel}>Device Name</Text>
+            <TextInput
+              style={[styles.input, { backgroundColor: '#F8FAFC', color: '#0F172A', borderColor: '#CBD5E1', marginBottom: 10 }]}
+              value={newDeviceName}
+              onChangeText={setNewDeviceName}
+              placeholder="e.g. Cardiac Stent, Pacemaker, Cochlear Implant"
+              placeholderTextColor="#94A3B8"
+            />
+            <Text style={styles.inputLabel}>Clinical Details / Model</Text>
+            <TextInput
+              style={[styles.input, { backgroundColor: '#F8FAFC', color: '#0F172A', borderColor: '#CBD5E1', marginBottom: 16 }]}
+              value={newDeviceDetails}
+              onChangeText={setNewDeviceDetails}
+              placeholder="e.g. Placed in LAD artery in 2022"
+              placeholderTextColor="#94A3B8"
+            />
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', gap: 10 }}>
+              <TouchableOpacity onPress={() => setShowDeviceModal(false)} style={styles.cancelBtn}>
+                <Text style={{ color: '#0F172A', fontWeight: '600' }}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleAddDevice} style={styles.saveBtn}>
+                <Text style={{ color: '#FFFFFF', fontWeight: '700' }}>Save Device</Text>
               </TouchableOpacity>
             </View>
           </View>
