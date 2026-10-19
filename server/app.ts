@@ -21,8 +21,16 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// Body parser with Vercel serverless stream compatibility
+app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (req.body && typeof req.body === 'object') {
+    return next();
+  }
+  express.json({ limit: '10mb' })(req, res, (err) => {
+    if (err) return next(err);
+    express.urlencoded({ extended: true, limit: '10mb' })(req, res, next);
+  });
+});
 
 // Health Check
 const healthHandler = (req: express.Request, res: express.Response) => {
@@ -56,7 +64,8 @@ routes.forEach(({ prefix, router }) => {
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error('[Unhandled Server Error]', err);
   res.status(500).json({
-    error: 'An unexpected internal error occurred. Please try again later.'
+    error: err?.message || 'An unexpected internal error occurred.',
+    details: err?.stack
   });
 });
 

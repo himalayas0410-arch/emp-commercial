@@ -34972,8 +34972,15 @@ app.use((0, import_cors.default)({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
 }));
-app.use(import_express8.default.json({ limit: "10mb" }));
-app.use(import_express8.default.urlencoded({ extended: true, limit: "10mb" }));
+app.use((req, res, next) => {
+  if (req.body && typeof req.body === "object") {
+    return next();
+  }
+  import_express8.default.json({ limit: "10mb" })(req, res, (err) => {
+    if (err) return next(err);
+    import_express8.default.urlencoded({ extended: true, limit: "10mb" })(req, res, next);
+  });
+});
 var healthHandler = (req, res) => {
   res.json({
     status: "healthy",
@@ -35000,7 +35007,8 @@ routes.forEach(({ prefix, router: router8 }) => {
 app.use((err, req, res, next) => {
   console.error("[Unhandled Server Error]", err);
   res.status(500).json({
-    error: "An unexpected internal error occurred. Please try again later."
+    error: err?.message || "An unexpected internal error occurred.",
+    details: err?.stack
   });
 });
 var app_default = app;
