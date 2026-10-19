@@ -4,7 +4,10 @@ import fs from 'fs';
 import path from 'path';
 import { supabase } from './supabase.js';
 
-const DATA_FILE = path.join(process.cwd(), 'emp_local_data.json');
+const READ_DATA_FILE = path.join(process.cwd(), 'emp_local_data.json');
+const WRITE_DATA_FILE = process.env.VERCEL
+  ? path.join('/tmp', 'emp_local_data.json')
+  : path.join(process.cwd(), 'emp_local_data.json');
 
 // Memory store for high-speed lookups, seamless testing, and offline sync
 interface StoreData {
@@ -40,8 +43,13 @@ let store: StoreData = {
 // Load saved data if file exists
 function loadLocalStore() {
   try {
-    if (fs.existsSync(DATA_FILE)) {
-      const content = fs.readFileSync(DATA_FILE, 'utf-8');
+    if (process.env.VERCEL && fs.existsSync(WRITE_DATA_FILE)) {
+      const content = fs.readFileSync(WRITE_DATA_FILE, 'utf-8');
+      store = JSON.parse(content);
+      return;
+    }
+    if (fs.existsSync(READ_DATA_FILE)) {
+      const content = fs.readFileSync(READ_DATA_FILE, 'utf-8');
       store = JSON.parse(content);
     }
   } catch (e) {
@@ -51,7 +59,7 @@ function loadLocalStore() {
 
 function saveLocalStore() {
   try {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(store, null, 2), 'utf-8');
+    fs.writeFileSync(WRITE_DATA_FILE, JSON.stringify(store, null, 2), 'utf-8');
   } catch (e) {
     console.error('[Repository] Error saving local store:', e);
   }
@@ -73,8 +81,8 @@ export function resetStoreForTesting() {
     subscriptions: []
   };
   try {
-    if (fs.existsSync(DATA_FILE)) {
-      fs.unlinkSync(DATA_FILE);
+    if (fs.existsSync(WRITE_DATA_FILE)) {
+      fs.unlinkSync(WRITE_DATA_FILE);
     }
   } catch (e) {}
 }

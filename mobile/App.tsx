@@ -18,8 +18,8 @@ import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-cont
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import QRCode from 'react-native-qrcode-svg';
 
-// Default LAN IP for physical device / Expo Go access over WiFi
-const DEFAULT_API_URL = 'http://192.168.29.174:5000/api';
+// Default API URL (Live Vercel Production API, overrideable via Host button)
+const DEFAULT_API_URL = 'https://emp-commercial.vercel.app/api';
 
 const BLOOD_GROUPS = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 const ALLERGY_SEVERITIES = ['mild', 'moderate', 'severe', 'life_threatening'];
@@ -785,7 +785,7 @@ function MainApp() {
                 {qrToken?.status === 'active' && qrToken?.public_token ? (
                   <View style={styles.qrWrapper}>
                     <QRCode
-                      value={`http://192.168.29.174:5173/e/${qrToken.public_token}`}
+                      value={`https://emp-commercial.vercel.app/e/${qrToken.public_token}`}
                       size={180}
                       color="#0F172A"
                       backgroundColor="#FFFFFF"
@@ -1019,7 +1019,7 @@ function MainApp() {
               {qrToken?.status === 'active' && qrToken?.public_token ? (
                 <View style={[styles.qrWrapper, { padding: 16 }]}>
                   <QRCode
-                    value={`http://192.168.29.174:5173/e/${qrToken.public_token}`}
+                    value={`https://emp-commercial.vercel.app/e/${qrToken.public_token}`}
                     size={220}
                     color="#0F172A"
                     backgroundColor="#FFFFFF"
