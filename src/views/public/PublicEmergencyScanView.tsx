@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PublicEmergencyProfile } from '../../types/index.js';
 import { api } from '../../utils/api.js';
-import { ShieldAlert, PhoneCall, AlertOctagon, MapPin, CheckCircle, Clock, HeartHandshake, AlertTriangle, ShieldX } from 'lucide-react';
+import { ShieldAlert, PhoneCall, AlertOctagon, MapPin, CheckCircle, Clock, HeartHandshake, AlertTriangle, ShieldX, MessageCircle, MessageSquare } from 'lucide-react';
 
 interface PublicEmergencyScanViewProps {
   token: string;
@@ -189,24 +189,76 @@ export const PublicEmergencyScanView: React.FC<PublicEmergencyScanViewProps> = (
           </div>
 
           {profile?.emergency_contacts && profile.emergency_contacts.length > 0 ? (
-            profile.emergency_contacts.map((c, idx) => (
-              <a
-                key={c.id}
-                href={`tel:${c.phone.replace(/\s+/g, '')}`}
-                className="emp-emergency-dial-btn"
-              >
-                <div>
-                  <div style={{ fontSize: '1rem', fontWeight: 800 }}>{c.name}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500 }}>
-                    {c.relationship} {idx === 0 ? '• Primary Emergency Contact' : ''}
+            profile.emergency_contacts.map((c, idx) => {
+              const rawDigits = c.phone.replace(/[^0-9]/g, '');
+              const cleanPhone = c.phone.replace(/\s+/g, '');
+              const emergencyText = encodeURIComponent(
+                `🚨 EMERGENCY ALERT: I scanned ${profile?.display_name || 'the employee'}'s Emergency Medical QR badge. Please respond urgently. Emergency profile: ${typeof window !== 'undefined' ? window.location.href : ''}`
+              );
+              const waUrl = `https://wa.me/${rawDigits}?text=${emergencyText}`;
+              const smsUrl = `sms:${cleanPhone}?body=${emergencyText}`;
+
+              return (
+                <div
+                  key={c.id}
+                  className="emp-card"
+                  style={{
+                    padding: '1rem',
+                    marginBottom: '0.75rem',
+                    border: idx === 0 ? '2px solid var(--emerald-500)' : '1px solid var(--border-color)',
+                    background: '#FFFFFF'
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{ fontSize: '1.0625rem', fontWeight: 800, color: 'var(--navy-900)' }}>{c.name}</span>
+                        {idx === 0 && (
+                          <span style={{ background: 'var(--emerald-50)', color: 'var(--emerald-700)', border: '1px solid var(--emerald-300)', padding: '2px 6px', borderRadius: '4px', fontSize: '0.6875rem', fontWeight: 800, textTransform: 'uppercase' }}>
+                            Primary Contact
+                          </span>
+                        )}
+                      </div>
+                      <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', fontWeight: 500, marginTop: '2px' }}>
+                        {c.relationship} • {c.phone}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 1-Tap Direct Channels (Zero Server SMS dependency - uses bystander device) */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px' }}>
+                    <a
+                      href={`tel:${cleanPhone}`}
+                      className="emp-btn emp-btn-sm"
+                      style={{ background: 'var(--emerald-600)', color: '#FFFFFF', justifyContent: 'center', padding: '0.5rem 0.25rem', fontSize: '0.8125rem' }}
+                    >
+                      <PhoneCall size={14} />
+                      <span>Call</span>
+                    </a>
+
+                    <a
+                      href={waUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="emp-btn emp-btn-sm"
+                      style={{ background: '#25D366', color: '#FFFFFF', justifyContent: 'center', padding: '0.5rem 0.25rem', fontSize: '0.8125rem' }}
+                    >
+                      <MessageCircle size={14} />
+                      <span>WhatsApp</span>
+                    </a>
+
+                    <a
+                      href={smsUrl}
+                      className="emp-btn emp-btn-sm"
+                      style={{ background: 'var(--navy-800)', color: '#FFFFFF', justifyContent: 'center', padding: '0.5rem 0.25rem', fontSize: '0.8125rem' }}
+                    >
+                      <MessageSquare size={14} />
+                      <span>SMS</span>
+                    </a>
                   </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--emerald-600)', fontWeight: 700 }}>
-                  <PhoneCall size={18} />
-                  <span>{c.phone}</span>
-                </div>
-              </a>
-            ))
+              );
+            })
           ) : (
             <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)', padding: '0.5rem 0' }}>
               No private family contacts registered for public view.
@@ -215,23 +267,34 @@ export const PublicEmergencyScanView: React.FC<PublicEmergencyScanViewProps> = (
 
           {/* Company Emergency Hotline Button */}
           {profile?.company_emergency_contact && (
-            <a
-              href={`tel:${profile.company_emergency_contact.phone.replace(/\s+/g, '')}`}
-              className="emp-emergency-dial-btn company"
-            >
-              <div>
-                <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--navy-900)' }}>
-                  {profile.company_emergency_contact.organization_name}
+            <div className="emp-card" style={{ padding: '1rem', border: '2px solid var(--teal-500)', background: 'var(--teal-50)', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                <div>
+                  <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--navy-900)' }}>
+                    {profile.company_emergency_contact.organization_name}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--teal-800)', fontWeight: 600 }}>
+                    {profile.company_emergency_contact.contact_name || '24/7 Corporate Emergency Desk'}
+                  </div>
                 </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500 }}>
-                  {profile.company_emergency_contact.contact_name || 'Company Emergency Desk'}
+                <div style={{ fontWeight: 800, fontSize: '0.875rem', color: 'var(--teal-900)' }}>
+                  {profile.company_emergency_contact.phone}
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--teal-600)', fontWeight: 700 }}>
-                <PhoneCall size={18} />
-                <span>{profile.company_emergency_contact.phone}</span>
-              </div>
-            </a>
+              {profile.company_emergency_contact.instructions && (
+                <div style={{ fontSize: '0.75rem', color: 'var(--teal-900)', marginBottom: '0.75rem', fontStyle: 'italic' }}>
+                  "{profile.company_emergency_contact.instructions}"
+                </div>
+              )}
+              <a
+                href={`tel:${profile.company_emergency_contact.phone.replace(/\s+/g, '')}`}
+                className="emp-btn emp-btn-teal emp-btn-full emp-btn-sm"
+                style={{ justifyContent: 'center' }}
+              >
+                <PhoneCall size={15} />
+                <span>Call Emergency Hotline ({profile.company_emergency_contact.phone})</span>
+              </a>
+            </div>
           )}
         </div>
 
