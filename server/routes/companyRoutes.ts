@@ -2,6 +2,7 @@ import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import { repository } from '../db/repository';
 import { verifyAuth, requireRole, AuthenticatedRequest } from '../middleware/auth';
+import { notificationService } from '../services/notificationService';
 
 const router = Router();
 
@@ -186,6 +187,15 @@ router.post('/employees/invite', async (req: AuthenticatedRequest, res) => {
     await repository.logAuditEvent(req.user!.id, 'EMPLOYEE_INVITED', 'user', user.id, {
       email,
       department
+    });
+
+    // Dispatch real onboarding invitation email
+    const org = await repository.getOrganizationById(orgId);
+    await notificationService.dispatchCompanyEmployeeInvite({
+      companyName: org?.name || 'Your Company',
+      employeeName: user.full_name,
+      employeeEmail: user.email,
+      tempPassword
     });
 
     res.status(201).json({

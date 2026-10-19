@@ -128,6 +128,59 @@ export class NotificationService {
     };
   }
 
+  /**
+   * Dispatches family invitation or linking request notification via Email / SMS
+   */
+  async dispatchFamilyInvitation(opts: {
+    sponsorName: string;
+    targetEmail?: string | null;
+    targetPhone?: string | null;
+    relationshipType: string;
+    isExistingUser: boolean;
+  }): Promise<{ emailSent: boolean; smsSent: boolean }> {
+    let emailSent = false;
+    let smsSent = false;
+    const portalUrl = process.env.PUBLIC_APP_URL || 'https://emp-commercial.vercel.app';
+
+    if (opts.targetEmail) {
+      const subject = opts.isExistingUser
+        ? `[EMP] Family Link Request from ${opts.sponsorName}`
+        : `[EMP] ${opts.sponsorName} invited you to join their Emergency Family Circle`;
+
+      const text = opts.isExistingUser
+        ? `Hello,\n\n${opts.sponsorName} has sent you a Family Link Request on the Emergency Medical Portal (EMP) with relationship: '${opts.relationshipType}'.\n\nLog in to your account to review and authorize this family link:\n${portalUrl}\n\nYour private medical records remain 100% confidential and under your control at all times.\n\nBest regards,\nEmergency Medical Portal (EMP)`
+        : `Hello,\n\n${opts.sponsorName} has invited you to set up your Emergency Medical Profile on EMP as '${opts.relationshipType}'.\n\nEMP gives every individual their own independent account, private medical profile, personal QR badge for first responders, and emergency alerts for loved ones.\n\nSet up your free emergency profile and personal QR badge here:\n${portalUrl}\n\nBest regards,\nEmergency Medical Portal (EMP)`;
+
+      const res = await this.sendEmail(opts.targetEmail, subject, text);
+      emailSent = res.status === 'sent' || res.status === 'delivered';
+    }
+
+    if (opts.targetPhone) {
+      const smsText = `[EMP] ${opts.sponsorName} invited you to join their Emergency Family Circle (${opts.relationshipType}). Set up your independent emergency profile & QR at: ${portalUrl}`;
+      const res = await this.sendSMS(opts.targetPhone, smsText);
+      smsSent = res.status === 'sent' || res.status === 'delivered';
+    }
+
+    return { emailSent, smsSent };
+  }
+
+  /**
+   * Dispatches company employee onboarding invitation via Email
+   */
+  async dispatchCompanyEmployeeInvite(opts: {
+    companyName: string;
+    employeeName: string;
+    employeeEmail: string;
+    tempPassword?: string;
+  }): Promise<boolean> {
+    const portalUrl = process.env.PUBLIC_APP_URL || 'https://emp-commercial.vercel.app';
+    const subject = `[EMP] Welcome to ${opts.companyName} Emergency Medical Portal`;
+    const text = `Hello ${opts.employeeName},\n\nYou have been enrolled in ${opts.companyName}'s Emergency Medical Portal (EMP).\n\nYour account has been prepared with your email: ${opts.employeeEmail}.\n${opts.tempPassword ? `Temporary Password: ${opts.tempPassword}\n\n` : ''}Please log in at ${portalUrl} to complete your clinical vitals (blood group, allergies), choose what is publicly visible on your emergency QR, and download your personal emergency badge.\n\nNote: Your private health records are strictly protected under DPDP Act 2023. Company HR cannot access your private medical history.\n\nBest regards,\n${opts.companyName} Emergency Response Team`;
+
+    const res = await this.sendEmail(opts.employeeEmail, subject, text);
+    return res.status === 'sent' || res.status === 'delivered';
+  }
+
   private async sendSMS(to: string, message: string): Promise<{ status: string; providerRef?: string; failureReason?: string }> {
     if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
       // Production Twilio Integration

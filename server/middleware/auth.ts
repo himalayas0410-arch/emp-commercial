@@ -8,16 +8,18 @@ export interface AuthenticatedRequest extends Request {
   user?: {
     id: string;
     email: string;
+    full_name: string;
     role: string;
     organization_id?: string | null;
   };
 }
 
-export function generateToken(user: { id: string; email: string; role: string; organization_id?: string | null }) {
+export function generateToken(user: { id: string; email: string; full_name?: string; role: string; organization_id?: string | null }) {
   return jwt.sign(
     {
       id: user.id,
       email: user.email,
+      full_name: user.full_name,
       role: user.role,
       organization_id: user.organization_id || null
     },
@@ -45,6 +47,7 @@ export async function verifyAuth(req: AuthenticatedRequest, res: Response, next:
     req.user = {
       id: user.id,
       email: user.email,
+      full_name: user.full_name,
       role: user.role,
       organization_id: membership ? membership.organization_id : null
     };

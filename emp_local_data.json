@@ -15,94 +15,94 @@
         "notify_hr_on_alert": true,
         "allow_dependent_enrollment": true
       },
-      "created_at": "2026-10-19T19:41:11.592Z",
-      "updated_at": "2026-10-19T19:41:11.592Z"
+      "created_at": "2026-10-19T19:48:32.882Z",
+      "updated_at": "2026-10-19T19:48:32.882Z"
     }
   ],
   "users": [
     {
       "id": "00000000-0000-0000-0000-000000000001",
       "email": "superadmin@emp.com",
-      "password_hash": "$2a$10$FYBMCwKUFjKmbkShG9zaYeA.DxHrkcnApzDTnpFHEKwAMTUMra2oG",
+      "password_hash": "$2a$10$FQvo7cRTVWZcVV0QstnXPerk.6gM1E/wcUzm6ZtXIeLJ1wEXZABvO",
       "full_name": "Platform Super Administrator",
       "phone": "+91 99999 00000",
       "role": "super_admin",
       "status": "active",
       "email_verified": true,
-      "created_at": "2026-10-19T19:41:11.591Z",
-      "updated_at": "2026-10-19T19:41:11.592Z"
+      "created_at": "2026-10-19T19:48:32.881Z",
+      "updated_at": "2026-10-19T19:48:32.882Z"
     },
     {
       "id": "00000000-0000-0000-0000-000000000020",
       "email": "hr@apexglobal.com",
-      "password_hash": "$2a$10$FYBMCwKUFjKmbkShG9zaYelbiCZUHhV4JaXQ1WTTpXJE.6L2gPUFy",
+      "password_hash": "$2a$10$FQvo7cRTVWZcVV0QstnXPectSDEJZQ9k9EMQtrG02Tw2QYENl17le",
       "full_name": "Anjali Verma (HR Lead)",
       "phone": "+91 98765 43211",
       "role": "company_admin",
       "status": "active",
       "email_verified": true,
-      "created_at": "2026-10-19T19:41:11.592Z",
-      "updated_at": "2026-10-19T19:41:11.592Z"
+      "created_at": "2026-10-19T19:48:32.882Z",
+      "updated_at": "2026-10-19T19:48:32.882Z"
     },
     {
       "id": "00000000-0000-0000-0000-000000000030",
       "email": "rahul.sharma@apexglobal.com",
-      "password_hash": "$2a$10$FYBMCwKUFjKmbkShG9zaYelbiCZUHhV4JaXQ1WTTpXJE.6L2gPUFy",
+      "password_hash": "$2a$10$FQvo7cRTVWZcVV0QstnXPectSDEJZQ9k9EMQtrG02Tw2QYENl17le",
       "full_name": "Rahul Sharma",
       "phone": "+91 98111 22233",
       "role": "employee",
       "status": "active",
       "email_verified": true,
-      "created_at": "2026-10-19T19:41:11.592Z",
-      "updated_at": "2026-10-19T19:41:11.592Z"
+      "created_at": "2026-10-19T19:48:32.882Z",
+      "updated_at": "2026-10-19T19:48:32.882Z"
     },
     {
-      "id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "email": "priya.singh@example.com",
-      "password_hash": "$2a$10$ir4oMdybkDlBTIcm2TXb5eQo/aL5y1mK267fLsVvOMO0SUIPoRrnm",
+      "password_hash": "$2a$10$ABmx0XxJDSbK5ckSMkUreuQS6WzKepdSS.35TO.7A0b9zbGcO22YG",
       "full_name": "Priya Singh",
       "phone": "+91 98990 11223",
       "role": "individual",
       "status": "active",
       "email_verified": true,
-      "created_at": "2026-10-19T19:41:11.987Z",
-      "updated_at": "2026-10-19T19:41:11.987Z"
+      "created_at": "2026-10-19T19:48:33.308Z",
+      "updated_at": "2026-10-19T19:48:33.308Z"
     },
     {
-      "id": "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      "id": "a708f195-a171-40d0-8225-58a15da4c284",
       "email": "vikram.mehta@example.com",
-      "password_hash": "$2a$10$mbEHhvc/edq1eEWXz9peDeth2J9lhTnXk4jzCN1T35u.rZoFh8nr2",
+      "password_hash": "$2a$10$s1Te4kOP1xuJ/wJCBXlP0u/U3mDMtiVtFWynBGkyvOXMVNhgiVu5O",
       "full_name": "Vikram Mehta",
       "phone": null,
       "role": "individual",
       "status": "active",
       "email_verified": true,
-      "created_at": "2026-10-19T19:41:12.075Z",
-      "updated_at": "2026-10-19T19:41:12.075Z"
+      "created_at": "2026-10-19T19:48:33.406Z",
+      "updated_at": "2026-10-19T19:48:33.406Z"
     },
     {
-      "id": "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      "id": "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
       "email": "sunita.mehta@example.com",
-      "password_hash": "$2a$10$NegX8WbgVZB2fHhtObHraOQiN9LGh0eEm4B7AWomrQnuKAMw8GOTK",
+      "password_hash": "$2a$10$1i5fOk.kRv2jbKwLygPwBe5tPlo42P87RZmf4g.PxpvSqZGw3IGxG",
       "full_name": "Sunita Mehta",
       "phone": null,
       "role": "individual",
       "status": "active",
       "email_verified": true,
-      "created_at": "2026-10-19T19:41:12.142Z",
-      "updated_at": "2026-10-19T19:41:12.142Z"
+      "created_at": "2026-10-19T19:48:33.473Z",
+      "updated_at": "2026-10-19T19:48:33.473Z"
     },
     {
-      "id": "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      "id": "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
       "email": "rohit.consultant@example.com",
-      "password_hash": "$2a$10$NJO6GJgQFRD5GOtBpxmLFu55oOfVKPt.6Bk0tO8QUwvO58nrhisce",
+      "password_hash": "$2a$10$68CDoiL1Bkrd3iTF0sjcVevrXqFF1E35tMkepA64y82nGntLGbGPW",
       "full_name": "Rohit Consultant",
       "phone": null,
       "role": "individual",
       "status": "active",
       "email_verified": true,
-      "created_at": "2026-10-19T19:41:12.226Z",
-      "updated_at": "2026-10-19T19:41:12.226Z"
+      "created_at": "2026-10-19T19:48:33.563Z",
+      "updated_at": "2026-10-19T19:48:33.563Z"
     }
   ],
   "organization_memberships": [
@@ -114,7 +114,7 @@
       "department": "Human Resources",
       "employee_id_number": "APX-HR-01",
       "status": "active",
-      "joined_at": "2026-10-19T19:41:11.592Z"
+      "joined_at": "2026-10-19T19:48:32.882Z"
     },
     {
       "id": "mem-002",
@@ -124,7 +124,7 @@
       "department": "Engineering",
       "employee_id_number": "APX-ENG-104",
       "status": "active",
-      "joined_at": "2026-10-19T19:41:11.592Z"
+      "joined_at": "2026-10-19T19:48:32.882Z"
     }
   ],
   "medical_profiles": [
@@ -207,8 +207,8 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 100,
-      "created_at": "2026-10-19T19:41:11.592Z",
-      "updated_at": "2026-10-19T19:41:11.839Z"
+      "created_at": "2026-10-19T19:48:32.882Z",
+      "updated_at": "2026-10-19T19:48:33.134Z"
     },
     {
       "id": "00000000-0000-0000-0000-000000000050",
@@ -249,8 +249,8 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 90,
-      "created_at": "2026-10-19T19:41:11.593Z",
-      "updated_at": "2026-10-19T19:41:11.593Z"
+      "created_at": "2026-10-19T19:48:32.882Z",
+      "updated_at": "2026-10-19T19:48:32.882Z"
     },
     {
       "id": "00000000-0000-0000-0000-000000000060",
@@ -278,11 +278,11 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 60,
-      "created_at": "2026-10-19T19:41:11.593Z",
-      "updated_at": "2026-10-19T19:41:11.593Z"
+      "created_at": "2026-10-19T19:48:32.882Z",
+      "updated_at": "2026-10-19T19:48:32.882Z"
     },
     {
-      "id": "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
+      "id": "dffeb491-bd11-4bed-b130-237d715322cf",
       "user_id": null,
       "organization_id": "00000000-0000-0000-0000-000000000010",
       "is_dependent": true,
@@ -314,12 +314,12 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 60,
-      "created_at": "2026-10-19T19:41:11.901Z",
-      "updated_at": "2026-10-19T19:41:11.901Z"
+      "created_at": "2026-10-19T19:48:33.212Z",
+      "updated_at": "2026-10-19T19:48:33.212Z"
     },
     {
-      "id": "6e940852-ac76-42d3-b34c-3c137a7efcce",
-      "user_id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "id": "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
+      "user_id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "organization_id": null,
       "is_dependent": false,
       "manager_user_id": null,
@@ -343,12 +343,12 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 25,
-      "created_at": "2026-10-19T19:41:11.987Z",
-      "updated_at": "2026-10-19T19:41:11.987Z"
+      "created_at": "2026-10-19T19:48:33.308Z",
+      "updated_at": "2026-10-19T19:48:33.308Z"
     },
     {
-      "id": "14cf2a39-2200-4e6c-909e-95f79927074e",
-      "user_id": "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      "id": "9e023562-f575-4927-a7f9-5299169e298e",
+      "user_id": "a708f195-a171-40d0-8225-58a15da4c284",
       "organization_id": null,
       "is_dependent": false,
       "manager_user_id": null,
@@ -372,12 +372,12 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 25,
-      "created_at": "2026-10-19T19:41:12.075Z",
-      "updated_at": "2026-10-19T19:41:12.075Z"
+      "created_at": "2026-10-19T19:48:33.407Z",
+      "updated_at": "2026-10-19T19:48:33.407Z"
     },
     {
-      "id": "2526c20e-a96a-4c38-ac68-8412045e085f",
-      "user_id": "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      "id": "ceed95df-1b7e-4b55-8403-dd2301d69fb8",
+      "user_id": "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
       "organization_id": null,
       "is_dependent": false,
       "manager_user_id": null,
@@ -401,12 +401,12 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 25,
-      "created_at": "2026-10-19T19:41:12.143Z",
-      "updated_at": "2026-10-19T19:41:12.143Z"
+      "created_at": "2026-10-19T19:48:33.473Z",
+      "updated_at": "2026-10-19T19:48:33.473Z"
     },
     {
-      "id": "1f8b7e89-0db4-4da2-975e-60396d21cc5b",
-      "user_id": "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      "id": "8f2d9f9c-d4f4-4762-826c-d87670cc314a",
+      "user_id": "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
       "organization_id": null,
       "is_dependent": false,
       "manager_user_id": null,
@@ -430,8 +430,8 @@
         "emergency_notes": true
       },
       "profile_completion_pct": 25,
-      "created_at": "2026-10-19T19:41:12.227Z",
-      "updated_at": "2026-10-19T19:41:12.227Z"
+      "created_at": "2026-10-19T19:48:33.563Z",
+      "updated_at": "2026-10-19T19:48:33.563Z"
     }
   ],
   "emergency_contacts": [
@@ -445,7 +445,7 @@
       "priority_order": 1,
       "is_alert_recipient": true,
       "is_verified": true,
-      "created_at": "2026-10-19T19:41:11.592Z"
+      "created_at": "2026-10-19T19:48:32.882Z"
     },
     {
       "id": "contact-02",
@@ -457,7 +457,7 @@
       "priority_order": 2,
       "is_alert_recipient": true,
       "is_verified": true,
-      "created_at": "2026-10-19T19:41:11.592Z"
+      "created_at": "2026-10-19T19:48:32.882Z"
     },
     {
       "id": "contact-dep-01",
@@ -469,10 +469,10 @@
       "priority_order": 1,
       "is_alert_recipient": true,
       "is_verified": true,
-      "created_at": "2026-10-19T19:41:11.593Z"
+      "created_at": "2026-10-19T19:48:32.882Z"
     },
     {
-      "id": "b2361a0c-6269-42ee-b01e-9a124ac89605",
+      "id": "331c5101-fe9c-4633-a940-b3b6d4b23edf",
       "profile_id": "00000000-0000-0000-0000-000000000040",
       "name": "Arun Verma",
       "relationship": "Colleague / Mentor",
@@ -481,11 +481,11 @@
       "priority_order": 3,
       "is_alert_recipient": true,
       "is_verified": false,
-      "created_at": "2026-10-19T19:41:11.839Z"
+      "created_at": "2026-10-19T19:48:33.133Z"
     },
     {
-      "id": "86b3c781-ce10-4919-a2c1-fa13b50e37a4",
-      "profile_id": "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
+      "id": "55a8f9bf-fdb0-420a-9743-b5b8021d53ac",
+      "profile_id": "dffeb491-bd11-4bed-b130-237d715322cf",
       "name": "Rahul Sharma",
       "relationship": "Guardian / Parent",
       "phone": "+91 98111 22233",
@@ -493,7 +493,7 @@
       "priority_order": 1,
       "is_alert_recipient": true,
       "is_verified": false,
-      "created_at": "2026-10-19T19:41:11.901Z"
+      "created_at": "2026-10-19T19:48:33.213Z"
     }
   ],
   "family_relationships": [
@@ -505,7 +505,7 @@
       "invitation_status": "active",
       "invite_email": null,
       "invite_phone": null,
-      "created_at": "2026-10-19T19:41:11.593Z"
+      "created_at": "2026-10-19T19:48:32.882Z"
     },
     {
       "id": "fam-rel-02",
@@ -515,12 +515,12 @@
       "invitation_status": "pending_invite",
       "invite_email": "ananya.sharma@example.com",
       "invite_phone": "+91 98111 99900",
-      "created_at": "2026-10-19T19:41:11.593Z"
+      "created_at": "2026-10-19T19:48:32.882Z"
     },
     {
-      "id": "a9ab9f93-d69f-49a6-9212-47496746bb7f",
+      "id": "127d938f-7247-40bf-9634-77657c6f8025",
       "sponsor_user_id": "00000000-0000-0000-0000-000000000030",
-      "family_profile_id": "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
+      "family_profile_id": "dffeb491-bd11-4bed-b130-237d715322cf",
       "relationship_type": "Daughter (Dependent Child)",
       "invitation_status": "active",
       "invite_email": null,
@@ -531,23 +531,23 @@
         "can_view_medical": false,
         "can_manage_qr": false
       },
-      "created_at": "2026-10-19T19:41:11.902Z"
+      "created_at": "2026-10-19T19:48:33.214Z"
     },
     {
-      "id": "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
-      "sponsor_user_id": "434eeaab-b420-4265-9e0f-cc7801c34ad6",
-      "family_profile_id": "2526c20e-a96a-4c38-ac68-8412045e085f",
+      "id": "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
+      "sponsor_user_id": "a708f195-a171-40d0-8225-58a15da4c284",
+      "family_profile_id": "ceed95df-1b7e-4b55-8403-dd2301d69fb8",
       "relationship_type": "Spouse",
       "invitation_status": "active",
       "invite_email": "sunita.mehta@example.com",
       "invite_phone": null,
-      "linked_user_id": "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      "linked_user_id": "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
       "permissions": {
         "receive_alerts": true,
         "can_view_medical": false,
         "can_manage_qr": true
       },
-      "created_at": "2026-10-19T19:41:12.151Z"
+      "created_at": "2026-10-19T19:48:33.480Z"
     }
   ],
   "qr_tokens": [
@@ -558,9 +558,9 @@
       "token_hash": "7043d25c2b033652339e06a7116db7f33e5b537330b53143315a4df1b1953db9",
       "status": "revoked",
       "scan_count": 5,
-      "created_at": "2026-10-19T19:41:11.593Z",
+      "created_at": "2026-10-19T19:48:32.882Z",
       "suspended_at": null,
-      "revoked_at": "2026-10-19T19:41:11.891Z"
+      "revoked_at": "2026-10-19T19:48:33.196Z"
     },
     {
       "id": "qr-002",
@@ -569,7 +569,7 @@
       "token_hash": "e66614782bbc2f01ae67122b2cee8cf3b61e7fa0417a65f603553a9daeb61be3",
       "status": "active",
       "scan_count": 0,
-      "created_at": "2026-10-19T19:41:11.593Z",
+      "created_at": "2026-10-19T19:48:32.882Z",
       "suspended_at": null,
       "revoked_at": null
     },
@@ -580,573 +580,573 @@
       "token_hash": "a55cbd82a1a9af0179df6daa550b56893ab81be1e38242e9715fb8fa087af369",
       "status": "active",
       "scan_count": 1,
-      "created_at": "2026-10-19T19:41:11.593Z",
+      "created_at": "2026-10-19T19:48:32.882Z",
       "suspended_at": null,
       "revoked_at": null
     },
     {
-      "id": "c3e2b283-5297-4f36-b45f-3878f2da3349",
+      "id": "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
       "profile_id": "00000000-0000-0000-0000-000000000040",
-      "public_token": "EMP-DD827E94CEDD",
-      "token_hash": "7cd18203c94731235d318c2a7cd09c082c8b856b7a77e1fe4571ce1f5fb16f5b",
+      "public_token": "EMP-DB7E4F02802A",
+      "token_hash": "4c7837bac7f32212bb8b085117b4c014cf46dd9dcd534715e6c6c4b881df53f4",
       "status": "active",
       "scan_count": 1,
-      "created_at": "2026-10-19T19:41:11.891Z",
+      "created_at": "2026-10-19T19:48:33.196Z",
       "suspended_at": null,
       "revoked_at": null
     },
     {
-      "id": "4878a569-16a4-45ad-863d-9e1fb95c2ce9",
-      "profile_id": "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
-      "public_token": "EMP-25E6F6D9F291",
-      "token_hash": "591a4e36172f4dedf76c919393392abf232658d1f94fe957ea764fe7306edd77",
+      "id": "eb10f7d4-6f57-4e01-b999-2d4f1a4dcbe7",
+      "profile_id": "dffeb491-bd11-4bed-b130-237d715322cf",
+      "public_token": "EMP-6ACDCB9AE2CA",
+      "token_hash": "242c82768aee5d6531073240da21a3c74041c6fc4c281ed41047b3b33bac98fd",
       "status": "active",
       "scan_count": 1,
-      "created_at": "2026-10-19T19:41:11.901Z",
+      "created_at": "2026-10-19T19:48:33.213Z",
       "suspended_at": null,
       "revoked_at": null
     },
     {
-      "id": "3ad57e22-1803-456d-8f41-f1055adf62c0",
-      "profile_id": "6e940852-ac76-42d3-b34c-3c137a7efcce",
-      "public_token": "EMP-33FFC0DE0864",
-      "token_hash": "118d45429fede8dca0e608ed09263ee87e4c99de2a228e2bf312a2dbc04d20ba",
+      "id": "0b8d3965-35d1-412a-9d68-6c0eb935d075",
+      "profile_id": "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
+      "public_token": "EMP-188A543B0E98",
+      "token_hash": "c90c8fab263099cf4fa31a3b22c83d5038b8bb28cf4cd2532bed0bf96729987e",
       "status": "revoked",
       "scan_count": 1,
-      "created_at": "2026-10-19T19:41:11.988Z",
+      "created_at": "2026-10-19T19:48:33.309Z",
       "suspended_at": null,
-      "revoked_at": "2026-10-19T19:41:12.010Z"
+      "revoked_at": "2026-10-19T19:48:33.332Z"
     },
     {
-      "id": "1890580f-af68-4d6c-9744-0f3d59201fc4",
-      "profile_id": "6e940852-ac76-42d3-b34c-3c137a7efcce",
-      "public_token": "EMP-FF6C35B44E97",
-      "token_hash": "dcfde1e4f4b0424064c6a3c7a8b7e4ffe9f56383229829fbee04b168653c669c",
+      "id": "dce7c88b-a6fe-4b43-99bc-7c6e413a5655",
+      "profile_id": "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
+      "public_token": "EMP-9B58213FBA80",
+      "token_hash": "6418b4ea7cc47c6d10c79eb07fe27786d6ac99dea8701e15f423fe9aac48e4b6",
       "status": "active",
       "scan_count": 0,
-      "created_at": "2026-10-19T19:41:12.015Z",
-      "suspended_at": null,
-      "revoked_at": null
-    },
-    {
-      "id": "8965ff2e-757e-4adf-b562-961b22c85914",
-      "profile_id": "14cf2a39-2200-4e6c-909e-95f79927074e",
-      "public_token": "EMP-57E345783DD7",
-      "token_hash": "68d58ae9583b479dcb1c8a121fd662c284ba920eba08f0947f7051389fbd0466",
-      "status": "active",
-      "scan_count": 0,
-      "created_at": "2026-10-19T19:41:12.076Z",
+      "created_at": "2026-10-19T19:48:33.338Z",
       "suspended_at": null,
       "revoked_at": null
     },
     {
-      "id": "cd269928-882d-49e6-a68b-daacd0b4ef0b",
-      "profile_id": "2526c20e-a96a-4c38-ac68-8412045e085f",
-      "public_token": "EMP-6F63746D53D5",
-      "token_hash": "e3885a00413f409671fd564fa50736181b12174e63a3213edef9b2a205a26eb2",
+      "id": "86da949b-48ee-49eb-bf7b-3c608687a51a",
+      "profile_id": "9e023562-f575-4927-a7f9-5299169e298e",
+      "public_token": "EMP-5F3BCE178CAB",
+      "token_hash": "9944daa40dcd4c0a288cefe5c54f39569cf89d4586b970700eea854d2d8bb96f",
       "status": "active",
       "scan_count": 0,
-      "created_at": "2026-10-19T19:41:12.144Z",
+      "created_at": "2026-10-19T19:48:33.407Z",
       "suspended_at": null,
       "revoked_at": null
     },
     {
-      "id": "cb259c1d-b68b-400e-80c5-705a92992663",
-      "profile_id": "1f8b7e89-0db4-4da2-975e-60396d21cc5b",
-      "public_token": "EMP-E9493DE03E71",
-      "token_hash": "2073cfe7ecaba319433821921e0b1254e74e27ccb3f4bcbc033bb201a5847e7f",
+      "id": "2132160b-4057-448f-9735-791ab2dd59e1",
+      "profile_id": "ceed95df-1b7e-4b55-8403-dd2301d69fb8",
+      "public_token": "EMP-BAA8FB06966B",
+      "token_hash": "c6305bbc3b1449c368f9018b5d7885f636c93568c6e28481974a3edee2cc27ce",
       "status": "active",
       "scan_count": 0,
-      "created_at": "2026-10-19T19:41:12.228Z",
+      "created_at": "2026-10-19T19:48:33.473Z",
+      "suspended_at": null,
+      "revoked_at": null
+    },
+    {
+      "id": "bf76ea49-bb95-4bb9-ac9e-b7a7216c97d8",
+      "profile_id": "8f2d9f9c-d4f4-4762-826c-d87670cc314a",
+      "public_token": "EMP-659744F62F90",
+      "token_hash": "3dedbf6a74638f45f294292f99e51ed8a9d83de2920a07adf9f5e1e12d790d15",
+      "status": "active",
+      "scan_count": 0,
+      "created_at": "2026-10-19T19:48:33.564Z",
       "suspended_at": null,
       "revoked_at": null
     }
   ],
   "emergency_incidents": [
     {
-      "id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
       "profile_id": "00000000-0000-0000-0000-000000000040",
       "organization_id": "00000000-0000-0000-0000-000000000010",
-      "qr_token_id": "c3e2b283-5297-4f36-b45f-3878f2da3349",
-      "incident_code": "INC-MVFNTPDM-7BB6",
+      "qr_token_id": "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
+      "incident_code": "INC-MVFO35WZ-5A5B",
       "status": "triggered",
       "location_lat": null,
       "location_lng": null,
       "location_address": "CyberHub DLF Phase 2",
       "triggered_by_ip": "127.0.0.1",
-      "triggered_at": "2026-10-19T19:41:12.250Z",
+      "triggered_at": "2026-10-19T19:48:33.587Z",
       "acknowledged_by": null,
       "acknowledged_at": null,
       "resolution_notes": null
     },
     {
-      "id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
+      "id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "profile_id": "00000000-0000-0000-0000-000000000040",
       "organization_id": "00000000-0000-0000-0000-000000000010",
       "qr_token_id": "qr-001",
-      "incident_code": "INC-MVFNTP2I-5FD8",
+      "incident_code": "INC-MVFO35KP-2607",
       "status": "acknowledged",
       "location_lat": 28.4986,
       "location_lng": 77.0878,
       "location_address": "DLF CyberCity Building 10, Gurugram, India",
       "triggered_by_ip": "127.0.0.1",
-      "triggered_at": "2026-10-19T19:41:11.850Z",
+      "triggered_at": "2026-10-19T19:48:33.145Z",
       "acknowledged_by": "Anjali Verma (HR Lead) (company_admin)",
-      "acknowledged_at": "2026-10-19T19:41:11.915Z",
+      "acknowledged_at": "2026-10-19T19:48:33.233Z",
       "resolution_notes": null
     }
   ],
   "notification_deliveries": [
     {
-      "id": "a6e06119-6b1e-4a58-ba54-64b78f8b828f",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
+      "id": "92caac8a-9c85-46e7-abad-e9620ce53f14",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Pooja Sharma",
       "recipient_phone": "+91 98111 55566",
       "recipient_email": "pooja.sharma@example.com",
       "channel": "in_app",
       "status": "delivered",
-      "provider_ref": "INAPP-1792438871864",
+      "provider_ref": "INAPP-1792439313159",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.864Z"
+      "created_at": "2026-10-19T19:48:33.159Z"
     },
     {
-      "id": "bc3ce1be-0316-4286-b6ac-9caa93e1007e",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
+      "id": "87c19f43-f0c2-4f2b-a5c8-28d3198b57ad",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Pooja Sharma",
       "recipient_phone": "+91 98111 55566",
       "recipient_email": "pooja.sharma@example.com",
       "channel": "sms",
       "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438871864",
+      "provider_ref": "DEV-SMS-1792439313160",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.865Z"
+      "created_at": "2026-10-19T19:48:33.161Z"
     },
     {
-      "id": "b5623ecf-3b12-4b38-b347-891ca722bf0f",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Pooja Sharma",
-      "recipient_phone": "+91 98111 55566",
-      "recipient_email": "pooja.sharma@example.com",
-      "channel": "email",
-      "status": "delivered",
-      "provider_ref": "DEV-EMAIL-1792438871865",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.865Z"
-    },
-    {
-      "id": "482cbe46-d592-488b-aa65-47ea0af0fa26",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Pooja Sharma",
-      "recipient_phone": "+91 98111 55566",
-      "recipient_email": "pooja.sharma@example.com",
-      "channel": "push",
-      "status": "delivered",
-      "provider_ref": "PUSH-1792438871866",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.866Z"
-    },
-    {
-      "id": "1a235a56-ffec-46b2-838d-03b540696be4",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Dr. Ramesh Sharma",
-      "recipient_phone": "+91 98111 77788",
-      "recipient_email": "dr.sharma@example.com",
-      "channel": "in_app",
-      "status": "delivered",
-      "provider_ref": "INAPP-1792438871866",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.866Z"
-    },
-    {
-      "id": "cac6fe2d-8470-46ed-99e1-d7fcf6dbe999",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Dr. Ramesh Sharma",
-      "recipient_phone": "+91 98111 77788",
-      "recipient_email": "dr.sharma@example.com",
-      "channel": "sms",
-      "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438871866",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.866Z"
-    },
-    {
-      "id": "8bffcd20-d767-4c09-b7b3-ef4ddad04271",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Dr. Ramesh Sharma",
-      "recipient_phone": "+91 98111 77788",
-      "recipient_email": "dr.sharma@example.com",
-      "channel": "email",
-      "status": "delivered",
-      "provider_ref": "DEV-EMAIL-1792438871867",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.867Z"
-    },
-    {
-      "id": "dd421a75-f920-4d67-bc3b-3cd33e330563",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Dr. Ramesh Sharma",
-      "recipient_phone": "+91 98111 77788",
-      "recipient_email": "dr.sharma@example.com",
-      "channel": "push",
-      "status": "delivered",
-      "provider_ref": "PUSH-1792438871867",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.867Z"
-    },
-    {
-      "id": "3571036c-4817-40bb-9520-4ca923cd7557",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Arun Verma",
-      "recipient_phone": "+91 98111 44433",
-      "recipient_email": null,
-      "channel": "in_app",
-      "status": "delivered",
-      "provider_ref": "INAPP-1792438871868",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.868Z"
-    },
-    {
-      "id": "46edcf34-86fd-4473-9927-33f7dd6d1cce",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Arun Verma",
-      "recipient_phone": "+91 98111 44433",
-      "recipient_email": null,
-      "channel": "sms",
-      "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438871868",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.868Z"
-    },
-    {
-      "id": "4301972f-d7f3-4523-b688-38be65754e74",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "family_contact",
-      "recipient_name": "Arun Verma",
-      "recipient_phone": "+91 98111 44433",
-      "recipient_email": null,
-      "channel": "push",
-      "status": "delivered",
-      "provider_ref": "PUSH-1792438871868",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.869Z"
-    },
-    {
-      "id": "4091dbd8-e7dc-4420-a3fd-7eb7547a1af1",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "company_contact",
-      "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
-      "recipient_phone": "+91 98765 43210",
-      "recipient_email": null,
-      "channel": "in_app",
-      "status": "delivered",
-      "provider_ref": "INAPP-1792438871869",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.869Z"
-    },
-    {
-      "id": "ae42a4c5-394d-4f37-84ef-e73b890e9f4a",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "company_contact",
-      "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
-      "recipient_phone": "+91 98765 43210",
-      "recipient_email": null,
-      "channel": "sms",
-      "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438871869",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.869Z"
-    },
-    {
-      "id": "86b7a23e-aace-428a-894a-0bf7a27501b4",
-      "incident_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
-      "recipient_type": "company_contact",
-      "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
-      "recipient_phone": "+91 98765 43210",
-      "recipient_email": null,
-      "channel": "push",
-      "status": "delivered",
-      "provider_ref": "PUSH-1792438871870",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:11.870Z"
-    },
-    {
-      "id": "ed23c1ac-f651-4cac-b226-a07b1569c7a7",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
-      "recipient_type": "family_contact",
-      "recipient_name": "Pooja Sharma",
-      "recipient_phone": "+91 98111 55566",
-      "recipient_email": "pooja.sharma@example.com",
-      "channel": "in_app",
-      "status": "delivered",
-      "provider_ref": "INAPP-1792438872250",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.250Z"
-    },
-    {
-      "id": "2407240c-6313-46b5-a77e-befec4eb462a",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
-      "recipient_type": "family_contact",
-      "recipient_name": "Pooja Sharma",
-      "recipient_phone": "+91 98111 55566",
-      "recipient_email": "pooja.sharma@example.com",
-      "channel": "sms",
-      "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438872250",
-      "failure_reason": null,
-      "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.251Z"
-    },
-    {
-      "id": "0c95e593-eb3b-403d-aa2c-e1e44488c4a7",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "23aac42a-21f3-4b42-8c15-6da2c1fca6db",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Pooja Sharma",
       "recipient_phone": "+91 98111 55566",
       "recipient_email": "pooja.sharma@example.com",
       "channel": "email",
       "status": "delivered",
-      "provider_ref": "DEV-EMAIL-1792438872251",
+      "provider_ref": "DEV-EMAIL-1792439313161",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.251Z"
+      "created_at": "2026-10-19T19:48:33.161Z"
     },
     {
-      "id": "c36e339f-f7e1-4797-80c6-53ef0ab63d55",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "127426c7-aaef-4c2f-8bff-180fcd937f39",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Pooja Sharma",
       "recipient_phone": "+91 98111 55566",
       "recipient_email": "pooja.sharma@example.com",
       "channel": "push",
       "status": "delivered",
-      "provider_ref": "PUSH-1792438872251",
+      "provider_ref": "PUSH-1792439313162",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.251Z"
+      "created_at": "2026-10-19T19:48:33.162Z"
     },
     {
-      "id": "949e1542-ad60-4afa-a54f-f1316b19f89a",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "e0ff5de0-07be-4504-b199-36e5bac49b76",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Dr. Ramesh Sharma",
       "recipient_phone": "+91 98111 77788",
       "recipient_email": "dr.sharma@example.com",
       "channel": "in_app",
       "status": "delivered",
-      "provider_ref": "INAPP-1792438872252",
+      "provider_ref": "INAPP-1792439313162",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.252Z"
+      "created_at": "2026-10-19T19:48:33.162Z"
     },
     {
-      "id": "d97c5fe7-c774-4809-921d-98bbb865ff03",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "f527b19d-bf4c-46ed-9aeb-b54af7f14c64",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Dr. Ramesh Sharma",
       "recipient_phone": "+91 98111 77788",
       "recipient_email": "dr.sharma@example.com",
       "channel": "sms",
       "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438872252",
+      "provider_ref": "DEV-SMS-1792439313163",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.252Z"
+      "created_at": "2026-10-19T19:48:33.163Z"
     },
     {
-      "id": "b84bc88b-34a0-4722-a832-376088bd3ef4",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "6b1d91d1-1704-4b10-a526-d59de2a9cc35",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Dr. Ramesh Sharma",
       "recipient_phone": "+91 98111 77788",
       "recipient_email": "dr.sharma@example.com",
       "channel": "email",
       "status": "delivered",
-      "provider_ref": "DEV-EMAIL-1792438872253",
+      "provider_ref": "DEV-EMAIL-1792439313163",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.253Z"
+      "created_at": "2026-10-19T19:48:33.163Z"
     },
     {
-      "id": "f9630289-c520-4e98-99e4-e7eaf9ad109a",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "5b9a2346-3b32-4728-8779-f5b04c286e28",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Dr. Ramesh Sharma",
       "recipient_phone": "+91 98111 77788",
       "recipient_email": "dr.sharma@example.com",
       "channel": "push",
       "status": "delivered",
-      "provider_ref": "PUSH-1792438872253",
+      "provider_ref": "PUSH-1792439313163",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.253Z"
+      "created_at": "2026-10-19T19:48:33.164Z"
     },
     {
-      "id": "bc18f190-2f37-470d-ba6e-cd75f62ac3d5",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "b22783e7-920b-4f47-9acf-ea1eb66f77c8",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Arun Verma",
       "recipient_phone": "+91 98111 44433",
       "recipient_email": null,
       "channel": "in_app",
       "status": "delivered",
-      "provider_ref": "INAPP-1792438872254",
+      "provider_ref": "INAPP-1792439313164",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.254Z"
+      "created_at": "2026-10-19T19:48:33.164Z"
     },
     {
-      "id": "60645847-995a-4f0e-8705-ed05735b2efb",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "4a050b5e-0b55-4b03-bb09-a291fd86c3c1",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Arun Verma",
       "recipient_phone": "+91 98111 44433",
       "recipient_email": null,
       "channel": "sms",
       "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438872254",
+      "provider_ref": "DEV-SMS-1792439313164",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.254Z"
+      "created_at": "2026-10-19T19:48:33.164Z"
     },
     {
-      "id": "85c6d0f4-24e0-4851-b807-a852f80d3e0f",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "8816c698-ecab-44f1-a9aa-ec62fde1888d",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "family_contact",
       "recipient_name": "Arun Verma",
       "recipient_phone": "+91 98111 44433",
       "recipient_email": null,
       "channel": "push",
       "status": "delivered",
-      "provider_ref": "PUSH-1792438872255",
+      "provider_ref": "PUSH-1792439313165",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.255Z"
+      "created_at": "2026-10-19T19:48:33.165Z"
     },
     {
-      "id": "fe554e65-b521-477f-9211-5d23c8ed3351",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "9f72b656-6e4a-4842-ace6-f92c7b4f6ffe",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "company_contact",
       "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
       "recipient_phone": "+91 98765 43210",
       "recipient_email": null,
       "channel": "in_app",
       "status": "delivered",
-      "provider_ref": "INAPP-1792438872255",
+      "provider_ref": "INAPP-1792439313165",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.255Z"
+      "created_at": "2026-10-19T19:48:33.165Z"
     },
     {
-      "id": "2d2dea65-7f2b-403d-9c78-a6b651d747a5",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "acbefcef-a597-43f5-bf48-1059bdc87722",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "company_contact",
       "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
       "recipient_phone": "+91 98765 43210",
       "recipient_email": null,
       "channel": "sms",
       "status": "delivered",
-      "provider_ref": "DEV-SMS-1792438872255",
+      "provider_ref": "DEV-SMS-1792439313166",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.256Z"
+      "created_at": "2026-10-19T19:48:33.166Z"
     },
     {
-      "id": "ae7bfdb9-69bb-4f64-8e51-e1fb7eef07c0",
-      "incident_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "id": "4b1fd06a-cc6b-4b4b-9adc-af048ceb9d4d",
+      "incident_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "recipient_type": "company_contact",
       "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
       "recipient_phone": "+91 98765 43210",
       "recipient_email": null,
       "channel": "push",
       "status": "delivered",
-      "provider_ref": "PUSH-1792438872256",
+      "provider_ref": "PUSH-1792439313166",
       "failure_reason": null,
       "retry_count": 0,
-      "created_at": "2026-10-19T19:41:12.256Z"
+      "created_at": "2026-10-19T19:48:33.166Z"
+    },
+    {
+      "id": "fd7447a3-c95f-4d01-8e6f-e25f0b6bb494",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Pooja Sharma",
+      "recipient_phone": "+91 98111 55566",
+      "recipient_email": "pooja.sharma@example.com",
+      "channel": "in_app",
+      "status": "delivered",
+      "provider_ref": "INAPP-1792439313587",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.587Z"
+    },
+    {
+      "id": "49d2cb60-7053-4d19-90ca-aafa2dffb22c",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Pooja Sharma",
+      "recipient_phone": "+91 98111 55566",
+      "recipient_email": "pooja.sharma@example.com",
+      "channel": "sms",
+      "status": "delivered",
+      "provider_ref": "DEV-SMS-1792439313587",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.588Z"
+    },
+    {
+      "id": "02c4b1c1-a7ea-4adb-9443-279d43528989",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Pooja Sharma",
+      "recipient_phone": "+91 98111 55566",
+      "recipient_email": "pooja.sharma@example.com",
+      "channel": "email",
+      "status": "delivered",
+      "provider_ref": "DEV-EMAIL-1792439313588",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.588Z"
+    },
+    {
+      "id": "5ce7e071-512f-444a-94bb-518c1b006995",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Pooja Sharma",
+      "recipient_phone": "+91 98111 55566",
+      "recipient_email": "pooja.sharma@example.com",
+      "channel": "push",
+      "status": "delivered",
+      "provider_ref": "PUSH-1792439313588",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.588Z"
+    },
+    {
+      "id": "2a906ac2-07ad-4849-8a8d-8c86859f7a1c",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Dr. Ramesh Sharma",
+      "recipient_phone": "+91 98111 77788",
+      "recipient_email": "dr.sharma@example.com",
+      "channel": "in_app",
+      "status": "delivered",
+      "provider_ref": "INAPP-1792439313589",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.589Z"
+    },
+    {
+      "id": "72e6a196-0070-4ff5-b39a-4b6466f3419c",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Dr. Ramesh Sharma",
+      "recipient_phone": "+91 98111 77788",
+      "recipient_email": "dr.sharma@example.com",
+      "channel": "sms",
+      "status": "delivered",
+      "provider_ref": "DEV-SMS-1792439313589",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.589Z"
+    },
+    {
+      "id": "42a3daad-e1d3-4e56-ba90-be6261fe6d6f",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Dr. Ramesh Sharma",
+      "recipient_phone": "+91 98111 77788",
+      "recipient_email": "dr.sharma@example.com",
+      "channel": "email",
+      "status": "delivered",
+      "provider_ref": "DEV-EMAIL-1792439313590",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.590Z"
+    },
+    {
+      "id": "0d51f1e9-9cdb-44a9-a91a-f1aeb8685645",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Dr. Ramesh Sharma",
+      "recipient_phone": "+91 98111 77788",
+      "recipient_email": "dr.sharma@example.com",
+      "channel": "push",
+      "status": "delivered",
+      "provider_ref": "PUSH-1792439313590",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.590Z"
+    },
+    {
+      "id": "ed2f828a-8563-478b-b74b-b0546d486e73",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Arun Verma",
+      "recipient_phone": "+91 98111 44433",
+      "recipient_email": null,
+      "channel": "in_app",
+      "status": "delivered",
+      "provider_ref": "INAPP-1792439313591",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.591Z"
+    },
+    {
+      "id": "5d47104b-ae1e-452e-add4-6b723a8821f5",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Arun Verma",
+      "recipient_phone": "+91 98111 44433",
+      "recipient_email": null,
+      "channel": "sms",
+      "status": "delivered",
+      "provider_ref": "DEV-SMS-1792439313591",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.591Z"
+    },
+    {
+      "id": "b6b174ec-ec14-44b5-8a87-fc1cefbd917f",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "family_contact",
+      "recipient_name": "Arun Verma",
+      "recipient_phone": "+91 98111 44433",
+      "recipient_email": null,
+      "channel": "push",
+      "status": "delivered",
+      "provider_ref": "PUSH-1792439313592",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.592Z"
+    },
+    {
+      "id": "9c439d3a-9a07-4f5d-8999-8ac3af46e314",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "company_contact",
+      "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
+      "recipient_phone": "+91 98765 43210",
+      "recipient_email": null,
+      "channel": "in_app",
+      "status": "delivered",
+      "provider_ref": "INAPP-1792439313592",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.592Z"
+    },
+    {
+      "id": "ae13af7c-ccc4-4ae8-aa1f-90c7f52f5f29",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "company_contact",
+      "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
+      "recipient_phone": "+91 98765 43210",
+      "recipient_email": null,
+      "channel": "sms",
+      "status": "delivered",
+      "provider_ref": "DEV-SMS-1792439313593",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.593Z"
+    },
+    {
+      "id": "3f30d3ca-bd31-4328-bd04-6a2929e3900c",
+      "incident_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      "recipient_type": "company_contact",
+      "recipient_name": "Apex Global Technologies (Apex Emergency Medical Desk)",
+      "recipient_phone": "+91 98765 43210",
+      "recipient_email": null,
+      "channel": "push",
+      "status": "delivered",
+      "provider_ref": "PUSH-1792439313593",
+      "failure_reason": null,
+      "retry_count": 0,
+      "created_at": "2026-10-19T19:48:33.593Z"
     }
   ],
   "consent_records": [],
   "audit_logs": [
     {
-      "id": "0e6d66cb-8a12-4653-8791-d3b9a28d9ee7",
+      "id": "61b91c56-8abb-4a0f-9c9d-6dd44a727feb",
       "actor_user_id": null,
       "action": "EMERGENCY_ALERT_TRIGGERED",
       "entity_type": "emergency_incident",
-      "entity_id": "7a3df84e-fae4-4886-9653-c2b8764cdc87",
+      "entity_id": "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
       "metadata": {
-        "incidentCode": "INC-MVFNTPDM-7BB6",
+        "incidentCode": "INC-MVFO35WZ-5A5B",
         "totalRecipients": 4,
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:12.257Z"
+      "created_at": "2026-10-19T19:48:33.594Z"
     },
     {
-      "id": "97c91d22-38b2-4707-82d0-f7033204f442",
-      "actor_user_id": "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      "id": "2f481e0d-f6b8-4a9e-9899-ef24740a8515",
+      "actor_user_id": "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
       "action": "ORGANIZATION_LEFT",
       "entity_type": "user",
-      "entity_id": "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      "entity_id": "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
       "metadata": {},
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.242Z"
+      "created_at": "2026-10-19T19:48:33.577Z"
     },
     {
-      "id": "f286f8f3-fa94-43e3-b843-b03b4a14a5a4",
-      "actor_user_id": "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      "id": "d15380f9-35a0-484c-a202-adfab433f124",
+      "actor_user_id": "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
       "action": "ORGANIZATION_JOINED",
       "entity_type": "organization_membership",
-      "entity_id": "629ceb03-ec84-48dd-8dfe-54e6c39294a1",
+      "entity_id": "bae1c93c-a826-418d-8257-84bfa171faab",
       "metadata": {
         "organization_name": "Apex Global Technologies",
         "employee_id_number": "APEX-EXT-9988"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.236Z"
+      "created_at": "2026-10-19T19:48:33.572Z"
     },
     {
-      "id": "1b0f444b-5843-421a-86ab-d9bc6c9a0a22",
-      "actor_user_id": "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      "id": "b7971ea6-7aef-499e-82c0-cd794c982b54",
+      "actor_user_id": "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
       "action": "USER_REGISTERED",
       "entity_type": "user",
-      "entity_id": "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      "entity_id": "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
       "metadata": {
         "role": "individual"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.229Z"
+      "created_at": "2026-10-19T19:48:33.565Z"
     },
     {
-      "id": "2953c708-fa74-4ccb-966e-2790b4a1e99a",
-      "actor_user_id": "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      "id": "da7df30d-a3d8-4d21-a6df-1d652fc4948e",
+      "actor_user_id": "a708f195-a171-40d0-8225-58a15da4c284",
       "action": "FAMILY_PERMISSIONS_UPDATED",
       "entity_type": "family_relationship",
-      "entity_id": "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
+      "entity_id": "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
       "metadata": {
         "permissions": {
           "receive_alerts": true,
@@ -1155,196 +1155,196 @@
         }
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.167Z"
+      "created_at": "2026-10-19T19:48:33.502Z"
     },
     {
-      "id": "f20ae6f1-92cc-417c-a0b9-cecbe6ed7251",
-      "actor_user_id": "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      "id": "443e0ed6-129a-49e4-99c3-52e066ffc0da",
+      "actor_user_id": "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
       "action": "FAMILY_LINK_ACCEPTED",
       "entity_type": "family_relationship",
-      "entity_id": "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
+      "entity_id": "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
       "metadata": {},
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.157Z"
+      "created_at": "2026-10-19T19:48:33.491Z"
     },
     {
-      "id": "744cd40b-4ab7-457b-bfcf-482a8bb8f0f4",
-      "actor_user_id": "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      "id": "2cbc0c54-98e8-46cb-840b-22fbb4a78561",
+      "actor_user_id": "a708f195-a171-40d0-8225-58a15da4c284",
       "action": "FAMILY_LINK_REQUESTED",
       "entity_type": "family_relationship",
-      "entity_id": "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
+      "entity_id": "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
       "metadata": {
         "target_email": "sunita.mehta@example.com",
         "relationship_type": "Spouse"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.151Z"
+      "created_at": "2026-10-19T19:48:33.481Z"
     },
     {
-      "id": "6cd6ad74-3ea6-4104-ad50-d10224b7ca58",
-      "actor_user_id": "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      "id": "ff0e4e7f-c9e2-420a-b176-18786fe11fc5",
+      "actor_user_id": "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
       "action": "USER_REGISTERED",
       "entity_type": "user",
-      "entity_id": "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      "entity_id": "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
       "metadata": {
         "role": "individual"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.145Z"
+      "created_at": "2026-10-19T19:48:33.475Z"
     },
     {
-      "id": "2683c978-8b14-4ae6-b84c-7b0ddfd92849",
-      "actor_user_id": "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      "id": "6b637fb8-ac68-4253-9b29-e78dbbf51ae0",
+      "actor_user_id": "a708f195-a171-40d0-8225-58a15da4c284",
       "action": "USER_REGISTERED",
       "entity_type": "user",
-      "entity_id": "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      "entity_id": "a708f195-a171-40d0-8225-58a15da4c284",
       "metadata": {
         "role": "individual"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.077Z"
+      "created_at": "2026-10-19T19:48:33.409Z"
     },
     {
-      "id": "34667c7c-327b-4134-a49e-d605648977c5",
-      "actor_user_id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "id": "7140e5fb-5ed6-488e-8a43-ca2a3f792415",
+      "actor_user_id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "action": "QR_GENERATED",
       "entity_type": "qr_token",
-      "entity_id": "1890580f-af68-4d6c-9744-0f3d59201fc4",
+      "entity_id": "dce7c88b-a6fe-4b43-99bc-7c6e413a5655",
       "metadata": {
-        "profile_id": "6e940852-ac76-42d3-b34c-3c137a7efcce",
-        "public_token": "EMP-FF6C35B44E97"
+        "profile_id": "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
+        "public_token": "EMP-9B58213FBA80"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.016Z"
+      "created_at": "2026-10-19T19:48:33.338Z"
     },
     {
-      "id": "609d8964-1f13-4a2f-9125-672f4d8ab99d",
-      "actor_user_id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "id": "5bd1443c-1e0e-4def-bd43-6f316e7932a2",
+      "actor_user_id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "action": "QR_REVOKED",
       "entity_type": "qr_token",
-      "entity_id": "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      "entity_id": "0b8d3965-35d1-412a-9d68-6c0eb935d075",
       "metadata": {
-        "public_token": "EMP-33FFC0DE0864"
+        "public_token": "EMP-188A543B0E98"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.010Z"
+      "created_at": "2026-10-19T19:48:33.332Z"
     },
     {
-      "id": "713a66f4-42b9-4940-a08f-5d8a91285fdf",
-      "actor_user_id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "id": "cb91e82e-f0ab-4520-9a3e-975ba53562e1",
+      "actor_user_id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "action": "QR_REACTIVATED",
       "entity_type": "qr_token",
-      "entity_id": "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      "entity_id": "0b8d3965-35d1-412a-9d68-6c0eb935d075",
       "metadata": {
-        "public_token": "EMP-33FFC0DE0864"
+        "public_token": "EMP-188A543B0E98"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.007Z"
+      "created_at": "2026-10-19T19:48:33.327Z"
     },
     {
-      "id": "e8d0c308-f41d-4284-a3e9-b3de15d9c1c4",
-      "actor_user_id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "id": "f7075533-7c01-4c66-b9f2-04aa04363cb1",
+      "actor_user_id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "action": "QR_SUSPENDED",
       "entity_type": "qr_token",
-      "entity_id": "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      "entity_id": "0b8d3965-35d1-412a-9d68-6c0eb935d075",
       "metadata": {
-        "public_token": "EMP-33FFC0DE0864"
+        "public_token": "EMP-188A543B0E98"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:12.000Z"
+      "created_at": "2026-10-19T19:48:33.321Z"
     },
     {
-      "id": "ab2c2c61-50b7-44a8-a592-b380b8c2104f",
+      "id": "24048d15-eec3-4504-ae6d-4492d607585e",
       "actor_user_id": null,
       "action": "QR_SCANNED",
       "entity_type": "qr_token",
-      "entity_id": "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      "entity_id": "0b8d3965-35d1-412a-9d68-6c0eb935d075",
       "metadata": {
-        "public_token": "EMP-33FFC0DE0864",
+        "public_token": "EMP-188A543B0E98",
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.995Z"
+      "created_at": "2026-10-19T19:48:33.317Z"
     },
     {
-      "id": "6a71a52b-b8ba-4715-94eb-36e7339b4341",
-      "actor_user_id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "id": "5d048d63-ea19-446d-80d7-401fee527476",
+      "actor_user_id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "action": "USER_REGISTERED",
       "entity_type": "user",
-      "entity_id": "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      "entity_id": "88ebc509-bc94-4200-a230-61b4844b8ef8",
       "metadata": {
         "role": "individual"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.989Z"
+      "created_at": "2026-10-19T19:48:33.310Z"
     },
     {
-      "id": "5d58635e-a7b3-43df-a9ba-fe85bd882df3",
+      "id": "6670f43f-ac04-4939-a439-ea2529b15eeb",
       "actor_user_id": "00000000-0000-0000-0000-000000000020",
       "action": "INCIDENT_ACKNOWLEDGED",
       "entity_type": "emergency_incident",
-      "entity_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
+      "entity_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "metadata": {
         "responder": "Anjali Verma (HR Lead) (company_admin)"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.916Z"
+      "created_at": "2026-10-19T19:48:33.233Z"
     },
     {
-      "id": "b993cd66-6689-4c18-9db5-511c7424c004",
+      "id": "0b03e8c3-15f3-45df-af2e-17d079bb5724",
       "actor_user_id": null,
       "action": "QR_SCANNED",
       "entity_type": "qr_token",
-      "entity_id": "4878a569-16a4-45ad-863d-9e1fb95c2ce9",
+      "entity_id": "eb10f7d4-6f57-4e01-b999-2d4f1a4dcbe7",
       "metadata": {
-        "public_token": "EMP-25E6F6D9F291",
+        "public_token": "EMP-6ACDCB9AE2CA",
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.905Z"
+      "created_at": "2026-10-19T19:48:33.218Z"
     },
     {
-      "id": "060d3765-b1b0-4eb1-aa34-597bbea5d61d",
+      "id": "2730ef15-232b-43d5-a802-f6cf9ae16852",
       "actor_user_id": "00000000-0000-0000-0000-000000000030",
       "action": "DEPENDENT_PROFILE_CREATED",
       "entity_type": "medical_profile",
-      "entity_id": "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
+      "entity_id": "dffeb491-bd11-4bed-b130-237d715322cf",
       "metadata": {
         "full_name": "Anvi Sharma",
         "relationship_type": "Daughter (Dependent Child)",
-        "qr_token": "EMP-25E6F6D9F291"
+        "qr_token": "EMP-6ACDCB9AE2CA"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.902Z"
+      "created_at": "2026-10-19T19:48:33.214Z"
     },
     {
-      "id": "64614ca3-4025-45ec-9187-67abd480dfae",
+      "id": "ce4285a5-a48f-4c29-9ff5-11e74f8e7abf",
       "actor_user_id": null,
       "action": "QR_SCANNED",
       "entity_type": "qr_token",
-      "entity_id": "c3e2b283-5297-4f36-b45f-3878f2da3349",
+      "entity_id": "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
       "metadata": {
-        "public_token": "EMP-DD827E94CEDD",
+        "public_token": "EMP-DB7E4F02802A",
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.897Z"
+      "created_at": "2026-10-19T19:48:33.207Z"
     },
     {
-      "id": "fb8dd6f3-14bd-4e33-a50b-81bb3aeac856",
+      "id": "2aa71ff2-ab34-475a-9654-00b0c6ba4869",
       "actor_user_id": "00000000-0000-0000-0000-000000000030",
       "action": "QR_REGENERATED",
       "entity_type": "qr_token",
-      "entity_id": "c3e2b283-5297-4f36-b45f-3878f2da3349",
+      "entity_id": "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
       "metadata": {
         "profile_id": "00000000-0000-0000-0000-000000000040",
-        "new_public_token": "EMP-DD827E94CEDD"
+        "new_public_token": "EMP-DB7E4F02802A"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.891Z"
+      "created_at": "2026-10-19T19:48:33.197Z"
     },
     {
-      "id": "1ff7f439-9917-4afa-894b-1db3f377a19d",
+      "id": "cf48c3c8-178c-4643-a934-d326b498f820",
       "actor_user_id": null,
       "action": "QR_SCANNED",
       "entity_type": "qr_token",
@@ -1354,10 +1354,10 @@
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.887Z"
+      "created_at": "2026-10-19T19:48:33.190Z"
     },
     {
-      "id": "f789b076-2fb0-4e2d-b7a4-a4da6ed8dc36",
+      "id": "07f2e94b-9aac-423e-8c72-d35e12a89584",
       "actor_user_id": "00000000-0000-0000-0000-000000000030",
       "action": "QR_REACTIVATED",
       "entity_type": "qr_token",
@@ -1366,10 +1366,10 @@
         "public_token": "EMP-RAHUL-789X"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.884Z"
+      "created_at": "2026-10-19T19:48:33.187Z"
     },
     {
-      "id": "632af6d4-c703-49ba-ab9a-aa8b4f9301d6",
+      "id": "5c95e8ad-0716-4e84-a7bd-857e2cd21aad",
       "actor_user_id": "00000000-0000-0000-0000-000000000030",
       "action": "QR_SUSPENDED",
       "entity_type": "qr_token",
@@ -1378,24 +1378,24 @@
         "public_token": "EMP-RAHUL-789X"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.876Z"
+      "created_at": "2026-10-19T19:48:33.176Z"
     },
     {
-      "id": "8af339df-6ef6-4d44-ab3d-f8c8ac12ac65",
+      "id": "688d9c37-7db8-48b8-b21b-9279c42d619e",
       "actor_user_id": null,
       "action": "EMERGENCY_ALERT_TRIGGERED",
       "entity_type": "emergency_incident",
-      "entity_id": "5153cdf5-fece-4c7d-b074-eeb3d0307757",
+      "entity_id": "fea68a57-82e4-4d1d-884d-1dcee6438db4",
       "metadata": {
-        "incidentCode": "INC-MVFNTP2I-5FD8",
+        "incidentCode": "INC-MVFO35KP-2607",
         "totalRecipients": 4,
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.870Z"
+      "created_at": "2026-10-19T19:48:33.167Z"
     },
     {
-      "id": "d1e2fe96-a741-4c48-aca8-b00e326df536",
+      "id": "0529fa1e-87e6-4616-b396-1b758cc6aac2",
       "actor_user_id": null,
       "action": "QR_SCANNED",
       "entity_type": "qr_token",
@@ -1405,22 +1405,22 @@
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.844Z"
+      "created_at": "2026-10-19T19:48:33.140Z"
     },
     {
-      "id": "8bf95b3b-69ed-4976-a4a3-943a159d7eef",
+      "id": "74be79e4-34e4-4495-8802-ca6a1a8e5acc",
       "actor_user_id": "00000000-0000-0000-0000-000000000030",
       "action": "CONTACT_ADDED",
       "entity_type": "emergency_contact",
-      "entity_id": "b2361a0c-6269-42ee-b01e-9a124ac89605",
+      "entity_id": "331c5101-fe9c-4633-a940-b3b6d4b23edf",
       "metadata": {
         "name": "Arun Verma"
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.840Z"
+      "created_at": "2026-10-19T19:48:33.134Z"
     },
     {
-      "id": "3aa4b4e5-bb0a-4ffc-858d-c703b4ea58b9",
+      "id": "c6f14a60-3bfa-41b9-903e-36d8f8d5c53d",
       "actor_user_id": "00000000-0000-0000-0000-000000000030",
       "action": "PROFILE_UPDATED",
       "entity_type": "medical_profile",
@@ -1432,10 +1432,10 @@
         ]
       },
       "ip_address": null,
-      "created_at": "2026-10-19T19:41:11.835Z"
+      "created_at": "2026-10-19T19:48:33.127Z"
     },
     {
-      "id": "534864f5-969f-438e-bc95-392a48f3ca76",
+      "id": "9aa1c0be-0f9a-475e-b949-8b5e73f6ecd7",
       "actor_user_id": "00000000-0000-0000-0000-000000000001",
       "action": "USER_LOGIN",
       "entity_type": "user",
@@ -1444,10 +1444,10 @@
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.822Z"
+      "created_at": "2026-10-19T19:48:33.114Z"
     },
     {
-      "id": "2c32e105-645e-4e56-b752-6fb6eb39715e",
+      "id": "8f37e117-20a8-4dcf-8708-3ebba088edf5",
       "actor_user_id": "00000000-0000-0000-0000-000000000020",
       "action": "USER_LOGIN",
       "entity_type": "user",
@@ -1456,10 +1456,10 @@
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.760Z"
+      "created_at": "2026-10-19T19:48:33.047Z"
     },
     {
-      "id": "6d56ac20-5b66-43cc-b658-664e106af968",
+      "id": "2fd19fc8-dd95-40b4-8ffd-4e5ac3e4e10f",
       "actor_user_id": "00000000-0000-0000-0000-000000000030",
       "action": "USER_LOGIN",
       "entity_type": "user",
@@ -1468,7 +1468,7 @@
         "ip": "127.0.0.1"
       },
       "ip_address": "127.0.0.1",
-      "created_at": "2026-10-19T19:41:11.688Z"
+      "created_at": "2026-10-19T19:48:32.979Z"
     }
   ],
   "subscriptions": [
@@ -1478,8 +1478,8 @@
       "plan_tier": "enterprise",
       "max_seats": 500,
       "status": "active",
-      "renews_at": "2027-10-19T19:41:11.592Z",
-      "created_at": "2026-10-19T19:41:11.592Z"
+      "renews_at": "2027-10-19T19:48:32.882Z",
+      "created_at": "2026-10-19T19:48:32.882Z"
     }
   ]
 }

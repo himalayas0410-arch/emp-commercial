@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { repository } from '../db/repository';
 import { verifyAuth, AuthenticatedRequest } from '../middleware/auth';
+import { notificationService } from '../services/notificationService';
 
 const router = Router();
 
@@ -125,6 +126,15 @@ router.post('/invite', verifyAuth, async (req: AuthenticatedRequest, res) => {
       invite_phone: phone
     });
 
+    // Dispatch real email / SMS invitation to the family member
+    await notificationService.dispatchFamilyInvitation({
+      sponsorName: req.user!.full_name,
+      targetEmail: email,
+      targetPhone: phone,
+      relationshipType: relationship_type,
+      isExistingUser: false
+    });
+
     res.status(201).json({
       success: true,
       family_member: {
@@ -189,6 +199,14 @@ router.post('/link-request', verifyAuth, async (req: AuthenticatedRequest, res) 
     await repository.logAuditEvent(req.user!.id, 'FAMILY_LINK_REQUESTED', 'family_relationship', rel.id, {
       target_email,
       relationship_type
+    });
+
+    // Dispatch email notification to target user
+    await notificationService.dispatchFamilyInvitation({
+      sponsorName: req.user!.full_name,
+      targetEmail: target_email,
+      relationshipType: relationship_type,
+      isExistingUser: !!targetUser
     });
 
     res.status(201).json({
