@@ -30394,94 +30394,46 @@ var emp_local_data_default = {
         notify_hr_on_alert: true,
         allow_dependent_enrollment: true
       },
-      created_at: "2026-10-19T19:48:32.882Z",
-      updated_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z",
+      updated_at: "2026-10-19T17:03:14.999Z"
     }
   ],
   users: [
     {
       id: "00000000-0000-0000-0000-000000000001",
       email: "superadmin@emp.com",
-      password_hash: "$2a$10$FQvo7cRTVWZcVV0QstnXPerk.6gM1E/wcUzm6ZtXIeLJ1wEXZABvO",
+      password_hash: "$2a$10$kFLupCgyCb.ceIRXH.A5V.Hj1.K9KD8lsT4xW54Z1SCMgz8HpJhca",
       full_name: "Platform Super Administrator",
       phone: "+91 99999 00000",
       role: "super_admin",
       status: "active",
       email_verified: true,
-      created_at: "2026-10-19T19:48:32.881Z",
-      updated_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.998Z",
+      updated_at: "2026-10-19T17:03:14.999Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000020",
       email: "hr@apexglobal.com",
-      password_hash: "$2a$10$FQvo7cRTVWZcVV0QstnXPectSDEJZQ9k9EMQtrG02Tw2QYENl17le",
+      password_hash: "$2a$10$kFLupCgyCb.ceIRXH.A5V.F8TUxUBb51j7stajx4y7BY5RiuUd1a6",
       full_name: "Anjali Verma (HR Lead)",
       phone: "+91 98765 43211",
       role: "company_admin",
       status: "active",
       email_verified: true,
-      created_at: "2026-10-19T19:48:32.882Z",
-      updated_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z",
+      updated_at: "2026-10-19T17:03:14.999Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000030",
       email: "rahul.sharma@apexglobal.com",
-      password_hash: "$2a$10$FQvo7cRTVWZcVV0QstnXPectSDEJZQ9k9EMQtrG02Tw2QYENl17le",
+      password_hash: "$2a$10$kFLupCgyCb.ceIRXH.A5V.F8TUxUBb51j7stajx4y7BY5RiuUd1a6",
       full_name: "Rahul Sharma",
       phone: "+91 98111 22233",
       role: "employee",
       status: "active",
       email_verified: true,
-      created_at: "2026-10-19T19:48:32.882Z",
-      updated_at: "2026-10-19T19:48:32.882Z"
-    },
-    {
-      id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
-      email: "priya.singh@example.com",
-      password_hash: "$2a$10$ABmx0XxJDSbK5ckSMkUreuQS6WzKepdSS.35TO.7A0b9zbGcO22YG",
-      full_name: "Priya Singh",
-      phone: "+91 98990 11223",
-      role: "individual",
-      status: "active",
-      email_verified: true,
-      created_at: "2026-10-19T19:48:33.308Z",
-      updated_at: "2026-10-19T19:48:33.308Z"
-    },
-    {
-      id: "a708f195-a171-40d0-8225-58a15da4c284",
-      email: "vikram.mehta@example.com",
-      password_hash: "$2a$10$s1Te4kOP1xuJ/wJCBXlP0u/U3mDMtiVtFWynBGkyvOXMVNhgiVu5O",
-      full_name: "Vikram Mehta",
-      phone: null,
-      role: "individual",
-      status: "active",
-      email_verified: true,
-      created_at: "2026-10-19T19:48:33.406Z",
-      updated_at: "2026-10-19T19:48:33.406Z"
-    },
-    {
-      id: "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
-      email: "sunita.mehta@example.com",
-      password_hash: "$2a$10$1i5fOk.kRv2jbKwLygPwBe5tPlo42P87RZmf4g.PxpvSqZGw3IGxG",
-      full_name: "Sunita Mehta",
-      phone: null,
-      role: "individual",
-      status: "active",
-      email_verified: true,
-      created_at: "2026-10-19T19:48:33.473Z",
-      updated_at: "2026-10-19T19:48:33.473Z"
-    },
-    {
-      id: "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
-      email: "rohit.consultant@example.com",
-      password_hash: "$2a$10$68CDoiL1Bkrd3iTF0sjcVevrXqFF1E35tMkepA64y82nGntLGbGPW",
-      full_name: "Rohit Consultant",
-      phone: null,
-      role: "individual",
-      status: "active",
-      email_verified: true,
-      created_at: "2026-10-19T19:48:33.563Z",
-      updated_at: "2026-10-19T19:48:33.563Z"
+      created_at: "2026-10-19T17:03:14.999Z",
+      updated_at: "2026-10-19T17:03:14.999Z"
     }
   ],
   organization_memberships: [
@@ -30493,7 +30445,7 @@ var emp_local_data_default = {
       department: "Human Resources",
       employee_id_number: "APX-HR-01",
       status: "active",
-      joined_at: "2026-10-19T19:48:32.882Z"
+      joined_at: "2026-10-19T17:03:14.999Z"
     },
     {
       id: "mem-002",
@@ -30503,7 +30455,7 @@ var emp_local_data_default = {
       department: "Engineering",
       employee_id_number: "APX-ENG-104",
       status: "active",
-      joined_at: "2026-10-19T19:48:32.882Z"
+      joined_at: "2026-10-19T17:03:14.999Z"
     }
   ],
   medical_profiles: [
@@ -30586,8 +30538,8 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 100,
-      created_at: "2026-10-19T19:48:32.882Z",
-      updated_at: "2026-10-19T19:48:33.134Z"
+      created_at: "2026-10-19T17:03:14.999Z",
+      updated_at: "2026-10-19T17:03:15.222Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000050",
@@ -30628,8 +30580,8 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 90,
-      created_at: "2026-10-19T19:48:32.882Z",
-      updated_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z",
+      updated_at: "2026-10-19T17:03:14.999Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000060",
@@ -30657,11 +30609,11 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 60,
-      created_at: "2026-10-19T19:48:32.882Z",
-      updated_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z",
+      updated_at: "2026-10-19T17:03:14.999Z"
     },
     {
-      id: "dffeb491-bd11-4bed-b130-237d715322cf",
+      id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
       user_id: null,
       organization_id: "00000000-0000-0000-0000-000000000010",
       is_dependent: true,
@@ -30693,16 +30645,16 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 60,
-      created_at: "2026-10-19T19:48:33.212Z",
-      updated_at: "2026-10-19T19:48:33.212Z"
+      created_at: "2026-10-19T17:03:15.281Z",
+      updated_at: "2026-10-19T17:03:15.281Z"
     },
     {
-      id: "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
-      user_id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
-      organization_id: null,
+      id: "6214ea93-22e8-4a6e-8f66-7b30f222c5e6",
+      user_id: "00000000-0000-0000-0000-000000000020",
+      organization_id: "00000000-0000-0000-0000-000000000010",
       is_dependent: false,
       manager_user_id: null,
-      full_name: "Priya Singh",
+      full_name: "Anjali Verma (HR Lead)",
       preferred_name: null,
       date_of_birth: null,
       gender: null,
@@ -30721,17 +30673,17 @@ var emp_local_data_default = {
         devices: true,
         emergency_notes: true
       },
-      profile_completion_pct: 25,
-      created_at: "2026-10-19T19:48:33.308Z",
-      updated_at: "2026-10-19T19:48:33.308Z"
+      profile_completion_pct: 50,
+      created_at: "2026-10-19T17:06:08.728Z",
+      updated_at: "2026-10-19T17:06:08.728Z"
     },
     {
-      id: "9e023562-f575-4927-a7f9-5299169e298e",
-      user_id: "a708f195-a171-40d0-8225-58a15da4c284",
+      id: "0d46ac1b-2214-4810-be36-1cd2f0ff956a",
+      user_id: "00000000-0000-0000-0000-000000000001",
       organization_id: null,
       is_dependent: false,
       manager_user_id: null,
-      full_name: "Vikram Mehta",
+      full_name: "Platform Super Administrator",
       preferred_name: null,
       date_of_birth: null,
       gender: null,
@@ -30750,17 +30702,17 @@ var emp_local_data_default = {
         devices: true,
         emergency_notes: true
       },
-      profile_completion_pct: 25,
-      created_at: "2026-10-19T19:48:33.407Z",
-      updated_at: "2026-10-19T19:48:33.407Z"
+      profile_completion_pct: 50,
+      created_at: "2026-10-19T17:12:19.682Z",
+      updated_at: "2026-10-19T17:12:19.682Z"
     },
     {
-      id: "ceed95df-1b7e-4b55-8403-dd2301d69fb8",
-      user_id: "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
+      id: "a7a1c9fb-fa9c-49b6-af53-83852ba5fc62",
+      user_id: null,
       organization_id: null,
       is_dependent: false,
       manager_user_id: null,
-      full_name: "Sunita Mehta",
+      full_name: "sff",
       preferred_name: null,
       date_of_birth: null,
       gender: null,
@@ -30779,38 +30731,9 @@ var emp_local_data_default = {
         devices: true,
         emergency_notes: true
       },
-      profile_completion_pct: 25,
-      created_at: "2026-10-19T19:48:33.473Z",
-      updated_at: "2026-10-19T19:48:33.473Z"
-    },
-    {
-      id: "8f2d9f9c-d4f4-4762-826c-d87670cc314a",
-      user_id: "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
-      organization_id: null,
-      is_dependent: false,
-      manager_user_id: null,
-      full_name: "Rohit Consultant",
-      preferred_name: null,
-      date_of_birth: null,
-      gender: null,
-      blood_group: "Unknown",
-      allergies: [],
-      medications: [],
-      conditions: [],
-      surgeries: [],
-      devices: [],
-      emergency_notes: null,
-      public_disclosures: {
-        blood_group: true,
-        allergies: true,
-        medications: true,
-        conditions: true,
-        devices: true,
-        emergency_notes: true
-      },
-      profile_completion_pct: 25,
-      created_at: "2026-10-19T19:48:33.563Z",
-      updated_at: "2026-10-19T19:48:33.563Z"
+      profile_completion_pct: 30,
+      created_at: "2026-10-19T19:45:32.244Z",
+      updated_at: "2026-10-19T19:45:32.244Z"
     }
   ],
   emergency_contacts: [
@@ -30824,7 +30747,7 @@ var emp_local_data_default = {
       priority_order: 1,
       is_alert_recipient: true,
       is_verified: true,
-      created_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z"
     },
     {
       id: "contact-02",
@@ -30836,7 +30759,7 @@ var emp_local_data_default = {
       priority_order: 2,
       is_alert_recipient: true,
       is_verified: true,
-      created_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z"
     },
     {
       id: "contact-dep-01",
@@ -30848,10 +30771,10 @@ var emp_local_data_default = {
       priority_order: 1,
       is_alert_recipient: true,
       is_verified: true,
-      created_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z"
     },
     {
-      id: "331c5101-fe9c-4633-a940-b3b6d4b23edf",
+      id: "9ca2ac54-7e8a-4e86-ad42-05d611842b59",
       profile_id: "00000000-0000-0000-0000-000000000040",
       name: "Arun Verma",
       relationship: "Colleague / Mentor",
@@ -30860,11 +30783,11 @@ var emp_local_data_default = {
       priority_order: 3,
       is_alert_recipient: true,
       is_verified: false,
-      created_at: "2026-10-19T19:48:33.133Z"
+      created_at: "2026-10-19T17:03:15.221Z"
     },
     {
-      id: "55a8f9bf-fdb0-420a-9743-b5b8021d53ac",
-      profile_id: "dffeb491-bd11-4bed-b130-237d715322cf",
+      id: "bf3dd61c-f61f-42a5-b4a9-5c9eeacd0b85",
+      profile_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
       name: "Rahul Sharma",
       relationship: "Guardian / Parent",
       phone: "+91 98111 22233",
@@ -30872,7 +30795,7 @@ var emp_local_data_default = {
       priority_order: 1,
       is_alert_recipient: true,
       is_verified: false,
-      created_at: "2026-10-19T19:48:33.213Z"
+      created_at: "2026-10-19T17:03:15.281Z"
     }
   ],
   family_relationships: [
@@ -30884,7 +30807,7 @@ var emp_local_data_default = {
       invitation_status: "active",
       invite_email: null,
       invite_phone: null,
-      created_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z"
     },
     {
       id: "fam-rel-02",
@@ -30894,39 +30817,27 @@ var emp_local_data_default = {
       invitation_status: "pending_invite",
       invite_email: "ananya.sharma@example.com",
       invite_phone: "+91 98111 99900",
-      created_at: "2026-10-19T19:48:32.882Z"
+      created_at: "2026-10-19T17:03:14.999Z"
     },
     {
-      id: "127d938f-7247-40bf-9634-77657c6f8025",
+      id: "df1f5aa6-2fe4-4f78-9289-04b4a92e3535",
       sponsor_user_id: "00000000-0000-0000-0000-000000000030",
-      family_profile_id: "dffeb491-bd11-4bed-b130-237d715322cf",
+      family_profile_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
       relationship_type: "Daughter (Dependent Child)",
       invitation_status: "active",
       invite_email: null,
       invite_phone: null,
-      linked_user_id: null,
-      permissions: {
-        receive_alerts: true,
-        can_view_medical: false,
-        can_manage_qr: false
-      },
-      created_at: "2026-10-19T19:48:33.214Z"
+      created_at: "2026-10-19T17:03:15.282Z"
     },
     {
-      id: "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
-      sponsor_user_id: "a708f195-a171-40d0-8225-58a15da4c284",
-      family_profile_id: "ceed95df-1b7e-4b55-8403-dd2301d69fb8",
+      id: "2a551a83-0320-474b-bc99-b5575eb1a866",
+      sponsor_user_id: "00000000-0000-0000-0000-000000000030",
+      family_profile_id: "a7a1c9fb-fa9c-49b6-af53-83852ba5fc62",
       relationship_type: "Spouse",
-      invitation_status: "active",
-      invite_email: "sunita.mehta@example.com",
-      invite_phone: null,
-      linked_user_id: "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
-      permissions: {
-        receive_alerts: true,
-        can_view_medical: false,
-        can_manage_qr: true
-      },
-      created_at: "2026-10-19T19:48:33.480Z"
+      invitation_status: "pending_invite",
+      invite_email: "rfsfs@gmail.com",
+      invite_phone: "fsfs",
+      created_at: "2026-10-19T19:45:32.245Z"
     }
   ],
   qr_tokens: [
@@ -30937,9 +30848,9 @@ var emp_local_data_default = {
       token_hash: "7043d25c2b033652339e06a7116db7f33e5b537330b53143315a4df1b1953db9",
       status: "revoked",
       scan_count: 5,
-      created_at: "2026-10-19T19:48:32.882Z",
+      created_at: "2026-10-19T17:03:14.999Z",
       suspended_at: null,
-      revoked_at: "2026-10-19T19:48:33.196Z"
+      revoked_at: "2026-10-19T17:03:15.272Z"
     },
     {
       id: "qr-002",
@@ -30948,7 +30859,7 @@ var emp_local_data_default = {
       token_hash: "e66614782bbc2f01ae67122b2cee8cf3b61e7fa0417a65f603553a9daeb61be3",
       status: "active",
       scan_count: 0,
-      created_at: "2026-10-19T19:48:32.882Z",
+      created_at: "2026-10-19T17:03:14.999Z",
       suspended_at: null,
       revoked_at: null
     },
@@ -30959,771 +30870,1611 @@ var emp_local_data_default = {
       token_hash: "a55cbd82a1a9af0179df6daa550b56893ab81be1e38242e9715fb8fa087af369",
       status: "active",
       scan_count: 1,
-      created_at: "2026-10-19T19:48:32.882Z",
+      created_at: "2026-10-19T17:03:14.999Z",
       suspended_at: null,
       revoked_at: null
     },
     {
-      id: "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
+      id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
       profile_id: "00000000-0000-0000-0000-000000000040",
-      public_token: "EMP-DB7E4F02802A",
-      token_hash: "4c7837bac7f32212bb8b085117b4c014cf46dd9dcd534715e6c6c4b881df53f4",
+      public_token: "EMP-E624AB888E97",
+      token_hash: "821f245d49cbb063010d6b8fba1d6ebac20a1e455c2a1afbb6417e624288f2a7",
+      status: "active",
+      scan_count: 16,
+      created_at: "2026-10-19T17:03:15.272Z",
+      suspended_at: null,
+      revoked_at: null
+    },
+    {
+      id: "baaa0a71-bd1f-444b-8b8e-d406e96cf362",
+      profile_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
+      public_token: "EMP-75990CB34A55",
+      token_hash: "8c9bff4988f3049b6cc9cba6682c4f00534f3212eb1e367fd5f7822ebc80641b",
       status: "active",
       scan_count: 1,
-      created_at: "2026-10-19T19:48:33.196Z",
+      created_at: "2026-10-19T17:03:15.282Z",
       suspended_at: null,
       revoked_at: null
     },
     {
-      id: "eb10f7d4-6f57-4e01-b999-2d4f1a4dcbe7",
-      profile_id: "dffeb491-bd11-4bed-b130-237d715322cf",
-      public_token: "EMP-6ACDCB9AE2CA",
-      token_hash: "242c82768aee5d6531073240da21a3c74041c6fc4c281ed41047b3b33bac98fd",
-      status: "active",
-      scan_count: 1,
-      created_at: "2026-10-19T19:48:33.213Z",
-      suspended_at: null,
-      revoked_at: null
-    },
-    {
-      id: "0b8d3965-35d1-412a-9d68-6c0eb935d075",
-      profile_id: "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
-      public_token: "EMP-188A543B0E98",
-      token_hash: "c90c8fab263099cf4fa31a3b22c83d5038b8bb28cf4cd2532bed0bf96729987e",
-      status: "revoked",
-      scan_count: 1,
-      created_at: "2026-10-19T19:48:33.309Z",
-      suspended_at: null,
-      revoked_at: "2026-10-19T19:48:33.332Z"
-    },
-    {
-      id: "dce7c88b-a6fe-4b43-99bc-7c6e413a5655",
-      profile_id: "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
-      public_token: "EMP-9B58213FBA80",
-      token_hash: "6418b4ea7cc47c6d10c79eb07fe27786d6ac99dea8701e15f423fe9aac48e4b6",
+      id: "0c1be0a6-26d3-48c0-9b8e-a72c5e45d0f3",
+      profile_id: "a7a1c9fb-fa9c-49b6-af53-83852ba5fc62",
+      public_token: "EMP-3395FE08A28B",
+      token_hash: "a5f357f0b4a1e445e6e16de089fdf971530312c8b228129b5e67ecd843550a63",
       status: "active",
       scan_count: 0,
-      created_at: "2026-10-19T19:48:33.338Z",
-      suspended_at: null,
-      revoked_at: null
-    },
-    {
-      id: "86da949b-48ee-49eb-bf7b-3c608687a51a",
-      profile_id: "9e023562-f575-4927-a7f9-5299169e298e",
-      public_token: "EMP-5F3BCE178CAB",
-      token_hash: "9944daa40dcd4c0a288cefe5c54f39569cf89d4586b970700eea854d2d8bb96f",
-      status: "active",
-      scan_count: 0,
-      created_at: "2026-10-19T19:48:33.407Z",
-      suspended_at: null,
-      revoked_at: null
-    },
-    {
-      id: "2132160b-4057-448f-9735-791ab2dd59e1",
-      profile_id: "ceed95df-1b7e-4b55-8403-dd2301d69fb8",
-      public_token: "EMP-BAA8FB06966B",
-      token_hash: "c6305bbc3b1449c368f9018b5d7885f636c93568c6e28481974a3edee2cc27ce",
-      status: "active",
-      scan_count: 0,
-      created_at: "2026-10-19T19:48:33.473Z",
-      suspended_at: null,
-      revoked_at: null
-    },
-    {
-      id: "bf76ea49-bb95-4bb9-ac9e-b7a7216c97d8",
-      profile_id: "8f2d9f9c-d4f4-4762-826c-d87670cc314a",
-      public_token: "EMP-659744F62F90",
-      token_hash: "3dedbf6a74638f45f294292f99e51ed8a9d83de2920a07adf9f5e1e12d790d15",
-      status: "active",
-      scan_count: 0,
-      created_at: "2026-10-19T19:48:33.564Z",
+      created_at: "2026-10-19T19:45:32.245Z",
       suspended_at: null,
       revoked_at: null
     }
   ],
   emergency_incidents: [
     {
-      id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
       profile_id: "00000000-0000-0000-0000-000000000040",
       organization_id: "00000000-0000-0000-0000-000000000010",
-      qr_token_id: "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
-      incident_code: "INC-MVFO35WZ-5A5B",
+      qr_token_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      incident_code: "INC-MVFMIKX9-2D03",
       status: "triggered",
       location_lat: null,
       location_lng: null,
-      location_address: "CyberHub DLF Phase 2",
-      triggered_by_ip: "127.0.0.1",
-      triggered_at: "2026-10-19T19:48:33.587Z",
+      location_address: null,
+      triggered_by_ip: "::1",
+      triggered_at: "2026-10-19T19:04:33.645Z",
       acknowledged_by: null,
       acknowledged_at: null,
       resolution_notes: null
     },
     {
-      id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
+      id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      profile_id: "00000000-0000-0000-0000-000000000040",
+      organization_id: "00000000-0000-0000-0000-000000000010",
+      qr_token_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      incident_code: "INC-MVFKGOUU-1A78",
+      status: "triggered",
+      location_lat: null,
+      location_lng: null,
+      location_address: "GPS Verified Location",
+      triggered_by_ip: "::ffff:192.168.29.50",
+      triggered_at: "2026-10-19T18:07:06.198Z",
+      acknowledged_by: null,
+      acknowledged_at: null,
+      resolution_notes: null
+    },
+    {
+      id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      profile_id: "00000000-0000-0000-0000-000000000040",
+      organization_id: "00000000-0000-0000-0000-000000000010",
+      qr_token_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      incident_code: "INC-MVFI9BMH-436B",
+      status: "acknowledged",
+      location_lat: null,
+      location_lng: null,
+      location_address: null,
+      triggered_by_ip: "::1",
+      triggered_at: "2026-10-19T17:05:23.225Z",
+      acknowledged_by: "Anjali Verma (HR Lead) (company_admin)",
+      acknowledged_at: "2026-10-19T17:06:53.758Z",
+      resolution_notes: null
+    },
+    {
+      id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       profile_id: "00000000-0000-0000-0000-000000000040",
       organization_id: "00000000-0000-0000-0000-000000000010",
       qr_token_id: "qr-001",
-      incident_code: "INC-MVFO35KP-2607",
+      incident_code: "INC-MVFI6KV4-F8F3",
       status: "acknowledged",
       location_lat: 28.4986,
       location_lng: 77.0878,
       location_address: "DLF CyberCity Building 10, Gurugram, India",
       triggered_by_ip: "127.0.0.1",
-      triggered_at: "2026-10-19T19:48:33.145Z",
+      triggered_at: "2026-10-19T17:03:15.232Z",
       acknowledged_by: "Anjali Verma (HR Lead) (company_admin)",
-      acknowledged_at: "2026-10-19T19:48:33.233Z",
+      acknowledged_at: "2026-10-19T17:03:15.294Z",
       resolution_notes: null
     }
   ],
   notification_deliveries: [
     {
-      id: "92caac8a-9c85-46e7-abad-e9620ce53f14",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
+      id: "380fb3b7-6726-4cca-a908-e961dc91845e",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792439313159",
+      provider_ref: "INAPP-1792429395247",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.159Z"
+      created_at: "2026-10-19T17:03:15.247Z"
     },
     {
-      id: "87c19f43-f0c2-4f2b-a5c8-28d3198b57ad",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
+      id: "3baccb16-7480-4903-8350-976cf3ae1986",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792439313160",
+      provider_ref: "DEV-SMS-1792429395248",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.161Z"
+      created_at: "2026-10-19T17:03:15.248Z"
     },
     {
-      id: "23aac42a-21f3-4b42-8c15-6da2c1fca6db",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "email",
-      status: "delivered",
-      provider_ref: "DEV-EMAIL-1792439313161",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.161Z"
-    },
-    {
-      id: "127426c7-aaef-4c2f-8bff-180fcd937f39",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792439313162",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.162Z"
-    },
-    {
-      id: "e0ff5de0-07be-4504-b199-36e5bac49b76",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792439313162",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.162Z"
-    },
-    {
-      id: "f527b19d-bf4c-46ed-9aeb-b54af7f14c64",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792439313163",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.163Z"
-    },
-    {
-      id: "6b1d91d1-1704-4b10-a526-d59de2a9cc35",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "email",
-      status: "delivered",
-      provider_ref: "DEV-EMAIL-1792439313163",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.163Z"
-    },
-    {
-      id: "5b9a2346-3b32-4728-8779-f5b04c286e28",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792439313163",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.164Z"
-    },
-    {
-      id: "b22783e7-920b-4f47-9acf-ea1eb66f77c8",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Arun Verma",
-      recipient_phone: "+91 98111 44433",
-      recipient_email: null,
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792439313164",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.164Z"
-    },
-    {
-      id: "4a050b5e-0b55-4b03-bb09-a291fd86c3c1",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Arun Verma",
-      recipient_phone: "+91 98111 44433",
-      recipient_email: null,
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792439313164",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.164Z"
-    },
-    {
-      id: "8816c698-ecab-44f1-a9aa-ec62fde1888d",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "family_contact",
-      recipient_name: "Arun Verma",
-      recipient_phone: "+91 98111 44433",
-      recipient_email: null,
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792439313165",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.165Z"
-    },
-    {
-      id: "9f72b656-6e4a-4842-ace6-f92c7b4f6ffe",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "company_contact",
-      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
-      recipient_phone: "+91 98765 43210",
-      recipient_email: null,
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792439313165",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.165Z"
-    },
-    {
-      id: "acbefcef-a597-43f5-bf48-1059bdc87722",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "company_contact",
-      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
-      recipient_phone: "+91 98765 43210",
-      recipient_email: null,
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792439313166",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.166Z"
-    },
-    {
-      id: "4b1fd06a-cc6b-4b4b-9adc-af048ceb9d4d",
-      incident_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
-      recipient_type: "company_contact",
-      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
-      recipient_phone: "+91 98765 43210",
-      recipient_email: null,
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792439313166",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.166Z"
-    },
-    {
-      id: "fd7447a3-c95f-4d01-8e6f-e25f0b6bb494",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792439313587",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.587Z"
-    },
-    {
-      id: "49d2cb60-7053-4d19-90ca-aafa2dffb22c",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792439313587",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T19:48:33.588Z"
-    },
-    {
-      id: "02c4b1c1-a7ea-4adb-9443-279d43528989",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "aff3125e-9948-45b8-85bd-9877dc77b963",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "email",
       status: "delivered",
-      provider_ref: "DEV-EMAIL-1792439313588",
+      provider_ref: "DEV-EMAIL-1792429395249",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.588Z"
+      created_at: "2026-10-19T17:03:15.249Z"
     },
     {
-      id: "5ce7e071-512f-444a-94bb-518c1b006995",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "568dec9e-a000-4980-b888-306c8894e398",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792439313588",
+      provider_ref: "PUSH-1792429395249",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.588Z"
+      created_at: "2026-10-19T17:03:15.249Z"
     },
     {
-      id: "2a906ac2-07ad-4849-8a8d-8c86859f7a1c",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "741c8abb-9ae2-47aa-bf2e-4dc867151fe6",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792439313589",
+      provider_ref: "INAPP-1792429395250",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.589Z"
+      created_at: "2026-10-19T17:03:15.250Z"
     },
     {
-      id: "72e6a196-0070-4ff5-b39a-4b6466f3419c",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "627d815f-0afd-4e3c-a309-0f69e620cc4d",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792439313589",
+      provider_ref: "DEV-SMS-1792429395250",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.589Z"
+      created_at: "2026-10-19T17:03:15.250Z"
     },
     {
-      id: "42a3daad-e1d3-4e56-ba90-be6261fe6d6f",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "c4661612-0bdc-4157-aa67-53a179eb8665",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "email",
       status: "delivered",
-      provider_ref: "DEV-EMAIL-1792439313590",
+      provider_ref: "DEV-EMAIL-1792429395250",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.590Z"
+      created_at: "2026-10-19T17:03:15.250Z"
     },
     {
-      id: "0d51f1e9-9cdb-44a9-a91a-f1aeb8685645",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "ae60991a-4852-4c29-af01-0612771f5441",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792439313590",
+      provider_ref: "PUSH-1792429395251",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.590Z"
+      created_at: "2026-10-19T17:03:15.251Z"
     },
     {
-      id: "ed2f828a-8563-478b-b74b-b0546d486e73",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "1b61cb3f-2f99-4afb-8830-b9c5674145c1",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792439313591",
+      provider_ref: "INAPP-1792429395251",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.591Z"
+      created_at: "2026-10-19T17:03:15.251Z"
     },
     {
-      id: "5d47104b-ae1e-452e-add4-6b723a8821f5",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "85138aa7-e51f-4f10-b59d-c8e85896a785",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792439313591",
+      provider_ref: "DEV-SMS-1792429395251",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.591Z"
+      created_at: "2026-10-19T17:03:15.252Z"
     },
     {
-      id: "b6b174ec-ec14-44b5-8a87-fc1cefbd917f",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "6840c6a4-0a76-4e4e-b519-9f50c8b29cd7",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792439313592",
+      provider_ref: "PUSH-1792429395252",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.592Z"
+      created_at: "2026-10-19T17:03:15.252Z"
     },
     {
-      id: "9c439d3a-9a07-4f5d-8999-8ac3af46e314",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "f31d4c5a-b3ee-4105-baa0-7fc4cb402339",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792439313592",
+      provider_ref: "INAPP-1792429395252",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.592Z"
+      created_at: "2026-10-19T17:03:15.252Z"
     },
     {
-      id: "ae13af7c-ccc4-4ae8-aa1f-90c7f52f5f29",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "8f9a6caf-d178-4f87-852b-8f984f597184",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792439313593",
+      provider_ref: "DEV-SMS-1792429395252",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.593Z"
+      created_at: "2026-10-19T17:03:15.253Z"
     },
     {
-      id: "3f30d3ca-bd31-4328-bd04-6a2929e3900c",
-      incident_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
+      id: "5e387ab8-d029-4dc6-a152-c4b3d739f6ac",
+      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792439313593",
+      provider_ref: "PUSH-1792429395253",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T19:48:33.593Z"
+      created_at: "2026-10-19T17:03:15.253Z"
+    },
+    {
+      id: "5bc61a34-0964-481e-a701-241f05c9e641",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792429523247",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.247Z"
+    },
+    {
+      id: "94979d05-9e0a-45ac-95d9-d9e1e357cb31",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792429523249",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.249Z"
+    },
+    {
+      id: "58010923-3098-41b3-a6d4-ad059992365b",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "email",
+      status: "delivered",
+      provider_ref: "DEV-EMAIL-1792429523250",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.250Z"
+    },
+    {
+      id: "4e5c3d9a-3293-4dc1-8ef3-b4913b15b7a8",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792429523251",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.251Z"
+    },
+    {
+      id: "9cecb349-ef7c-4506-b7b4-66af0e161ba7",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792429523251",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.251Z"
+    },
+    {
+      id: "1668e21b-1378-4e6f-aca6-7fe2f7f5e707",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792429523252",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.252Z"
+    },
+    {
+      id: "63acadcf-1c0b-4dfa-bb91-880c620cd624",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "email",
+      status: "delivered",
+      provider_ref: "DEV-EMAIL-1792429523252",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.252Z"
+    },
+    {
+      id: "c0488ecd-f553-4044-a053-433930b54f57",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792429523253",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.253Z"
+    },
+    {
+      id: "5454a2b3-1857-4b9d-b5d5-0025447214a7",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792429523253",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.253Z"
+    },
+    {
+      id: "9fa5700d-3416-4b79-8cb8-5f132c9d5808",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792429523254",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.254Z"
+    },
+    {
+      id: "3402610b-4346-4a1d-9b01-4ae4ad4f17dc",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792429523254",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.254Z"
+    },
+    {
+      id: "42d158ac-c701-41ad-896c-ea426493756e",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792429523254",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.254Z"
+    },
+    {
+      id: "8b38f8c7-2fcb-4efc-8ec2-964495e89575",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792429523255",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.255Z"
+    },
+    {
+      id: "3e71e0ed-728e-49c6-8a31-103f5285239a",
+      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792429523255",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T17:05:23.255Z"
+    },
+    {
+      id: "f5a4f873-ca44-400d-8061-ef4ebf086dde",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792433226199",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.199Z"
+    },
+    {
+      id: "25e00eac-5565-4a6a-8b41-11e8475d7c3d",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792433226199",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.199Z"
+    },
+    {
+      id: "b04c58ee-3f08-45db-b6c5-5e1ccb84f88d",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "email",
+      status: "delivered",
+      provider_ref: "DEV-EMAIL-1792433226199",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.199Z"
+    },
+    {
+      id: "5a070e0c-3483-4ac5-a420-0e5d397c6f51",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792433226200",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.200Z"
+    },
+    {
+      id: "4da4dbff-b565-4638-8a1f-4ca958c9c389",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792433226200",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.200Z"
+    },
+    {
+      id: "6b4b1409-e8e8-4425-9a84-1c19ad6cacfe",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792433226201",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.201Z"
+    },
+    {
+      id: "4e1a7a9a-2367-4fba-888f-03372ca44a49",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "email",
+      status: "delivered",
+      provider_ref: "DEV-EMAIL-1792433226202",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.202Z"
+    },
+    {
+      id: "142d34fa-d356-4248-b599-dfc1cbc993fa",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792433226202",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.202Z"
+    },
+    {
+      id: "38939d01-89ae-4e4c-9222-cbf96fdadf68",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792433226202",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.202Z"
+    },
+    {
+      id: "5f2930ca-b586-46a8-bb21-bb965620729c",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792433226203",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.203Z"
+    },
+    {
+      id: "ebbf996f-5960-48db-8590-6929c3244c77",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792433226203",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.203Z"
+    },
+    {
+      id: "ddad71b7-726f-40b7-b783-d03e47ff2984",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792433226204",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.204Z"
+    },
+    {
+      id: "e19226a4-f268-4cdd-87b5-a5ab5e049b86",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792433226204",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.204Z"
+    },
+    {
+      id: "92e45cdc-0206-47e0-9410-1b2afd2004f2",
+      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792433226205",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T18:07:06.205Z"
+    },
+    {
+      id: "fd508297-8a42-4773-bae5-f9cd31bf8ac0",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792436673647",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.647Z"
+    },
+    {
+      id: "fbac95e9-c502-4a02-8fcb-036ae184cbe4",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792436673647",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.647Z"
+    },
+    {
+      id: "ae043594-2f4e-4eac-b68b-d9f10a531c99",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "email",
+      status: "delivered",
+      provider_ref: "DEV-EMAIL-1792436673648",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.648Z"
+    },
+    {
+      id: "cf5c1688-39d7-4983-9c21-4244a35ceeb3",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Pooja Sharma",
+      recipient_phone: "+91 98111 55566",
+      recipient_email: "pooja.sharma@example.com",
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792436673649",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.649Z"
+    },
+    {
+      id: "69cc0317-1f1c-4a62-9820-4c184e8257f1",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792436673649",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.649Z"
+    },
+    {
+      id: "e707f5e5-6d35-4bde-90a2-23a148fbb614",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792436673650",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.650Z"
+    },
+    {
+      id: "e756334b-3e50-4b86-b4c7-87d361ac379e",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "email",
+      status: "delivered",
+      provider_ref: "DEV-EMAIL-1792436673650",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.650Z"
+    },
+    {
+      id: "da4f472b-baad-4bb0-8f76-a52b1efda39a",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Dr. Ramesh Sharma",
+      recipient_phone: "+91 98111 77788",
+      recipient_email: "dr.sharma@example.com",
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792436673651",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.651Z"
+    },
+    {
+      id: "b227ae1c-98e5-45c6-b989-cc527a2aaa13",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792436673651",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.651Z"
+    },
+    {
+      id: "0edbaecb-61ef-4153-81ea-38a91b89e9a3",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792436673651",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.651Z"
+    },
+    {
+      id: "b9e0f025-b9af-45a9-80e2-b1c39e0f7a40",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "family_contact",
+      recipient_name: "Arun Verma",
+      recipient_phone: "+91 98111 44433",
+      recipient_email: null,
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792436673652",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.652Z"
+    },
+    {
+      id: "931d5769-db15-4ca8-ac03-9179ed080180",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "in_app",
+      status: "delivered",
+      provider_ref: "INAPP-1792436673652",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.652Z"
+    },
+    {
+      id: "4f3ab6c4-df89-4017-adb5-5fe1752ce910",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "sms",
+      status: "delivered",
+      provider_ref: "DEV-SMS-1792436673653",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.653Z"
+    },
+    {
+      id: "e002ede6-e978-42e5-9151-245f10f3771c",
+      incident_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      recipient_type: "company_contact",
+      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
+      recipient_phone: "+91 98765 43210",
+      recipient_email: null,
+      channel: "push",
+      status: "delivered",
+      provider_ref: "PUSH-1792436673653",
+      failure_reason: null,
+      retry_count: 0,
+      created_at: "2026-10-19T19:04:33.653Z"
     }
   ],
   consent_records: [],
   audit_logs: [
     {
-      id: "61b91c56-8abb-4a0f-9c9d-6dd44a727feb",
-      actor_user_id: null,
-      action: "EMERGENCY_ALERT_TRIGGERED",
-      entity_type: "emergency_incident",
-      entity_id: "f8bcaf38-44d7-4ebc-9f99-d1071eb17972",
-      metadata: {
-        incidentCode: "INC-MVFO35WZ-5A5B",
-        totalRecipients: 4,
-        ip: "127.0.0.1"
-      },
-      ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.594Z"
-    },
-    {
-      id: "2f481e0d-f6b8-4a9e-9899-ef24740a8515",
-      actor_user_id: "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
-      action: "ORGANIZATION_LEFT",
+      id: "e9b567a5-4ce0-418e-a49c-982b7739095c",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
       entity_type: "user",
-      entity_id: "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
-      metadata: {},
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.577Z"
-    },
-    {
-      id: "d15380f9-35a0-484c-a202-adfab433f124",
-      actor_user_id: "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
-      action: "ORGANIZATION_JOINED",
-      entity_type: "organization_membership",
-      entity_id: "bae1c93c-a826-418d-8257-84bfa171faab",
+      entity_id: "00000000-0000-0000-0000-000000000030",
       metadata: {
-        organization_name: "Apex Global Technologies",
-        employee_id_number: "APEX-EXT-9988"
+        ip: "::1"
       },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.572Z"
+      ip_address: "::1",
+      created_at: "2026-10-19T19:51:13.520Z"
     },
     {
-      id: "b7971ea6-7aef-499e-82c0-cd794c982b54",
-      actor_user_id: "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
-      action: "USER_REGISTERED",
+      id: "73ecf036-20ee-4b72-aed0-ea34a211464c",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
       entity_type: "user",
-      entity_id: "5bc2ab9e-03d1-4279-9e28-8c5cc10bc564",
+      entity_id: "00000000-0000-0000-0000-000000000020",
       metadata: {
-        role: "individual"
+        ip: "::1"
       },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.565Z"
+      ip_address: "::1",
+      created_at: "2026-10-19T19:50:48.356Z"
     },
     {
-      id: "da7df30d-a3d8-4d21-a6df-1d652fc4948e",
-      actor_user_id: "a708f195-a171-40d0-8225-58a15da4c284",
-      action: "FAMILY_PERMISSIONS_UPDATED",
+      id: "028d8a78-6539-4a05-835b-0e5409cdc361",
+      actor_user_id: "00000000-0000-0000-0000-000000000001",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000001",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:50:44.600Z"
+    },
+    {
+      id: "743c25f4-c1b0-40d8-a9a6-c1f3e9cb79b0",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:50:15.161Z"
+    },
+    {
+      id: "a888b2aa-6f46-4fda-a77c-80b84f4609b1",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:47:51.283Z"
+    },
+    {
+      id: "0a2fb18b-c2bc-4142-aff2-9aa126b0d21f",
+      actor_user_id: "00000000-0000-0000-0000-000000000001",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000001",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:47:07.768Z"
+    },
+    {
+      id: "5f15b735-1a1b-4f03-9155-3e1b4979c85e",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:46:24.664Z"
+    },
+    {
+      id: "fcdce1dd-ff56-4bd4-ae54-bdbd9cb4f032",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "FAMILY_MEMBER_INVITED",
       entity_type: "family_relationship",
-      entity_id: "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
+      entity_id: "2a551a83-0320-474b-bc99-b5575eb1a866",
       metadata: {
-        permissions: {
-          receive_alerts: true,
-          can_view_medical: false,
-          can_manage_qr: true
-        }
+        invite_email: "rfsfs@gmail.com",
+        invite_phone: "fsfs"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.502Z"
+      created_at: "2026-10-19T19:45:32.246Z"
     },
     {
-      id: "443e0ed6-129a-49e4-99c3-52e066ffc0da",
-      actor_user_id: "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
-      action: "FAMILY_LINK_ACCEPTED",
-      entity_type: "family_relationship",
-      entity_id: "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
-      metadata: {},
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.491Z"
-    },
-    {
-      id: "2cbc0c54-98e8-46cb-840b-22fbb4a78561",
-      actor_user_id: "a708f195-a171-40d0-8225-58a15da4c284",
-      action: "FAMILY_LINK_REQUESTED",
-      entity_type: "family_relationship",
-      entity_id: "81e411a1-8dc4-44a4-8c0c-1357860ab9d7",
-      metadata: {
-        target_email: "sunita.mehta@example.com",
-        relationship_type: "Spouse"
-      },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.481Z"
-    },
-    {
-      id: "ff0e4e7f-c9e2-420a-b176-18786fe11fc5",
-      actor_user_id: "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
-      action: "USER_REGISTERED",
-      entity_type: "user",
-      entity_id: "cb94c4e8-8a7f-4b35-bc4e-9229d1ecff42",
-      metadata: {
-        role: "individual"
-      },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.475Z"
-    },
-    {
-      id: "6b637fb8-ac68-4253-9b29-e78dbbf51ae0",
-      actor_user_id: "a708f195-a171-40d0-8225-58a15da4c284",
-      action: "USER_REGISTERED",
-      entity_type: "user",
-      entity_id: "a708f195-a171-40d0-8225-58a15da4c284",
-      metadata: {
-        role: "individual"
-      },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.409Z"
-    },
-    {
-      id: "7140e5fb-5ed6-488e-8a43-ca2a3f792415",
-      actor_user_id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
-      action: "QR_GENERATED",
-      entity_type: "qr_token",
-      entity_id: "dce7c88b-a6fe-4b43-99bc-7c6e413a5655",
-      metadata: {
-        profile_id: "cdf187d4-b4e9-4a8c-91b6-4cab7a8d2f42",
-        public_token: "EMP-9B58213FBA80"
-      },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.338Z"
-    },
-    {
-      id: "5bd1443c-1e0e-4def-bd43-6f316e7932a2",
-      actor_user_id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
-      action: "QR_REVOKED",
-      entity_type: "qr_token",
-      entity_id: "0b8d3965-35d1-412a-9d68-6c0eb935d075",
-      metadata: {
-        public_token: "EMP-188A543B0E98"
-      },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.332Z"
-    },
-    {
-      id: "cb91e82e-f0ab-4520-9a3e-975ba53562e1",
-      actor_user_id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
+      id: "39b82cbe-011f-48c8-80a0-597e8beb364c",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_REACTIVATED",
       entity_type: "qr_token",
-      entity_id: "0b8d3965-35d1-412a-9d68-6c0eb935d075",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
       metadata: {
-        public_token: "EMP-188A543B0E98"
+        public_token: "EMP-E624AB888E97"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.327Z"
+      created_at: "2026-10-19T19:43:22.620Z"
     },
     {
-      id: "f7075533-7c01-4c66-b9f2-04aa04363cb1",
-      actor_user_id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
+      id: "87b223e2-d3c4-463f-a169-f4e09bf5713d",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_SUSPENDED",
       entity_type: "qr_token",
-      entity_id: "0b8d3965-35d1-412a-9d68-6c0eb935d075",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
       metadata: {
-        public_token: "EMP-188A543B0E98"
+        public_token: "EMP-E624AB888E97"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.321Z"
+      created_at: "2026-10-19T19:43:16.356Z"
     },
     {
-      id: "24048d15-eec3-4504-ae6d-4492d607585e",
+      id: "3dde82af-a212-4cbf-9922-1457a874be00",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:42:33.240Z"
+    },
+    {
+      id: "f9e857a9-5237-4939-9e92-e3dbf6d4c36d",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
-      entity_id: "0b8d3965-35d1-412a-9d68-6c0eb935d075",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
       metadata: {
-        public_token: "EMP-188A543B0E98",
-        ip: "127.0.0.1"
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
       },
-      ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.317Z"
+      ip_address: "::1",
+      created_at: "2026-10-19T19:13:23.012Z"
     },
     {
-      id: "5d048d63-ea19-446d-80d7-401fee527476",
-      actor_user_id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
-      action: "USER_REGISTERED",
+      id: "1404f6da-75ea-4f58-a6e2-6b099239d7ba",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:13:23.005Z"
+    },
+    {
+      id: "ecc2bcf7-8a8c-4102-87c9-d5d3404552a9",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:10:46.859Z"
+    },
+    {
+      id: "f1a513cd-b76e-4992-9112-06f11986a6e8",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:10:46.852Z"
+    },
+    {
+      id: "cc8f74d4-a0e7-427b-a06f-bf067a06b61b",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
       entity_type: "user",
-      entity_id: "88ebc509-bc94-4200-a230-61b4844b8ef8",
+      entity_id: "00000000-0000-0000-0000-000000000020",
       metadata: {
-        role: "individual"
+        ip: "::1"
       },
-      ip_address: null,
-      created_at: "2026-10-19T19:48:33.310Z"
+      ip_address: "::1",
+      created_at: "2026-10-19T19:07:31.891Z"
     },
     {
-      id: "6670f43f-ac04-4939-a439-ea2529b15eeb",
+      id: "a5e73a0d-08f6-43e4-864d-33b924e7b5db",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:04:37.577Z"
+    },
+    {
+      id: "a3bca973-bce9-4132-ab52-078713abf67f",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:04:37.569Z"
+    },
+    {
+      id: "7d28212f-c56c-4428-8f89-9258a9f1e7de",
+      actor_user_id: null,
+      action: "EMERGENCY_ALERT_TRIGGERED",
+      entity_type: "emergency_incident",
+      entity_id: "ec01b95b-c0f3-4df0-a8f7-d97b801859a1",
+      metadata: {
+        incidentCode: "INC-MVFMIKX9-2D03",
+        totalRecipients: 4,
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:04:33.654Z"
+    },
+    {
+      id: "21cdad2a-c96f-48f3-baa3-49d3fca2393a",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:04:31.686Z"
+    },
+    {
+      id: "88c043de-f805-4485-8951-f290fafbfe14",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T19:04:31.681Z"
+    },
+    {
+      id: "409ffd3b-de39-4d50-a41e-9eb2bf5672d0",
+      actor_user_id: null,
+      action: "EMERGENCY_ALERT_TRIGGERED",
+      entity_type: "emergency_incident",
+      entity_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      metadata: {
+        incidentCode: "INC-MVFKGOUU-1A78",
+        totalRecipients: 4,
+        ip: "::ffff:192.168.29.50"
+      },
+      ip_address: "::ffff:192.168.29.50",
+      created_at: "2026-10-19T18:07:06.205Z"
+    },
+    {
+      id: "be36003e-2271-44ac-9e06-9b5e1206d4fc",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::ffff:192.168.29.50"
+      },
+      ip_address: "::ffff:192.168.29.50",
+      created_at: "2026-10-19T18:07:05.077Z"
+    },
+    {
+      id: "3d40116d-547e-4263-8a24-f9ff8199be96",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:55:39.335Z"
+    },
+    {
+      id: "07ddcbb3-1775-4350-87ef-3e4245602c4a",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:55:39.330Z"
+    },
+    {
+      id: "28318b80-b47a-4815-8593-3949ee0a80a8",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::ffff:192.168.29.50"
+      },
+      ip_address: "::ffff:192.168.29.50",
+      created_at: "2026-10-19T17:51:21.225Z"
+    },
+    {
+      id: "e4208cfc-a694-4ddd-ad71-40983f8662b3",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::ffff:192.168.29.50"
+      },
+      ip_address: "::ffff:192.168.29.50",
+      created_at: "2026-10-19T17:51:02.678Z"
+    },
+    {
+      id: "35197b7e-a95b-4b78-835b-1d1fded3a755",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::ffff:192.168.29.50"
+      },
+      ip_address: "::ffff:192.168.29.50",
+      created_at: "2026-10-19T17:47:04.284Z"
+    },
+    {
+      id: "bbf8bcbc-1f07-4e1f-8ddf-85850325a7db",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:20:07.953Z"
+    },
+    {
+      id: "722c5baf-a14f-447a-9b9f-1396fcbff9ff",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:19:53.759Z"
+    },
+    {
+      id: "eb144600-13ac-4cbd-a7f4-85668a95b60e",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:19:52.358Z"
+    },
+    {
+      id: "fdc27e88-8311-4ff0-a58f-61d3ec8a70fe",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:19:50.112Z"
+    },
+    {
+      id: "6e6d52e2-246b-4ab1-9687-b43e54ee90fa",
+      actor_user_id: "00000000-0000-0000-0000-000000000001",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000001",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:19:25.713Z"
+    },
+    {
+      id: "3ba11e1d-16de-4555-978b-0c70d896be3c",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:19:20.982Z"
+    },
+    {
+      id: "9aa2afab-1d61-4b50-81a9-42f0e7a7a387",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:19:06.603Z"
+    },
+    {
+      id: "a6442272-3587-434e-9cad-5e9bc2498c80",
+      actor_user_id: "00000000-0000-0000-0000-000000000001",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000001",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:18:58.184Z"
+    },
+    {
+      id: "ce42d3e7-9063-48e0-b78e-806e8f8e0c58",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:18:56.616Z"
+    },
+    {
+      id: "878d012a-9f6c-49ee-82af-490c617ab85f",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:18:52.575Z"
+    },
+    {
+      id: "38a748b3-edd0-45c3-9521-fea45f351a9d",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:18:52.568Z"
+    },
+    {
+      id: "364ca30a-c017-4492-a11c-78f8aaeaac8d",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:16:54.460Z"
+    },
+    {
+      id: "fcb58e84-1339-4af3-b072-d737e67cab9c",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:13:10.635Z"
+    },
+    {
+      id: "24e1d010-6fe9-47be-9f84-45e41a335bb7",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:12:51.128Z"
+    },
+    {
+      id: "91db9133-e26c-4013-aab5-52837e53c760",
+      actor_user_id: "00000000-0000-0000-0000-000000000001",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000001",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:12:32.685Z"
+    },
+    {
+      id: "d195e925-f81f-4628-ae14-b26faa1a9773",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:12:22.208Z"
+    },
+    {
+      id: "5d35c911-0f97-4032-8662-d389b12210f9",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:12:20.722Z"
+    },
+    {
+      id: "19684afb-a385-4417-8e50-7c88e8723f3d",
+      actor_user_id: "00000000-0000-0000-0000-000000000001",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000001",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:12:19.674Z"
+    },
+    {
+      id: "2b9616d7-ec35-4b68-b5d6-49cd702cb972",
       actor_user_id: "00000000-0000-0000-0000-000000000020",
       action: "INCIDENT_ACKNOWLEDGED",
       entity_type: "emergency_incident",
-      entity_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
+      entity_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
       metadata: {
         responder: "Anjali Verma (HR Lead) (company_admin)"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.233Z"
+      created_at: "2026-10-19T17:06:53.758Z"
     },
     {
-      id: "0b03e8c3-15f3-45df-af2e-17d079bb5724",
+      id: "a2a88e91-5e58-4110-b8b0-1ba3f44a7b7a",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000020",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:06:08.718Z"
+    },
+    {
+      id: "9c02bbb5-cf02-46be-ae73-3d4ba5cac4a7",
+      actor_user_id: null,
+      action: "EMERGENCY_ALERT_TRIGGERED",
+      entity_type: "emergency_incident",
+      entity_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      metadata: {
+        incidentCode: "INC-MVFI9BMH-436B",
+        totalRecipients: 4,
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:05:23.256Z"
+    },
+    {
+      id: "9b1e0273-ab27-49f7-b4e3-08ccbb08cce8",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
-      entity_id: "eb10f7d4-6f57-4e01-b999-2d4f1a4dcbe7",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
       metadata: {
-        public_token: "EMP-6ACDCB9AE2CA",
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:05:04.266Z"
+    },
+    {
+      id: "511b41a5-da43-4c75-b557-bf30b5867c9c",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      metadata: {
+        public_token: "EMP-E624AB888E97",
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:05:04.258Z"
+    },
+    {
+      id: "6e7628a3-d2f8-4bcf-8c7c-ae3583278200",
+      actor_user_id: "00000000-0000-0000-0000-000000000030",
+      action: "USER_LOGIN",
+      entity_type: "user",
+      entity_id: "00000000-0000-0000-0000-000000000030",
+      metadata: {
+        ip: "::1"
+      },
+      ip_address: "::1",
+      created_at: "2026-10-19T17:04:57.002Z"
+    },
+    {
+      id: "9041c0e5-fa18-40eb-9c1c-9b9cc3c5e6cf",
+      actor_user_id: "00000000-0000-0000-0000-000000000020",
+      action: "INCIDENT_ACKNOWLEDGED",
+      entity_type: "emergency_incident",
+      entity_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
+      metadata: {
+        responder: "Anjali Verma (HR Lead) (company_admin)"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T17:03:15.295Z"
+    },
+    {
+      id: "12e3d6cb-aed2-40a0-be2b-610f27136355",
+      actor_user_id: null,
+      action: "QR_SCANNED",
+      entity_type: "qr_token",
+      entity_id: "baaa0a71-bd1f-444b-8b8e-d406e96cf362",
+      metadata: {
+        public_token: "EMP-75990CB34A55",
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.218Z"
+      created_at: "2026-10-19T17:03:15.286Z"
     },
     {
-      id: "2730ef15-232b-43d5-a802-f6cf9ae16852",
+      id: "e3a7781a-2c2b-4f26-9a3a-0074cfedcc89",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "DEPENDENT_PROFILE_CREATED",
       entity_type: "medical_profile",
-      entity_id: "dffeb491-bd11-4bed-b130-237d715322cf",
+      entity_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
       metadata: {
         full_name: "Anvi Sharma",
         relationship_type: "Daughter (Dependent Child)",
-        qr_token: "EMP-6ACDCB9AE2CA"
+        qr_token: "EMP-75990CB34A55"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.214Z"
+      created_at: "2026-10-19T17:03:15.282Z"
     },
     {
-      id: "ce4285a5-a48f-4c29-9ff5-11e74f8e7abf",
+      id: "6c3e801a-7be9-4d81-9811-1823738a1b6a",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
-      entity_id: "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
       metadata: {
-        public_token: "EMP-DB7E4F02802A",
+        public_token: "EMP-E624AB888E97",
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.207Z"
+      created_at: "2026-10-19T17:03:15.277Z"
     },
     {
-      id: "2aa71ff2-ab34-475a-9654-00b0c6ba4869",
+      id: "bb307e8a-5bca-4f79-b02b-66c72238eef4",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_REGENERATED",
       entity_type: "qr_token",
-      entity_id: "39eaade1-0902-4c13-b51f-70b6ae5a9eb9",
+      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
       metadata: {
         profile_id: "00000000-0000-0000-0000-000000000040",
-        new_public_token: "EMP-DB7E4F02802A"
+        new_public_token: "EMP-E624AB888E97"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.197Z"
+      created_at: "2026-10-19T17:03:15.272Z"
     },
     {
-      id: "cf48c3c8-178c-4643-a934-d326b498f820",
+      id: "7bc62ad4-e240-41ed-a912-c344c0657de9",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
@@ -31733,10 +32484,10 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.190Z"
+      created_at: "2026-10-19T17:03:15.269Z"
     },
     {
-      id: "07f2e94b-9aac-423e-8c72-d35e12a89584",
+      id: "27558f05-4ad9-45b0-8492-15fd0442ebc6",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_REACTIVATED",
       entity_type: "qr_token",
@@ -31745,10 +32496,10 @@ var emp_local_data_default = {
         public_token: "EMP-RAHUL-789X"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.187Z"
+      created_at: "2026-10-19T17:03:15.266Z"
     },
     {
-      id: "5c95e8ad-0716-4e84-a7bd-857e2cd21aad",
+      id: "cec727a4-f507-4268-9e41-dde4ebf07874",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_SUSPENDED",
       entity_type: "qr_token",
@@ -31757,24 +32508,24 @@ var emp_local_data_default = {
         public_token: "EMP-RAHUL-789X"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.176Z"
+      created_at: "2026-10-19T17:03:15.259Z"
     },
     {
-      id: "688d9c37-7db8-48b8-b21b-9279c42d619e",
+      id: "fc4dce58-7ca6-4493-805f-39367823e21c",
       actor_user_id: null,
       action: "EMERGENCY_ALERT_TRIGGERED",
       entity_type: "emergency_incident",
-      entity_id: "fea68a57-82e4-4d1d-884d-1dcee6438db4",
+      entity_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
       metadata: {
-        incidentCode: "INC-MVFO35KP-2607",
+        incidentCode: "INC-MVFI6KV4-F8F3",
         totalRecipients: 4,
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.167Z"
+      created_at: "2026-10-19T17:03:15.253Z"
     },
     {
-      id: "0529fa1e-87e6-4616-b396-1b758cc6aac2",
+      id: "31cc07cf-bf56-45df-b3e8-a61e513580ff",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
@@ -31784,22 +32535,22 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.140Z"
+      created_at: "2026-10-19T17:03:15.226Z"
     },
     {
-      id: "74be79e4-34e4-4495-8802-ca6a1a8e5acc",
+      id: "20bde645-3a8d-499b-8c8e-80b4ab77c5bb",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "CONTACT_ADDED",
       entity_type: "emergency_contact",
-      entity_id: "331c5101-fe9c-4633-a940-b3b6d4b23edf",
+      entity_id: "9ca2ac54-7e8a-4e86-ad42-05d611842b59",
       metadata: {
         name: "Arun Verma"
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.134Z"
+      created_at: "2026-10-19T17:03:15.222Z"
     },
     {
-      id: "c6f14a60-3bfa-41b9-903e-36d8f8d5c53d",
+      id: "ae56117a-a0c1-456b-9638-6e1266d5a477",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "PROFILE_UPDATED",
       entity_type: "medical_profile",
@@ -31811,10 +32562,10 @@ var emp_local_data_default = {
         ]
       },
       ip_address: null,
-      created_at: "2026-10-19T19:48:33.127Z"
+      created_at: "2026-10-19T17:03:15.218Z"
     },
     {
-      id: "9aa1c0be-0f9a-475e-b949-8b5e73f6ecd7",
+      id: "744f9d5b-8771-4725-a36e-6411d8bcc72e",
       actor_user_id: "00000000-0000-0000-0000-000000000001",
       action: "USER_LOGIN",
       entity_type: "user",
@@ -31823,10 +32574,10 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.114Z"
+      created_at: "2026-10-19T17:03:15.206Z"
     },
     {
-      id: "8f37e117-20a8-4dcf-8708-3ebba088edf5",
+      id: "53159b5b-9397-46fb-ac35-908a50a36b2c",
       actor_user_id: "00000000-0000-0000-0000-000000000020",
       action: "USER_LOGIN",
       entity_type: "user",
@@ -31835,10 +32586,10 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:33.047Z"
+      created_at: "2026-10-19T17:03:15.148Z"
     },
     {
-      id: "2fd19fc8-dd95-40b4-8ffd-4e5ac3e4e10f",
+      id: "6b74bd71-6603-4a71-ad7a-086cef95f815",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "USER_LOGIN",
       entity_type: "user",
@@ -31847,7 +32598,7 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T19:48:32.979Z"
+      created_at: "2026-10-19T17:03:15.084Z"
     }
   ],
   subscriptions: [
@@ -31857,8 +32608,8 @@ var emp_local_data_default = {
       plan_tier: "enterprise",
       max_seats: 500,
       status: "active",
-      renews_at: "2027-10-19T19:48:32.882Z",
-      created_at: "2026-10-19T19:48:32.882Z"
+      renews_at: "2027-10-19T17:03:14.999Z",
+      created_at: "2026-10-19T17:03:14.999Z"
     }
   ]
 };

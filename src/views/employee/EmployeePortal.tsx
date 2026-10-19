@@ -21,6 +21,7 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
   const [profile, setProfile] = useState<MedicalProfile | null>(null);
   const [contacts, setContacts] = useState<EmergencyContact[]>([]);
   const [qrToken, setQrToken] = useState<QRTokenData | null>(null);
+  const [pendingFamilyCount, setPendingFamilyCount] = useState<number>(0);
 
   useEffect(() => {
     fetchProfileData();
@@ -29,10 +30,14 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
   const fetchProfileData = async () => {
     setLoading(true);
     try {
-      const data = await api.get('/profiles/me');
+      const [data, reqData] = await Promise.all([
+        api.get('/profiles/me'),
+        api.get('/family/requests/pending').catch(() => ({ pending_requests: [] }))
+      ]);
       setProfile(data.profile);
       setContacts(data.contacts || []);
       setQrToken(data.qr_token || null);
+      setPendingFamilyCount(reqData.pending_requests?.length || 0);
     } catch (err) {
       console.error('Failed to load profile:', err);
     } finally {
@@ -110,6 +115,19 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
         >
           <Heart size={16} />
           <span>Family Hub</span>
+          {pendingFamilyCount > 0 && (
+            <span style={{
+              background: '#F59E0B',
+              color: '#FFFFFF',
+              fontSize: '0.6875rem',
+              fontWeight: 800,
+              padding: '1px 6px',
+              borderRadius: '999px',
+              marginLeft: '4px'
+            }}>
+              {pendingFamilyCount}
+            </span>
+          )}
         </button>
 
         <button
@@ -221,8 +239,17 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
                   <Heart size={20} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: '1rem' }}>Family Linking Hub</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Independent Accounts & Linking</div>
+                  <div style={{ fontWeight: 800, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span>Family Linking Hub</span>
+                    {pendingFamilyCount > 0 && (
+                      <span style={{ background: '#FEF3C7', color: '#B45309', fontSize: '0.6875rem', padding: '2px 6px', borderRadius: '4px', fontWeight: 800 }}>
+                        {pendingFamilyCount} PENDING
+                      </span>
+                    )}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: pendingFamilyCount > 0 ? '#B45309' : 'var(--text-muted)' }}>
+                    {pendingFamilyCount > 0 ? `${pendingFamilyCount} incoming link request awaiting approval` : 'Independent Accounts & Linking'}
+                  </div>
                 </div>
               </div>
             </div>

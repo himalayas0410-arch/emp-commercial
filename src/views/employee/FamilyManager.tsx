@@ -291,6 +291,11 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                       {member.is_dependent ? 'Dependent Profile' : 'Independent Account'}
                     </span>
                     <StatusBadge status={member.invitation_status === 'active' ? 'active' : 'pending'} size="sm" />
+                    {member.invitation_status !== 'active' && (
+                      <span style={{ fontSize: '0.75rem', color: '#B45309', background: '#FEF3C7', padding: '2px 8px', borderRadius: '4px', fontWeight: 600 }}>
+                        {member.invitation_status === 'pending_approval' ? '⏳ Awaiting their authorization' : '✉️ Invitation sent (Pending sign-up)'}
+                      </span>
+                    )}
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '4px', fontSize: '0.8125rem', color: 'var(--text-secondary)', flexWrap: 'wrap' }}>
