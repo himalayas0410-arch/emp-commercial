@@ -11,14 +11,26 @@ function getHeaders() {
   return headers;
 }
 
+async function handleResponse(res: Response) {
+  const text = await res.text();
+  let data: any;
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error(text || `Request failed with HTTP status ${res.status}`);
+  }
+  if (!res.ok) {
+    throw new Error(data.error || data.message || `Request failed with status ${res.status}`);
+  }
+  return data;
+}
+
 export const api = {
   async get(endpoint: string) {
     const res = await fetch(`${API_BASE}${endpoint}`, {
       headers: getHeaders(),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Request failed');
-    return data;
+    return handleResponse(res);
   },
 
   async post(endpoint: string, body?: any) {
@@ -27,9 +39,7 @@ export const api = {
       headers: getHeaders(),
       body: body ? JSON.stringify(body) : undefined,
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Request failed');
-    return data;
+    return handleResponse(res);
   },
 
   async put(endpoint: string, body?: any) {
@@ -38,9 +48,7 @@ export const api = {
       headers: getHeaders(),
       body: body ? JSON.stringify(body) : undefined,
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Request failed');
-    return data;
+    return handleResponse(res);
   },
 
   async delete(endpoint: string) {
@@ -48,8 +56,7 @@ export const api = {
       method: 'DELETE',
       headers: getHeaders(),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Request failed');
-    return data;
+    return handleResponse(res);
   },
 };
+
