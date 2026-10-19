@@ -1,7 +1,16 @@
 import { app } from '../server/index';
 import { initSeedData } from '../server/db/repository';
 
-// Initialize baseline in-memory database on cold start
-initSeedData().catch(console.error);
+let initialized = false;
 
-export default app;
+export default async function handler(req: any, res: any) {
+  if (!initialized) {
+    try {
+      await initSeedData();
+    } catch (e) {
+      console.error('[Vercel Seed Init Error]', e);
+    }
+    initialized = true;
+  }
+  return app(req, res);
+}
