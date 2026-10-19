@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import fs from 'fs';
 import path from 'path';
 import { supabase } from './supabase';
+import initialData from '../../emp_local_data.json';
 
 const READ_DATA_FILE = path.join(process.cwd(), 'emp_local_data.json');
 const WRITE_DATA_FILE = process.env.VERCEL
@@ -25,7 +26,7 @@ interface StoreData {
   subscriptions: any[];
 }
 
-let store: StoreData = {
+let store: StoreData = (initialData as any) || {
   organizations: [],
   users: [],
   organization_memberships: [],
