@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "EMP Emergency",
+    "slug": "emp-emergency",
+    "version": "1.0.0",
+    "owner": "tech_himanshu",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.techhimanshu.empemergency"
+    },
+    "android": {
+      "package": "com.techhimanshu.empemergency",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "312d69af-f886-4ab4-888f-243ed25b6de8"
+      }
+    }
+  }
+}

@@ -1,0 +1,834 @@
+/* ==========================================================================
+   EMP Commercial — Emergency Medical Portal Design System
+   Modern HealthTech Design System: Deep Navy, Clinical Teal, Emergency Red
+   ========================================================================== */
+
+:root {
+  /* Brand Palettes */
+  --navy-950: #090D16;
+  --navy-900: #0F172A;
+  --navy-800: #1E293B;
+  --navy-700: #334155;
+  --navy-600: #475569;
+  --navy-500: #64748B;
+  --navy-400: #94A3B8;
+  --navy-300: #CBD5E1;
+  --navy-200: #E2E8F0;
+  --navy-100: #F1F5F9;
+  --navy-50:  #F8FAFC;
+
+  /* Clinical Teal Accent */
+  --teal-900: #134E4A;
+  --teal-800: #115E59;
+  --teal-700: #0F766E;
+  --teal-600: #0D9488;
+  --teal-500: #14B8A6;
+  --teal-400: #2DD4BF;
+  --teal-100: #CCFBF1;
+  --teal-50:  #F0FDFA;
+
+  /* Emergency Critical Red */
+  --red-900:  #7F1D1D;
+  --red-800:  #991B1B;
+  --red-700:  #B91C1C;
+  --red-600:  #DC2626;
+  --red-500:  #EF4444;
+  --red-400:  #F87171;
+  --red-100:  #FEE2E2;
+  --red-50:   #FEF2F2;
+
+  /* Warning Amber */
+  --amber-700: #B45309;
+  --amber-600: #D97706;
+  --amber-500: #F59E0B;
+  --amber-100: #FEF3C7;
+  --amber-50:  #FFFBEB;
+
+  /* Success Emerald */
+  --emerald-700: #047857;
+  --emerald-600: #059669;
+  --emerald-500: #10B981;
+  --emerald-100: #D1FAE5;
+  --emerald-50:  #ECFDF5;
+
+  /* Theme Defaults (Light Mode with Deep Navy Accents) */
+  --bg-primary: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-subtle: #F1F5F9;
+  --border-color: #E2E8F0;
+  --border-strong: #CBD5E1;
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+
+  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.1), 0 1px 2px -1px rgba(15, 23, 42, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #090D16;
+  --bg-surface: #0F172A;
+  --bg-elevated: #1E293B;
+  --bg-subtle: #162032;
+  --border-color: #334155;
+  --border-strong: #475569;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-inverse: #0F172A;
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 6px 12px 0 rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 24px 0 rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 24px 38px 0 rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   Base Styles & Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Layout Containers & Grid
+   ========================================================================== */
+.emp-app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.emp-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.emp-container-narrow {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.emp-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.emp-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.emp-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .emp-grid-3, .emp-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .emp-grid-2, .emp-grid-3, .emp-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Card Component
+   ========================================================================== */
+.emp-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.emp-card:hover {
+  border-color: var(--border-strong);
+}
+
+.emp-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.emp-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emp-card-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.emp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.emp-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.emp-btn-primary {
+  background-color: var(--navy-900);
+  color: #FFFFFF;
+}
+
+.emp-btn-primary:hover {
+  background-color: var(--navy-800);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.emp-btn-teal {
+  background-color: var(--teal-600);
+  color: #FFFFFF;
+}
+
+.emp-btn-teal:hover {
+  background-color: var(--teal-700);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Red Emergency Action Button */
+.emp-btn-emergency {
+  background-color: var(--red-600);
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.875rem 1.75rem;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  animation: pulse-glow 2.5s infinite;
+}
+
+.emp-btn-emergency:hover {
+  background-color: var(--red-700);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.45);
+  transform: translateY(-1px);
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+.emp-btn-secondary {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.emp-btn-secondary:hover {
+  background-color: var(--border-color);
+}
+
+.emp-btn-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.emp-btn-outline:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--border-strong);
+}
+
+.emp-btn-ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+
+.emp-btn-ghost:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.emp-btn-danger-outline {
+  background-color: transparent;
+  color: var(--red-600);
+  border-color: var(--red-400);
+}
+
+.emp-btn-danger-outline:hover {
+  background-color: var(--red-50);
+  border-color: var(--red-600);
+}
+
+.emp-btn-sm {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  border-radius: var(--radius-sm);
+}
+
+.emp-btn-lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 1.0625rem;
+  border-radius: var(--radius-lg);
+}
+
+.emp-btn-full {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Badges & Status Tags
+   ========================================================================== */
+.emp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+}
+
+.emp-badge-active {
+  background-color: var(--emerald-100);
+  color: var(--emerald-700);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.emp-badge-suspended {
+  background-color: var(--amber-100);
+  color: var(--amber-700);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.emp-badge-revoked {
+  background-color: var(--red-100);
+  color: var(--red-700);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.emp-badge-pending {
+  background-color: var(--navy-100);
+  color: var(--navy-700);
+  border: 1px solid var(--border-color);
+}
+
+.emp-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* ==========================================================================
+   Form Controls
+   ========================================================================== */
+.emp-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.emp-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+}
+
+.emp-help-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.emp-input, .emp-select, .emp-textarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.emp-input:focus, .emp-select:focus, .emp-textarea:focus {
+  border-color: var(--teal-600);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.emp-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Toggle Switch */
+.emp-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.emp-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.emp-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--navy-300);
+  transition: .3s;
+  border-radius: 24px;
+}
+
+.emp-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: var(--shadow-xs);
+}
+
+input:checked + .emp-slider {
+  background-color: var(--teal-600);
+}
+
+input:checked + .emp-slider:before {
+  transform: translateX(20px);
+}
+
+/* ==========================================================================
+   Navigation Bar & Shell
+   ========================================================================== */
+.emp-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.emp-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.emp-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.02em;
+}
+
+[data-theme="dark"] .emp-logo {
+  color: #FFFFFF;
+}
+
+.emp-logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--red-600), var(--navy-900));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+}
+
+.emp-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emp-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.emp-nav-link:hover, .emp-nav-link.active {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+/* Mobile Bottom Navigation */
+.emp-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  height: 62px;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (max-width: 768px) {
+  .emp-bottom-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .emp-main-content {
+    padding-bottom: 70px;
+  }
+}
+
+.emp-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex: 1;
+  height: 100%;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.emp-bottom-nav-item.active {
+  color: var(--teal-600);
+}
+
+/* ==========================================================================
+   Public Emergency Scan View Specifics
+   ========================================================================== */
+.emp-emergency-scan-container {
+  max-width: 520px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.emp-emergency-header {
+  background: linear-gradient(135deg, #7F1D1D 0%, #1E293B 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: 1.75rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.emp-emergency-header::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.emp-blood-group-hero {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  height: 80px;
+  background: #FFFFFF;
+  color: var(--red-600);
+  border-radius: var(--radius-lg);
+  font-size: 1.875rem;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  margin-top: 0.75rem;
+}
+
+.emp-blood-group-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--navy-500);
+}
+
+.emp-emergency-dial-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy-900);
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.emp-emergency-dial-btn:hover {
+  border-color: var(--emerald-500);
+  background-color: var(--emerald-50);
+  transform: translateY(-1px);
+}
+
+.emp-emergency-dial-btn.company {
+  border-color: var(--navy-700);
+  background-color: var(--navy-50);
+}
+
+.emp-emergency-dial-btn.company:hover {
+  border-color: var(--teal-600);
+  background-color: var(--teal-50);
+}
+
+/* ==========================================================================
+   Modals & Overlays
+   ========================================================================== */
+.emp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.emp-modal-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   Print Stylesheet for Emergency Badges & QR Cards
+   ========================================================================== */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .emp-header, .emp-bottom-nav, .emp-btn, .emp-print-exclude {
+    display: none !important;
+  }
+  .emp-print-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-inside: avoid;
+  }
+  .emp-id-badge {
+    width: 3.375in !important;
+    height: 2.125in !important; /* Standard CR80 Card Size */
+    border: 2px solid #0F172A !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* ==========================================================================
+   Mobile Phone Simulator Styles
+   ========================================================================== */
+.emp-mobile-simulator-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem 1rem 3rem;
+  min-height: calc(100vh - 64px);
+  background: radial-gradient(circle at 50% 20%, #1E293B, #0F172A);
+}
+
+.emp-phone-device {
+  width: 412px;
+  height: 870px;
+  background-color: var(--bg-primary);
+  border: 12px solid #1E293B;
+  border-radius: 48px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.emp-phone-status-bar {
+  height: 40px;
+  background-color: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 60;
+  user-select: none;
+}
+
+.emp-phone-notch {
+  width: 110px;
+  height: 22px;
+  background-color: #0F172A;
+  border-radius: 14px;
+  margin: 0 auto;
+}
+
+.emp-phone-screen {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.emp-phone-screen::-webkit-scrollbar {
+  width: 4px;
+}
+.emp-phone-screen::-webkit-scrollbar-thumb {
+  background: var(--navy-300);
+  border-radius: 4px;
+}
+
+.emp-phone-home-indicator {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 4px;
+  background-color: var(--navy-400);
+  border-radius: 999px;
+  z-index: 60;
+  pointer-events: none;
+}
+

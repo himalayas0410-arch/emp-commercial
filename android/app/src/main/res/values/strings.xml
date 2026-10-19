@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EMP Commercial</string>
+    <string name="title_activity_main">EMP Commercial</string>
+    <string name="package_name">com.empportal.app</string>
+    <string name="custom_url_scheme">com.empportal.app</string>
+</resources>
