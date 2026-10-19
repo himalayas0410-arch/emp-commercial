@@ -1122,6 +1122,18 @@
   "consent_records": [],
   "audit_logs": [
     {
+      "id": "875962cb-077d-4fa4-8065-34d53fc0016e",
+      "actor_user_id": "00000000-0000-0000-0000-000000000030",
+      "action": "USER_LOGIN",
+      "entity_type": "user",
+      "entity_id": "00000000-0000-0000-0000-000000000030",
+      "metadata": {
+        "ip": "127.0.0.1"
+      },
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-19T18:32:52.154Z"
+    },
+    {
       "id": "409ffd3b-de39-4d50-a41e-9eb2bf5672d0",
       "actor_user_id": null,
       "action": "EMERGENCY_ALERT_TRIGGERED",

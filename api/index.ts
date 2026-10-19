@@ -1,4 +1,4 @@
-import { app } from '../server/index';
+import { app } from '../server/app';
 import { initSeedData } from '../server/db/repository';
 
 let initialized = false;

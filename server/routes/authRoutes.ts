@@ -40,7 +40,8 @@ router.post('/login', async (req, res) => {
       organization_id: membership ? membership.organization_id : null
     });
 
-    await repository.logAuditEvent(user.id, 'USER_LOGIN', 'user', user.id, { ip: req.ip });
+    const clientIp = (req.headers['x-forwarded-for'] as string) || req.socket?.remoteAddress || '127.0.0.1';
+    await repository.logAuditEvent(user.id, 'USER_LOGIN', 'user', user.id, { ip: clientIp });
 
     res.json({
       token,

@@ -117,10 +117,11 @@ router.get('/:token', publicLimiter, async (req, res) => {
       updated_at: profile.updated_at
     };
 
+    const clientIp = (req.headers['x-forwarded-for'] as string) || req.socket?.remoteAddress || '127.0.0.1';
     // Log audit event for scan
     await repository.logAuditEvent(null, 'QR_SCANNED', 'qr_token', qrRecord.id, {
       public_token: token,
-      ip: req.ip
+      ip: clientIp
     });
 
     res.json(sanitizedData);
@@ -144,6 +145,7 @@ router.post('/:token/alert', alertTriggerLimiter, async (req, res) => {
     const profile = await repository.getMedicalProfileById(qrRecord.profile_id);
     if (!profile) return res.status(404).json({ error: 'Profile not found.' });
 
+    const clientIp = (req.headers['x-forwarded-for'] as string) || req.socket?.remoteAddress || '127.0.0.1';
     // 1. Create unique emergency incident record
     const incident = await repository.createIncident({
       profile_id: profile.id,
@@ -152,7 +154,7 @@ router.post('/:token/alert', alertTriggerLimiter, async (req, res) => {
       location_lat,
       location_lng,
       location_address,
-      triggered_by_ip: req.ip
+      triggered_by_ip: clientIp
     });
 
     // 2. Determine eligible notification recipients
@@ -207,7 +209,7 @@ router.post('/:token/alert', alertTriggerLimiter, async (req, res) => {
     await repository.logAuditEvent(null, 'EMERGENCY_ALERT_TRIGGERED', 'emergency_incident', incident.id, {
       incidentCode: incident.incident_code,
       totalRecipients: recipients.length,
-      ip: req.ip
+      ip: clientIp
     });
 
     res.status(201).json({
