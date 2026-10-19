@@ -185,15 +185,39 @@ export interface NotificationDelivery {
   created_at: string;
 }
 
+export interface FamilyPermissions {
+  receive_alerts: boolean;
+  can_view_medical: boolean;
+  can_manage_qr: boolean;
+}
+
 export interface FamilyMemberItem {
   id: string;
   relationship_id: string;
   full_name: string;
   relationship_type: string;
   is_dependent: boolean;
-  invitation_status: 'active' | 'pending_invite' | 'accepted' | 'independent';
+  invitation_status: 'active' | 'pending_invite' | 'pending_approval' | 'accepted' | 'rejected';
   invite_email?: string | null;
   invite_phone?: string | null;
+  is_sponsor?: boolean;
+  permissions?: FamilyPermissions;
   qr_status: QRStatus;
   public_token?: string;
 }
+
+export interface PendingFamilyRequest {
+  relationship_id: string;
+  sponsor_name: string;
+  sponsor_email?: string | null;
+  relationship_type: string;
+  created_at: string;
+}
+
+export interface UserOrganizationStatus {
+  is_enrolled: boolean;
+  status: 'independent' | 'active' | 'pending_approval';
+  organization: Organization | null;
+  membership?: any;
+}
+

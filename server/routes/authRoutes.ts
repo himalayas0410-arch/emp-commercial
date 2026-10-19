@@ -106,9 +106,9 @@ router.post('/register', async (req, res) => {
       });
     }
 
-    // Auto-create initial medical profile for employee
+    // Auto-create initial medical profile & personal QR token for any individual
     let profile = null;
-    if (userRole === 'employee') {
+    if (userRole !== 'company_admin' && userRole !== 'super_admin') {
       profile = await repository.createMedicalProfile({
         user_id: user.id,
         organization_id: orgId,
@@ -116,7 +116,7 @@ router.post('/register', async (req, res) => {
         blood_group: 'Unknown',
         profile_completion_pct: 25
       });
-      // Pre-generate QR token
+      // Pre-generate independent, unique personal emergency QR token
       await repository.createQRToken(profile.id);
     }
 

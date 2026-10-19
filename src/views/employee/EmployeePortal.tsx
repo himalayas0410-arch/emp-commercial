@@ -6,7 +6,9 @@ import { QRCard } from '../../components/QRCard.js';
 import { MedicalProfileEditor } from './MedicalProfileEditor.js';
 import { EmergencyContactsManager } from './EmergencyContactsManager.js';
 import { FamilyManager } from './FamilyManager.js';
-import { ShieldCheck, Heart, Users, QrCode, FileText, Bell, CheckCircle2, AlertCircle, Building2, DownloadCloud } from 'lucide-react';
+import { OrganizationManager } from './OrganizationManager.js';
+import { EmergencyHistoryView } from './EmergencyHistoryView.js';
+import { ShieldCheck, Heart, Users, QrCode, FileText, Bell, CheckCircle2, AlertCircle, Building2, DownloadCloud, History } from 'lucide-react';
 
 interface EmployeePortalProps {
   onOpenPublicScan?: (token: string) => void;
@@ -14,7 +16,7 @@ interface EmployeePortalProps {
 
 export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan }) => {
   const { user } = useAuth();
-  const [activeSubTab, setActiveSubTab] = useState<'home' | 'profile' | 'contacts' | 'family' | 'qr' | 'privacy'>('home');
+  const [activeSubTab, setActiveSubTab] = useState<'home' | 'profile' | 'contacts' | 'family' | 'qr' | 'organization' | 'alerts' | 'privacy'>('home');
   const [loading, setLoading] = useState<boolean>(true);
   const [profile, setProfile] = useState<MedicalProfile | null>(null);
   const [contacts, setContacts] = useState<EmergencyContact[]>([]);
@@ -50,6 +52,16 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
 
   const handleRegenerateQR = async () => {
     const res = await api.post('/qr/regenerate', {});
+    setQrToken(res.qr_token);
+  };
+
+  const handleRevokeQR = async () => {
+    const res = await api.post('/qr/revoke', {});
+    setQrToken(res.qr_token);
+  };
+
+  const handleGenerateQR = async () => {
+    const res = await api.post('/qr/generate', {});
     setQrToken(res.qr_token);
   };
 
@@ -97,7 +109,7 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
           onClick={() => setActiveSubTab('family')}
         >
           <Heart size={16} />
-          <span>Family & Dependents</span>
+          <span>Family Hub</span>
         </button>
 
         <button
@@ -106,6 +118,22 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
         >
           <QrCode size={16} />
           <span>QR Management</span>
+        </button>
+
+        <button
+          className={`emp-nav-link ${activeSubTab === 'organization' ? 'active' : ''}`}
+          onClick={() => setActiveSubTab('organization')}
+        >
+          <Building2 size={16} />
+          <span>Organization</span>
+        </button>
+
+        <button
+          className={`emp-nav-link ${activeSubTab === 'alerts' ? 'active' : ''}`}
+          onClick={() => setActiveSubTab('alerts')}
+        >
+          <History size={16} />
+          <span>Alert History</span>
         </button>
 
         <button
@@ -125,7 +153,7 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
               <div>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 600 }}>
-                  <Building2 size={13} /> {user?.organization_name || 'Enrolled Employee Account'}
+                  <Building2 size={13} /> {user?.organization_name || 'Independent Account (Direct Registration)'}
                 </div>
                 <h1 style={{ fontSize: '1.625rem', fontWeight: 800, marginTop: '0.5rem', color: '#FFFFFF' }}>
                   Welcome, {user?.full_name}
@@ -151,11 +179,13 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
           {/* Dedicated Live QR Card */}
           <QRCard
             tokenData={qrToken}
-            displayName={profile?.full_name || user?.full_name || 'Employee'}
+            displayName={profile?.full_name || user?.full_name || 'Individual'}
             bloodGroup={profile?.blood_group}
             onSuspend={handleSuspendQR}
             onReactivate={handleReactivateQR}
             onRegenerate={handleRegenerateQR}
+            onRevoke={handleRevokeQR}
+            onGenerate={handleGenerateQR}
             onOpenPublicScan={onOpenPublicScan}
           />
 
@@ -168,7 +198,7 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
                 </div>
                 <div>
                   <div style={{ fontWeight: 800, fontSize: '1rem' }}>Medical Profile</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Blood: {profile?.blood_group} • {profile?.allergies.length} Allergies</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Blood: {profile?.blood_group || 'Not set'} • {profile?.allergies.length || 0} Allergies</div>
                 </div>
               </div>
             </div>
@@ -191,8 +221,32 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
                   <Heart size={20} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: '1rem' }}>Family Hub</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Manage Dependents & Members</div>
+                  <div style={{ fontWeight: 800, fontSize: '1rem' }}>Family Linking Hub</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Independent Accounts & Linking</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="emp-card" style={{ cursor: 'pointer' }} onClick={() => setActiveSubTab('organization')}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: 'var(--radius-md)', background: '#F0FDF4', color: '#16A34A', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Building2 size={20} />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 800, fontSize: '1rem' }}>Organization</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{user?.organization_name || 'Optional Company Join'}</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="emp-card" style={{ cursor: 'pointer' }} onClick={() => setActiveSubTab('alerts')}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: 'var(--radius-md)', background: '#FFF7ED', color: '#EA580C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <History size={20} />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 800, fontSize: '1rem' }}>Alert Delivery Logs</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Real Incident Receipts</div>
                 </div>
               </div>
             </div>
@@ -225,13 +279,25 @@ export const EmployeePortal: React.FC<EmployeePortalProps> = ({ onOpenPublicScan
       {activeSubTab === 'qr' && (
         <QRCard
           tokenData={qrToken}
-          displayName={profile?.full_name || user?.full_name || 'Employee'}
+          displayName={profile?.full_name || user?.full_name || 'Individual'}
           bloodGroup={profile?.blood_group}
           onSuspend={handleSuspendQR}
           onReactivate={handleReactivateQR}
           onRegenerate={handleRegenerateQR}
+          onRevoke={handleRevokeQR}
+          onGenerate={handleGenerateQR}
           onOpenPublicScan={onOpenPublicScan}
         />
+      )}
+
+      {/* 6. ORGANIZATION TAB */}
+      {activeSubTab === 'organization' && (
+        <OrganizationManager />
+      )}
+
+      {/* 7. ALERTS HISTORY TAB */}
+      {activeSubTab === 'alerts' && (
+        <EmergencyHistoryView />
       )}
 
       {/* 6. PRIVACY & DPDP ACT CONSENT TAB */}

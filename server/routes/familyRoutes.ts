@@ -145,6 +145,113 @@ router.post('/invite', verifyAuth, async (req: AuthenticatedRequest, res) => {
   }
 });
 
+// Get pending family link requests waiting for approval by current user
+router.get('/requests/pending', verifyAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const user = await repository.findUserById(req.user!.id);
+    const requests = await repository.getPendingFamilyRequests(req.user!.id, user?.email);
+    res.json({ pending_requests: requests });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve pending family requests.' });
+  }
+});
+
+// Link an existing EMP user account
+router.post('/link-request', verifyAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const { target_email, relationship_type } = req.body;
+    if (!target_email || !relationship_type) {
+      return res.status(400).json({ error: 'Target user email and relationship type are required.' });
+    }
+
+    if (target_email.toLowerCase() === req.user!.email.toLowerCase()) {
+      return res.status(400).json({ error: 'You cannot link your own account to itself.' });
+    }
+
+    const targetUser = await repository.findUserByEmail(target_email);
+    const sponsorProfile = await repository.getMedicalProfileByUserId(req.user!.id);
+    const targetProfile = targetUser ? await repository.getMedicalProfileByUserId(targetUser.id) : null;
+
+    const rel = await repository.createFamilyRelationship({
+      sponsor_user_id: req.user!.id,
+      linked_user_id: targetUser ? targetUser.id : null,
+      family_profile_id: targetProfile ? targetProfile.id : (sponsorProfile ? sponsorProfile.id : null),
+      relationship_type,
+      invitation_status: targetUser ? 'pending_approval' : 'pending_invite',
+      invite_email: target_email.toLowerCase(),
+      permissions: {
+        receive_alerts: true,
+        can_view_medical: false,
+        can_manage_qr: false
+      }
+    });
+
+    await repository.logAuditEvent(req.user!.id, 'FAMILY_LINK_REQUESTED', 'family_relationship', rel.id, {
+      target_email,
+      relationship_type
+    });
+
+    res.status(201).json({
+      success: true,
+      message: targetUser
+        ? `Family link request sent to ${target_email}. Awaiting their authorization.`
+        : `Invitation sent to ${target_email}. They will receive a link when creating their EMP account.`,
+      relationship: rel
+    });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message || 'Failed to submit link request.' });
+  }
+});
+
+// Accept a family link request
+router.post('/requests/:id/accept', verifyAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const rel = await repository.acceptFamilyRequest(req.params.id, req.user!.id);
+    if (!rel) return res.status(404).json({ error: 'Family request not found.' });
+
+    await repository.logAuditEvent(req.user!.id, 'FAMILY_LINK_ACCEPTED', 'family_relationship', req.params.id);
+
+    res.json({ success: true, message: 'Family relationship successfully linked.', relationship: rel });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message || 'Failed to accept family link.' });
+  }
+});
+
+// Decline a family link request
+router.post('/requests/:id/decline', verifyAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const success = await repository.declineFamilyRequest(req.params.id);
+    if (!success) return res.status(404).json({ error: 'Family request not found.' });
+
+    await repository.logAuditEvent(req.user!.id, 'FAMILY_LINK_DECLINED', 'family_relationship', req.params.id);
+
+    res.json({ success: true, message: 'Family link request declined.' });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message || 'Failed to decline family link.' });
+  }
+});
+
+// Update permissions for a family relationship
+router.put('/:relationshipId/permissions', verifyAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const { receive_alerts, can_view_medical, can_manage_qr } = req.body;
+    const updated = await repository.updateFamilyPermissions(req.params.relationshipId, {
+      receive_alerts,
+      can_view_medical,
+      can_manage_qr
+    });
+    if (!updated) return res.status(404).json({ error: 'Relationship not found.' });
+
+    await repository.logAuditEvent(req.user!.id, 'FAMILY_PERMISSIONS_UPDATED', 'family_relationship', req.params.relationshipId, {
+      permissions: updated.permissions
+    });
+
+    res.json({ success: true, permissions: updated.permissions });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message || 'Failed to update permissions.' });
+  }
+});
+
 // Remove family association without deleting user's personal account
 router.delete('/:relationshipId', verifyAuth, async (req: AuthenticatedRequest, res) => {
   try {

@@ -19105,17 +19105,17 @@ var require_router = __commonJS({
     var toString = Object.prototype.toString;
     var proto = module2.exports = function(options) {
       var opts = options || {};
-      function router8(req, res, next) {
-        router8.handle(req, res, next);
+      function router9(req, res, next) {
+        router9.handle(req, res, next);
       }
-      setPrototypeOf(router8, proto);
-      router8.params = {};
-      router8._params = [];
-      router8.caseSensitive = opts.caseSensitive;
-      router8.mergeParams = opts.mergeParams;
-      router8.strict = opts.strict;
-      router8.stack = [];
-      return router8;
+      setPrototypeOf(router9, proto);
+      router9.params = {};
+      router9._params = [];
+      router9.caseSensitive = opts.caseSensitive;
+      router9.mergeParams = opts.mergeParams;
+      router9.strict = opts.strict;
+      router9.stack = [];
+      return router9;
     };
     proto.param = function param(name, fn) {
       if (typeof name === "function") {
@@ -22148,7 +22148,7 @@ var require_application = __commonJS({
   "node_modules/express/lib/application.js"(exports2, module2) {
     "use strict";
     var finalhandler = require_finalhandler();
-    var Router8 = require_router();
+    var Router9 = require_router();
     var methods = require_methods();
     var middleware = require_init();
     var query = require_query();
@@ -22213,7 +22213,7 @@ var require_application = __commonJS({
     };
     app2.lazyrouter = function lazyrouter() {
       if (!this._router) {
-        this._router = new Router8({
+        this._router = new Router9({
           caseSensitive: this.enabled("case sensitive routing"),
           strict: this.enabled("strict routing")
         });
@@ -22222,17 +22222,17 @@ var require_application = __commonJS({
       }
     };
     app2.handle = function handle(req, res, callback) {
-      var router8 = this._router;
+      var router9 = this._router;
       var done = callback || finalhandler(req, res, {
         env: this.get("env"),
         onerror: logerror.bind(this)
       });
-      if (!router8) {
+      if (!router9) {
         debug("no routes defined on app");
         done();
         return;
       }
-      router8.handle(req, res, done);
+      router9.handle(req, res, done);
     };
     app2.use = function use(fn) {
       var offset = 0;
@@ -22252,15 +22252,15 @@ var require_application = __commonJS({
         throw new TypeError("app.use() requires a middleware function");
       }
       this.lazyrouter();
-      var router8 = this._router;
+      var router9 = this._router;
       fns.forEach(function(fn2) {
         if (!fn2 || !fn2.handle || !fn2.set) {
-          return router8.use(path2, fn2);
+          return router9.use(path2, fn2);
         }
         debug(".use app under %s", path2);
         fn2.mountpath = path2;
         fn2.parent = this;
-        router8.use(path2, function mounted_app(req, res, next) {
+        router9.use(path2, function mounted_app(req, res, next) {
           var orig = req.app;
           fn2.handle(req, res, function(err) {
             setPrototypeOf(req, orig.request);
@@ -24077,7 +24077,7 @@ var require_express = __commonJS({
     var mixin = require_merge_descriptors();
     var proto = require_application();
     var Route = require_route();
-    var Router8 = require_router();
+    var Router9 = require_router();
     var req = require_request();
     var res = require_response();
     exports2 = module2.exports = createApplication;
@@ -24100,7 +24100,7 @@ var require_express = __commonJS({
     exports2.request = req;
     exports2.response = res;
     exports2.Route = Route;
-    exports2.Router = Router8;
+    exports2.Router = Router9;
     exports2.json = bodyParser.json;
     exports2.query = require_query();
     exports2.raw = bodyParser.raw;
@@ -30362,7 +30362,7 @@ __export(serverless_exports, {
 module.exports = __toCommonJS(serverless_exports);
 
 // server/app.ts
-var import_express8 = __toESM(require_express2());
+var import_express9 = __toESM(require_express2());
 var import_cors = __toESM(require_lib3());
 var import_dotenv = __toESM(require_main());
 
@@ -30394,46 +30394,94 @@ var emp_local_data_default = {
         notify_hr_on_alert: true,
         allow_dependent_enrollment: true
       },
-      created_at: "2026-10-19T17:03:14.999Z",
-      updated_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.592Z",
+      updated_at: "2026-10-19T19:41:11.592Z"
     }
   ],
   users: [
     {
       id: "00000000-0000-0000-0000-000000000001",
       email: "superadmin@emp.com",
-      password_hash: "$2a$10$kFLupCgyCb.ceIRXH.A5V.Hj1.K9KD8lsT4xW54Z1SCMgz8HpJhca",
+      password_hash: "$2a$10$FYBMCwKUFjKmbkShG9zaYeA.DxHrkcnApzDTnpFHEKwAMTUMra2oG",
       full_name: "Platform Super Administrator",
       phone: "+91 99999 00000",
       role: "super_admin",
       status: "active",
       email_verified: true,
-      created_at: "2026-10-19T17:03:14.998Z",
-      updated_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.591Z",
+      updated_at: "2026-10-19T19:41:11.592Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000020",
       email: "hr@apexglobal.com",
-      password_hash: "$2a$10$kFLupCgyCb.ceIRXH.A5V.F8TUxUBb51j7stajx4y7BY5RiuUd1a6",
+      password_hash: "$2a$10$FYBMCwKUFjKmbkShG9zaYelbiCZUHhV4JaXQ1WTTpXJE.6L2gPUFy",
       full_name: "Anjali Verma (HR Lead)",
       phone: "+91 98765 43211",
       role: "company_admin",
       status: "active",
       email_verified: true,
-      created_at: "2026-10-19T17:03:14.999Z",
-      updated_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.592Z",
+      updated_at: "2026-10-19T19:41:11.592Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000030",
       email: "rahul.sharma@apexglobal.com",
-      password_hash: "$2a$10$kFLupCgyCb.ceIRXH.A5V.F8TUxUBb51j7stajx4y7BY5RiuUd1a6",
+      password_hash: "$2a$10$FYBMCwKUFjKmbkShG9zaYelbiCZUHhV4JaXQ1WTTpXJE.6L2gPUFy",
       full_name: "Rahul Sharma",
       phone: "+91 98111 22233",
       role: "employee",
       status: "active",
       email_verified: true,
-      created_at: "2026-10-19T17:03:14.999Z",
-      updated_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.592Z",
+      updated_at: "2026-10-19T19:41:11.592Z"
+    },
+    {
+      id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      email: "priya.singh@example.com",
+      password_hash: "$2a$10$ir4oMdybkDlBTIcm2TXb5eQo/aL5y1mK267fLsVvOMO0SUIPoRrnm",
+      full_name: "Priya Singh",
+      phone: "+91 98990 11223",
+      role: "individual",
+      status: "active",
+      email_verified: true,
+      created_at: "2026-10-19T19:41:11.987Z",
+      updated_at: "2026-10-19T19:41:11.987Z"
+    },
+    {
+      id: "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      email: "vikram.mehta@example.com",
+      password_hash: "$2a$10$mbEHhvc/edq1eEWXz9peDeth2J9lhTnXk4jzCN1T35u.rZoFh8nr2",
+      full_name: "Vikram Mehta",
+      phone: null,
+      role: "individual",
+      status: "active",
+      email_verified: true,
+      created_at: "2026-10-19T19:41:12.075Z",
+      updated_at: "2026-10-19T19:41:12.075Z"
+    },
+    {
+      id: "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      email: "sunita.mehta@example.com",
+      password_hash: "$2a$10$NegX8WbgVZB2fHhtObHraOQiN9LGh0eEm4B7AWomrQnuKAMw8GOTK",
+      full_name: "Sunita Mehta",
+      phone: null,
+      role: "individual",
+      status: "active",
+      email_verified: true,
+      created_at: "2026-10-19T19:41:12.142Z",
+      updated_at: "2026-10-19T19:41:12.142Z"
+    },
+    {
+      id: "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      email: "rohit.consultant@example.com",
+      password_hash: "$2a$10$NJO6GJgQFRD5GOtBpxmLFu55oOfVKPt.6Bk0tO8QUwvO58nrhisce",
+      full_name: "Rohit Consultant",
+      phone: null,
+      role: "individual",
+      status: "active",
+      email_verified: true,
+      created_at: "2026-10-19T19:41:12.226Z",
+      updated_at: "2026-10-19T19:41:12.226Z"
     }
   ],
   organization_memberships: [
@@ -30445,7 +30493,7 @@ var emp_local_data_default = {
       department: "Human Resources",
       employee_id_number: "APX-HR-01",
       status: "active",
-      joined_at: "2026-10-19T17:03:14.999Z"
+      joined_at: "2026-10-19T19:41:11.592Z"
     },
     {
       id: "mem-002",
@@ -30455,7 +30503,7 @@ var emp_local_data_default = {
       department: "Engineering",
       employee_id_number: "APX-ENG-104",
       status: "active",
-      joined_at: "2026-10-19T17:03:14.999Z"
+      joined_at: "2026-10-19T19:41:11.592Z"
     }
   ],
   medical_profiles: [
@@ -30538,8 +30586,8 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 100,
-      created_at: "2026-10-19T17:03:14.999Z",
-      updated_at: "2026-10-19T17:03:15.222Z"
+      created_at: "2026-10-19T19:41:11.592Z",
+      updated_at: "2026-10-19T19:41:11.839Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000050",
@@ -30580,8 +30628,8 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 90,
-      created_at: "2026-10-19T17:03:14.999Z",
-      updated_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.593Z",
+      updated_at: "2026-10-19T19:41:11.593Z"
     },
     {
       id: "00000000-0000-0000-0000-000000000060",
@@ -30609,11 +30657,11 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 60,
-      created_at: "2026-10-19T17:03:14.999Z",
-      updated_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.593Z",
+      updated_at: "2026-10-19T19:41:11.593Z"
     },
     {
-      id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
+      id: "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
       user_id: null,
       organization_id: "00000000-0000-0000-0000-000000000010",
       is_dependent: true,
@@ -30645,45 +30693,16 @@ var emp_local_data_default = {
         emergency_notes: true
       },
       profile_completion_pct: 60,
-      created_at: "2026-10-19T17:03:15.281Z",
-      updated_at: "2026-10-19T17:03:15.281Z"
+      created_at: "2026-10-19T19:41:11.901Z",
+      updated_at: "2026-10-19T19:41:11.901Z"
     },
     {
-      id: "6214ea93-22e8-4a6e-8f66-7b30f222c5e6",
-      user_id: "00000000-0000-0000-0000-000000000020",
-      organization_id: "00000000-0000-0000-0000-000000000010",
-      is_dependent: false,
-      manager_user_id: null,
-      full_name: "Anjali Verma (HR Lead)",
-      preferred_name: null,
-      date_of_birth: null,
-      gender: null,
-      blood_group: "Unknown",
-      allergies: [],
-      medications: [],
-      conditions: [],
-      surgeries: [],
-      devices: [],
-      emergency_notes: null,
-      public_disclosures: {
-        blood_group: true,
-        allergies: true,
-        medications: true,
-        conditions: true,
-        devices: true,
-        emergency_notes: true
-      },
-      profile_completion_pct: 50,
-      created_at: "2026-10-19T17:06:08.728Z",
-      updated_at: "2026-10-19T17:06:08.728Z"
-    },
-    {
-      id: "0d46ac1b-2214-4810-be36-1cd2f0ff956a",
-      user_id: "00000000-0000-0000-0000-000000000001",
+      id: "6e940852-ac76-42d3-b34c-3c137a7efcce",
+      user_id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
       organization_id: null,
       is_dependent: false,
       manager_user_id: null,
-      full_name: "Platform Super Administrator",
+      full_name: "Priya Singh",
       preferred_name: null,
       date_of_birth: null,
       gender: null,
@@ -30702,9 +30721,96 @@ var emp_local_data_default = {
         devices: true,
         emergency_notes: true
       },
-      profile_completion_pct: 50,
-      created_at: "2026-10-19T17:12:19.682Z",
-      updated_at: "2026-10-19T17:12:19.682Z"
+      profile_completion_pct: 25,
+      created_at: "2026-10-19T19:41:11.987Z",
+      updated_at: "2026-10-19T19:41:11.987Z"
+    },
+    {
+      id: "14cf2a39-2200-4e6c-909e-95f79927074e",
+      user_id: "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      organization_id: null,
+      is_dependent: false,
+      manager_user_id: null,
+      full_name: "Vikram Mehta",
+      preferred_name: null,
+      date_of_birth: null,
+      gender: null,
+      blood_group: "Unknown",
+      allergies: [],
+      medications: [],
+      conditions: [],
+      surgeries: [],
+      devices: [],
+      emergency_notes: null,
+      public_disclosures: {
+        blood_group: true,
+        allergies: true,
+        medications: true,
+        conditions: true,
+        devices: true,
+        emergency_notes: true
+      },
+      profile_completion_pct: 25,
+      created_at: "2026-10-19T19:41:12.075Z",
+      updated_at: "2026-10-19T19:41:12.075Z"
+    },
+    {
+      id: "2526c20e-a96a-4c38-ac68-8412045e085f",
+      user_id: "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      organization_id: null,
+      is_dependent: false,
+      manager_user_id: null,
+      full_name: "Sunita Mehta",
+      preferred_name: null,
+      date_of_birth: null,
+      gender: null,
+      blood_group: "Unknown",
+      allergies: [],
+      medications: [],
+      conditions: [],
+      surgeries: [],
+      devices: [],
+      emergency_notes: null,
+      public_disclosures: {
+        blood_group: true,
+        allergies: true,
+        medications: true,
+        conditions: true,
+        devices: true,
+        emergency_notes: true
+      },
+      profile_completion_pct: 25,
+      created_at: "2026-10-19T19:41:12.143Z",
+      updated_at: "2026-10-19T19:41:12.143Z"
+    },
+    {
+      id: "1f8b7e89-0db4-4da2-975e-60396d21cc5b",
+      user_id: "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      organization_id: null,
+      is_dependent: false,
+      manager_user_id: null,
+      full_name: "Rohit Consultant",
+      preferred_name: null,
+      date_of_birth: null,
+      gender: null,
+      blood_group: "Unknown",
+      allergies: [],
+      medications: [],
+      conditions: [],
+      surgeries: [],
+      devices: [],
+      emergency_notes: null,
+      public_disclosures: {
+        blood_group: true,
+        allergies: true,
+        medications: true,
+        conditions: true,
+        devices: true,
+        emergency_notes: true
+      },
+      profile_completion_pct: 25,
+      created_at: "2026-10-19T19:41:12.227Z",
+      updated_at: "2026-10-19T19:41:12.227Z"
     }
   ],
   emergency_contacts: [
@@ -30718,7 +30824,7 @@ var emp_local_data_default = {
       priority_order: 1,
       is_alert_recipient: true,
       is_verified: true,
-      created_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.592Z"
     },
     {
       id: "contact-02",
@@ -30730,7 +30836,7 @@ var emp_local_data_default = {
       priority_order: 2,
       is_alert_recipient: true,
       is_verified: true,
-      created_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.592Z"
     },
     {
       id: "contact-dep-01",
@@ -30742,10 +30848,10 @@ var emp_local_data_default = {
       priority_order: 1,
       is_alert_recipient: true,
       is_verified: true,
-      created_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.593Z"
     },
     {
-      id: "9ca2ac54-7e8a-4e86-ad42-05d611842b59",
+      id: "b2361a0c-6269-42ee-b01e-9a124ac89605",
       profile_id: "00000000-0000-0000-0000-000000000040",
       name: "Arun Verma",
       relationship: "Colleague / Mentor",
@@ -30754,11 +30860,11 @@ var emp_local_data_default = {
       priority_order: 3,
       is_alert_recipient: true,
       is_verified: false,
-      created_at: "2026-10-19T17:03:15.221Z"
+      created_at: "2026-10-19T19:41:11.839Z"
     },
     {
-      id: "bf3dd61c-f61f-42a5-b4a9-5c9eeacd0b85",
-      profile_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
+      id: "86b3c781-ce10-4919-a2c1-fa13b50e37a4",
+      profile_id: "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
       name: "Rahul Sharma",
       relationship: "Guardian / Parent",
       phone: "+91 98111 22233",
@@ -30766,7 +30872,7 @@ var emp_local_data_default = {
       priority_order: 1,
       is_alert_recipient: true,
       is_verified: false,
-      created_at: "2026-10-19T17:03:15.281Z"
+      created_at: "2026-10-19T19:41:11.901Z"
     }
   ],
   family_relationships: [
@@ -30778,7 +30884,7 @@ var emp_local_data_default = {
       invitation_status: "active",
       invite_email: null,
       invite_phone: null,
-      created_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.593Z"
     },
     {
       id: "fam-rel-02",
@@ -30788,17 +30894,39 @@ var emp_local_data_default = {
       invitation_status: "pending_invite",
       invite_email: "ananya.sharma@example.com",
       invite_phone: "+91 98111 99900",
-      created_at: "2026-10-19T17:03:14.999Z"
+      created_at: "2026-10-19T19:41:11.593Z"
     },
     {
-      id: "df1f5aa6-2fe4-4f78-9289-04b4a92e3535",
+      id: "a9ab9f93-d69f-49a6-9212-47496746bb7f",
       sponsor_user_id: "00000000-0000-0000-0000-000000000030",
-      family_profile_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
+      family_profile_id: "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
       relationship_type: "Daughter (Dependent Child)",
       invitation_status: "active",
       invite_email: null,
       invite_phone: null,
-      created_at: "2026-10-19T17:03:15.282Z"
+      linked_user_id: null,
+      permissions: {
+        receive_alerts: true,
+        can_view_medical: false,
+        can_manage_qr: false
+      },
+      created_at: "2026-10-19T19:41:11.902Z"
+    },
+    {
+      id: "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
+      sponsor_user_id: "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      family_profile_id: "2526c20e-a96a-4c38-ac68-8412045e085f",
+      relationship_type: "Spouse",
+      invitation_status: "active",
+      invite_email: "sunita.mehta@example.com",
+      invite_phone: null,
+      linked_user_id: "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      permissions: {
+        receive_alerts: true,
+        can_view_medical: false,
+        can_manage_qr: true
+      },
+      created_at: "2026-10-19T19:41:12.151Z"
     }
   ],
   qr_tokens: [
@@ -30809,9 +30937,9 @@ var emp_local_data_default = {
       token_hash: "7043d25c2b033652339e06a7116db7f33e5b537330b53143315a4df1b1953db9",
       status: "revoked",
       scan_count: 5,
-      created_at: "2026-10-19T17:03:14.999Z",
+      created_at: "2026-10-19T19:41:11.593Z",
       suspended_at: null,
-      revoked_at: "2026-10-19T17:03:15.272Z"
+      revoked_at: "2026-10-19T19:41:11.891Z"
     },
     {
       id: "qr-002",
@@ -30820,7 +30948,7 @@ var emp_local_data_default = {
       token_hash: "e66614782bbc2f01ae67122b2cee8cf3b61e7fa0417a65f603553a9daeb61be3",
       status: "active",
       scan_count: 0,
-      created_at: "2026-10-19T17:03:14.999Z",
+      created_at: "2026-10-19T19:41:11.593Z",
       suspended_at: null,
       revoked_at: null
     },
@@ -30831,1173 +30959,771 @@ var emp_local_data_default = {
       token_hash: "a55cbd82a1a9af0179df6daa550b56893ab81be1e38242e9715fb8fa087af369",
       status: "active",
       scan_count: 1,
-      created_at: "2026-10-19T17:03:14.999Z",
+      created_at: "2026-10-19T19:41:11.593Z",
       suspended_at: null,
       revoked_at: null
     },
     {
-      id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      id: "c3e2b283-5297-4f36-b45f-3878f2da3349",
       profile_id: "00000000-0000-0000-0000-000000000040",
-      public_token: "EMP-E624AB888E97",
-      token_hash: "821f245d49cbb063010d6b8fba1d6ebac20a1e455c2a1afbb6417e624288f2a7",
-      status: "active",
-      scan_count: 8,
-      created_at: "2026-10-19T17:03:15.272Z",
-      suspended_at: null,
-      revoked_at: null
-    },
-    {
-      id: "baaa0a71-bd1f-444b-8b8e-d406e96cf362",
-      profile_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
-      public_token: "EMP-75990CB34A55",
-      token_hash: "8c9bff4988f3049b6cc9cba6682c4f00534f3212eb1e367fd5f7822ebc80641b",
+      public_token: "EMP-DD827E94CEDD",
+      token_hash: "7cd18203c94731235d318c2a7cd09c082c8b856b7a77e1fe4571ce1f5fb16f5b",
       status: "active",
       scan_count: 1,
-      created_at: "2026-10-19T17:03:15.282Z",
+      created_at: "2026-10-19T19:41:11.891Z",
+      suspended_at: null,
+      revoked_at: null
+    },
+    {
+      id: "4878a569-16a4-45ad-863d-9e1fb95c2ce9",
+      profile_id: "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
+      public_token: "EMP-25E6F6D9F291",
+      token_hash: "591a4e36172f4dedf76c919393392abf232658d1f94fe957ea764fe7306edd77",
+      status: "active",
+      scan_count: 1,
+      created_at: "2026-10-19T19:41:11.901Z",
+      suspended_at: null,
+      revoked_at: null
+    },
+    {
+      id: "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      profile_id: "6e940852-ac76-42d3-b34c-3c137a7efcce",
+      public_token: "EMP-33FFC0DE0864",
+      token_hash: "118d45429fede8dca0e608ed09263ee87e4c99de2a228e2bf312a2dbc04d20ba",
+      status: "revoked",
+      scan_count: 1,
+      created_at: "2026-10-19T19:41:11.988Z",
+      suspended_at: null,
+      revoked_at: "2026-10-19T19:41:12.010Z"
+    },
+    {
+      id: "1890580f-af68-4d6c-9744-0f3d59201fc4",
+      profile_id: "6e940852-ac76-42d3-b34c-3c137a7efcce",
+      public_token: "EMP-FF6C35B44E97",
+      token_hash: "dcfde1e4f4b0424064c6a3c7a8b7e4ffe9f56383229829fbee04b168653c669c",
+      status: "active",
+      scan_count: 0,
+      created_at: "2026-10-19T19:41:12.015Z",
+      suspended_at: null,
+      revoked_at: null
+    },
+    {
+      id: "8965ff2e-757e-4adf-b562-961b22c85914",
+      profile_id: "14cf2a39-2200-4e6c-909e-95f79927074e",
+      public_token: "EMP-57E345783DD7",
+      token_hash: "68d58ae9583b479dcb1c8a121fd662c284ba920eba08f0947f7051389fbd0466",
+      status: "active",
+      scan_count: 0,
+      created_at: "2026-10-19T19:41:12.076Z",
+      suspended_at: null,
+      revoked_at: null
+    },
+    {
+      id: "cd269928-882d-49e6-a68b-daacd0b4ef0b",
+      profile_id: "2526c20e-a96a-4c38-ac68-8412045e085f",
+      public_token: "EMP-6F63746D53D5",
+      token_hash: "e3885a00413f409671fd564fa50736181b12174e63a3213edef9b2a205a26eb2",
+      status: "active",
+      scan_count: 0,
+      created_at: "2026-10-19T19:41:12.144Z",
+      suspended_at: null,
+      revoked_at: null
+    },
+    {
+      id: "cb259c1d-b68b-400e-80c5-705a92992663",
+      profile_id: "1f8b7e89-0db4-4da2-975e-60396d21cc5b",
+      public_token: "EMP-E9493DE03E71",
+      token_hash: "2073cfe7ecaba319433821921e0b1254e74e27ccb3f4bcbc033bb201a5847e7f",
+      status: "active",
+      scan_count: 0,
+      created_at: "2026-10-19T19:41:12.228Z",
       suspended_at: null,
       revoked_at: null
     }
   ],
   emergency_incidents: [
     {
-      id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       profile_id: "00000000-0000-0000-0000-000000000040",
       organization_id: "00000000-0000-0000-0000-000000000010",
-      qr_token_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
-      incident_code: "INC-MVFKGOUU-1A78",
+      qr_token_id: "c3e2b283-5297-4f36-b45f-3878f2da3349",
+      incident_code: "INC-MVFNTPDM-7BB6",
       status: "triggered",
       location_lat: null,
       location_lng: null,
-      location_address: "GPS Verified Location",
-      triggered_by_ip: "::ffff:192.168.29.50",
-      triggered_at: "2026-10-19T18:07:06.198Z",
+      location_address: "CyberHub DLF Phase 2",
+      triggered_by_ip: "127.0.0.1",
+      triggered_at: "2026-10-19T19:41:12.250Z",
       acknowledged_by: null,
       acknowledged_at: null,
       resolution_notes: null
     },
     {
-      id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
-      profile_id: "00000000-0000-0000-0000-000000000040",
-      organization_id: "00000000-0000-0000-0000-000000000010",
-      qr_token_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
-      incident_code: "INC-MVFI9BMH-436B",
-      status: "acknowledged",
-      location_lat: null,
-      location_lng: null,
-      location_address: null,
-      triggered_by_ip: "::1",
-      triggered_at: "2026-10-19T17:05:23.225Z",
-      acknowledged_by: "Anjali Verma (HR Lead) (company_admin)",
-      acknowledged_at: "2026-10-19T17:06:53.758Z",
-      resolution_notes: null
-    },
-    {
-      id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
+      id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       profile_id: "00000000-0000-0000-0000-000000000040",
       organization_id: "00000000-0000-0000-0000-000000000010",
       qr_token_id: "qr-001",
-      incident_code: "INC-MVFI6KV4-F8F3",
+      incident_code: "INC-MVFNTP2I-5FD8",
       status: "acknowledged",
       location_lat: 28.4986,
       location_lng: 77.0878,
       location_address: "DLF CyberCity Building 10, Gurugram, India",
       triggered_by_ip: "127.0.0.1",
-      triggered_at: "2026-10-19T17:03:15.232Z",
+      triggered_at: "2026-10-19T19:41:11.850Z",
       acknowledged_by: "Anjali Verma (HR Lead) (company_admin)",
-      acknowledged_at: "2026-10-19T17:03:15.294Z",
+      acknowledged_at: "2026-10-19T19:41:11.915Z",
       resolution_notes: null
     }
   ],
   notification_deliveries: [
     {
-      id: "380fb3b7-6726-4cca-a908-e961dc91845e",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
+      id: "a6e06119-6b1e-4a58-ba54-64b78f8b828f",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792429395247",
+      provider_ref: "INAPP-1792438871864",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:03:15.247Z"
+      created_at: "2026-10-19T19:41:11.864Z"
     },
     {
-      id: "3baccb16-7480-4903-8350-976cf3ae1986",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
+      id: "bc3ce1be-0316-4286-b6ac-9caa93e1007e",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792429395248",
+      provider_ref: "DEV-SMS-1792438871864",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:03:15.248Z"
+      created_at: "2026-10-19T19:41:11.865Z"
     },
     {
-      id: "aff3125e-9948-45b8-85bd-9877dc77b963",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "email",
-      status: "delivered",
-      provider_ref: "DEV-EMAIL-1792429395249",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.249Z"
-    },
-    {
-      id: "568dec9e-a000-4980-b888-306c8894e398",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792429395249",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.249Z"
-    },
-    {
-      id: "741c8abb-9ae2-47aa-bf2e-4dc867151fe6",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792429395250",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.250Z"
-    },
-    {
-      id: "627d815f-0afd-4e3c-a309-0f69e620cc4d",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792429395250",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.250Z"
-    },
-    {
-      id: "c4661612-0bdc-4157-aa67-53a179eb8665",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "email",
-      status: "delivered",
-      provider_ref: "DEV-EMAIL-1792429395250",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.250Z"
-    },
-    {
-      id: "ae60991a-4852-4c29-af01-0612771f5441",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Dr. Ramesh Sharma",
-      recipient_phone: "+91 98111 77788",
-      recipient_email: "dr.sharma@example.com",
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792429395251",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.251Z"
-    },
-    {
-      id: "1b61cb3f-2f99-4afb-8830-b9c5674145c1",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Arun Verma",
-      recipient_phone: "+91 98111 44433",
-      recipient_email: null,
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792429395251",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.251Z"
-    },
-    {
-      id: "85138aa7-e51f-4f10-b59d-c8e85896a785",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Arun Verma",
-      recipient_phone: "+91 98111 44433",
-      recipient_email: null,
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792429395251",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.252Z"
-    },
-    {
-      id: "6840c6a4-0a76-4e4e-b519-9f50c8b29cd7",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "family_contact",
-      recipient_name: "Arun Verma",
-      recipient_phone: "+91 98111 44433",
-      recipient_email: null,
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792429395252",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.252Z"
-    },
-    {
-      id: "f31d4c5a-b3ee-4105-baa0-7fc4cb402339",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "company_contact",
-      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
-      recipient_phone: "+91 98765 43210",
-      recipient_email: null,
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792429395252",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.252Z"
-    },
-    {
-      id: "8f9a6caf-d178-4f87-852b-8f984f597184",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "company_contact",
-      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
-      recipient_phone: "+91 98765 43210",
-      recipient_email: null,
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792429395252",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.253Z"
-    },
-    {
-      id: "5e387ab8-d029-4dc6-a152-c4b3d739f6ac",
-      incident_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      recipient_type: "company_contact",
-      recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
-      recipient_phone: "+91 98765 43210",
-      recipient_email: null,
-      channel: "push",
-      status: "delivered",
-      provider_ref: "PUSH-1792429395253",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:03:15.253Z"
-    },
-    {
-      id: "5bc61a34-0964-481e-a701-241f05c9e641",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "in_app",
-      status: "delivered",
-      provider_ref: "INAPP-1792429523247",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:05:23.247Z"
-    },
-    {
-      id: "94979d05-9e0a-45ac-95d9-d9e1e357cb31",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
-      recipient_type: "family_contact",
-      recipient_name: "Pooja Sharma",
-      recipient_phone: "+91 98111 55566",
-      recipient_email: "pooja.sharma@example.com",
-      channel: "sms",
-      status: "delivered",
-      provider_ref: "DEV-SMS-1792429523249",
-      failure_reason: null,
-      retry_count: 0,
-      created_at: "2026-10-19T17:05:23.249Z"
-    },
-    {
-      id: "58010923-3098-41b3-a6d4-ad059992365b",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "b5623ecf-3b12-4b38-b347-891ca722bf0f",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "email",
       status: "delivered",
-      provider_ref: "DEV-EMAIL-1792429523250",
+      provider_ref: "DEV-EMAIL-1792438871865",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.250Z"
+      created_at: "2026-10-19T19:41:11.865Z"
     },
     {
-      id: "4e5c3d9a-3293-4dc1-8ef3-b4913b15b7a8",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "482cbe46-d592-488b-aa65-47ea0af0fa26",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792429523251",
+      provider_ref: "PUSH-1792438871866",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.251Z"
+      created_at: "2026-10-19T19:41:11.866Z"
     },
     {
-      id: "9cecb349-ef7c-4506-b7b4-66af0e161ba7",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "1a235a56-ffec-46b2-838d-03b540696be4",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792429523251",
+      provider_ref: "INAPP-1792438871866",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.251Z"
+      created_at: "2026-10-19T19:41:11.866Z"
     },
     {
-      id: "1668e21b-1378-4e6f-aca6-7fe2f7f5e707",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "cac6fe2d-8470-46ed-99e1-d7fcf6dbe999",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792429523252",
+      provider_ref: "DEV-SMS-1792438871866",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.252Z"
+      created_at: "2026-10-19T19:41:11.866Z"
     },
     {
-      id: "63acadcf-1c0b-4dfa-bb91-880c620cd624",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "8bffcd20-d767-4c09-b7b3-ef4ddad04271",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "email",
       status: "delivered",
-      provider_ref: "DEV-EMAIL-1792429523252",
+      provider_ref: "DEV-EMAIL-1792438871867",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.252Z"
+      created_at: "2026-10-19T19:41:11.867Z"
     },
     {
-      id: "c0488ecd-f553-4044-a053-433930b54f57",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "dd421a75-f920-4d67-bc3b-3cd33e330563",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792429523253",
+      provider_ref: "PUSH-1792438871867",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.253Z"
+      created_at: "2026-10-19T19:41:11.867Z"
     },
     {
-      id: "5454a2b3-1857-4b9d-b5d5-0025447214a7",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "3571036c-4817-40bb-9520-4ca923cd7557",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792429523253",
+      provider_ref: "INAPP-1792438871868",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.253Z"
+      created_at: "2026-10-19T19:41:11.868Z"
     },
     {
-      id: "9fa5700d-3416-4b79-8cb8-5f132c9d5808",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "46edcf34-86fd-4473-9927-33f7dd6d1cce",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792429523254",
+      provider_ref: "DEV-SMS-1792438871868",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.254Z"
+      created_at: "2026-10-19T19:41:11.868Z"
     },
     {
-      id: "3402610b-4346-4a1d-9b01-4ae4ad4f17dc",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "4301972f-d7f3-4523-b688-38be65754e74",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792429523254",
+      provider_ref: "PUSH-1792438871868",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.254Z"
+      created_at: "2026-10-19T19:41:11.869Z"
     },
     {
-      id: "42d158ac-c701-41ad-896c-ea426493756e",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "4091dbd8-e7dc-4420-a3fd-7eb7547a1af1",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792429523254",
+      provider_ref: "INAPP-1792438871869",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.254Z"
+      created_at: "2026-10-19T19:41:11.869Z"
     },
     {
-      id: "8b38f8c7-2fcb-4efc-8ec2-964495e89575",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "ae42a4c5-394d-4f37-84ef-e73b890e9f4a",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792429523255",
+      provider_ref: "DEV-SMS-1792438871869",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.255Z"
+      created_at: "2026-10-19T19:41:11.869Z"
     },
     {
-      id: "3e71e0ed-728e-49c6-8a31-103f5285239a",
-      incident_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      id: "86b7a23e-aace-428a-894a-0bf7a27501b4",
+      incident_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792429523255",
+      provider_ref: "PUSH-1792438871870",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T17:05:23.255Z"
+      created_at: "2026-10-19T19:41:11.870Z"
     },
     {
-      id: "f5a4f873-ca44-400d-8061-ef4ebf086dde",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "ed23c1ac-f651-4cac-b226-a07b1569c7a7",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792433226199",
+      provider_ref: "INAPP-1792438872250",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.199Z"
+      created_at: "2026-10-19T19:41:12.250Z"
     },
     {
-      id: "25e00eac-5565-4a6a-8b41-11e8475d7c3d",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "2407240c-6313-46b5-a77e-befec4eb462a",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792433226199",
+      provider_ref: "DEV-SMS-1792438872250",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.199Z"
+      created_at: "2026-10-19T19:41:12.251Z"
     },
     {
-      id: "b04c58ee-3f08-45db-b6c5-5e1ccb84f88d",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "0c95e593-eb3b-403d-aa2c-e1e44488c4a7",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "email",
       status: "delivered",
-      provider_ref: "DEV-EMAIL-1792433226199",
+      provider_ref: "DEV-EMAIL-1792438872251",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.199Z"
+      created_at: "2026-10-19T19:41:12.251Z"
     },
     {
-      id: "5a070e0c-3483-4ac5-a420-0e5d397c6f51",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "c36e339f-f7e1-4797-80c6-53ef0ab63d55",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Pooja Sharma",
       recipient_phone: "+91 98111 55566",
       recipient_email: "pooja.sharma@example.com",
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792433226200",
+      provider_ref: "PUSH-1792438872251",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.200Z"
+      created_at: "2026-10-19T19:41:12.251Z"
     },
     {
-      id: "4da4dbff-b565-4638-8a1f-4ca958c9c389",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "949e1542-ad60-4afa-a54f-f1316b19f89a",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792433226200",
+      provider_ref: "INAPP-1792438872252",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.200Z"
+      created_at: "2026-10-19T19:41:12.252Z"
     },
     {
-      id: "6b4b1409-e8e8-4425-9a84-1c19ad6cacfe",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "d97c5fe7-c774-4809-921d-98bbb865ff03",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792433226201",
+      provider_ref: "DEV-SMS-1792438872252",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.201Z"
+      created_at: "2026-10-19T19:41:12.252Z"
     },
     {
-      id: "4e1a7a9a-2367-4fba-888f-03372ca44a49",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "b84bc88b-34a0-4722-a832-376088bd3ef4",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "email",
       status: "delivered",
-      provider_ref: "DEV-EMAIL-1792433226202",
+      provider_ref: "DEV-EMAIL-1792438872253",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.202Z"
+      created_at: "2026-10-19T19:41:12.253Z"
     },
     {
-      id: "142d34fa-d356-4248-b599-dfc1cbc993fa",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "f9630289-c520-4e98-99e4-e7eaf9ad109a",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Dr. Ramesh Sharma",
       recipient_phone: "+91 98111 77788",
       recipient_email: "dr.sharma@example.com",
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792433226202",
+      provider_ref: "PUSH-1792438872253",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.202Z"
+      created_at: "2026-10-19T19:41:12.253Z"
     },
     {
-      id: "38939d01-89ae-4e4c-9222-cbf96fdadf68",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "bc18f190-2f37-470d-ba6e-cd75f62ac3d5",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792433226202",
+      provider_ref: "INAPP-1792438872254",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.202Z"
+      created_at: "2026-10-19T19:41:12.254Z"
     },
     {
-      id: "5f2930ca-b586-46a8-bb21-bb965620729c",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "60645847-995a-4f0e-8705-ed05735b2efb",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792433226203",
+      provider_ref: "DEV-SMS-1792438872254",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.203Z"
+      created_at: "2026-10-19T19:41:12.254Z"
     },
     {
-      id: "ebbf996f-5960-48db-8590-6929c3244c77",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "85c6d0f4-24e0-4851-b807-a852f80d3e0f",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "family_contact",
       recipient_name: "Arun Verma",
       recipient_phone: "+91 98111 44433",
       recipient_email: null,
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792433226203",
+      provider_ref: "PUSH-1792438872255",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.203Z"
+      created_at: "2026-10-19T19:41:12.255Z"
     },
     {
-      id: "ddad71b7-726f-40b7-b783-d03e47ff2984",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "fe554e65-b521-477f-9211-5d23c8ed3351",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "in_app",
       status: "delivered",
-      provider_ref: "INAPP-1792433226204",
+      provider_ref: "INAPP-1792438872255",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.204Z"
+      created_at: "2026-10-19T19:41:12.255Z"
     },
     {
-      id: "e19226a4-f268-4cdd-87b5-a5ab5e049b86",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "2d2dea65-7f2b-403d-9c78-a6b651d747a5",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "sms",
       status: "delivered",
-      provider_ref: "DEV-SMS-1792433226204",
+      provider_ref: "DEV-SMS-1792438872255",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.204Z"
+      created_at: "2026-10-19T19:41:12.256Z"
     },
     {
-      id: "92e45cdc-0206-47e0-9410-1b2afd2004f2",
-      incident_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      id: "ae7bfdb9-69bb-4f64-8e51-e1fb7eef07c0",
+      incident_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       recipient_type: "company_contact",
       recipient_name: "Apex Global Technologies (Apex Emergency Medical Desk)",
       recipient_phone: "+91 98765 43210",
       recipient_email: null,
       channel: "push",
       status: "delivered",
-      provider_ref: "PUSH-1792433226205",
+      provider_ref: "PUSH-1792438872256",
       failure_reason: null,
       retry_count: 0,
-      created_at: "2026-10-19T18:07:06.205Z"
+      created_at: "2026-10-19T19:41:12.256Z"
     }
   ],
   consent_records: [],
   audit_logs: [
     {
-      id: "78131694-bd2e-4997-b53e-181c9fed3960",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "127.0.0.1"
-      },
-      ip_address: "127.0.0.1",
-      created_at: "2026-10-19T18:45:17.022Z"
-    },
-    {
-      id: "99efd06f-baba-47ad-82ed-6e335d1ef5b4",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "127.0.0.1"
-      },
-      ip_address: "127.0.0.1",
-      created_at: "2026-10-19T18:42:10.545Z"
-    },
-    {
-      id: "1cc9ee02-7583-42d6-8c29-fb05e164602d",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "127.0.0.1"
-      },
-      ip_address: "127.0.0.1",
-      created_at: "2026-10-19T18:41:24.642Z"
-    },
-    {
-      id: "875962cb-077d-4fa4-8065-34d53fc0016e",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "127.0.0.1"
-      },
-      ip_address: "127.0.0.1",
-      created_at: "2026-10-19T18:32:52.154Z"
-    },
-    {
-      id: "409ffd3b-de39-4d50-a41e-9eb2bf5672d0",
+      id: "0e6d66cb-8a12-4653-8791-d3b9a28d9ee7",
       actor_user_id: null,
       action: "EMERGENCY_ALERT_TRIGGERED",
       entity_type: "emergency_incident",
-      entity_id: "4e8ffdc0-dc1a-4000-8ebc-9e5908e6a65f",
+      entity_id: "7a3df84e-fae4-4886-9653-c2b8764cdc87",
       metadata: {
-        incidentCode: "INC-MVFKGOUU-1A78",
+        incidentCode: "INC-MVFNTPDM-7BB6",
         totalRecipients: 4,
-        ip: "::ffff:192.168.29.50"
+        ip: "127.0.0.1"
       },
-      ip_address: "::ffff:192.168.29.50",
-      created_at: "2026-10-19T18:07:06.205Z"
+      ip_address: "127.0.0.1",
+      created_at: "2026-10-19T19:41:12.257Z"
     },
     {
-      id: "be36003e-2271-44ac-9e06-9b5e1206d4fc",
+      id: "97c91d22-38b2-4707-82d0-f7033204f442",
+      actor_user_id: "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      action: "ORGANIZATION_LEFT",
+      entity_type: "user",
+      entity_id: "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      metadata: {},
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.242Z"
+    },
+    {
+      id: "f286f8f3-fa94-43e3-b843-b03b4a14a5a4",
+      actor_user_id: "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      action: "ORGANIZATION_JOINED",
+      entity_type: "organization_membership",
+      entity_id: "629ceb03-ec84-48dd-8dfe-54e6c39294a1",
+      metadata: {
+        organization_name: "Apex Global Technologies",
+        employee_id_number: "APEX-EXT-9988"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.236Z"
+    },
+    {
+      id: "1b0f444b-5843-421a-86ab-d9bc6c9a0a22",
+      actor_user_id: "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      action: "USER_REGISTERED",
+      entity_type: "user",
+      entity_id: "2f4f4c7d-0e34-4501-abc8-52816adc5401",
+      metadata: {
+        role: "individual"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.229Z"
+    },
+    {
+      id: "2953c708-fa74-4ccb-966e-2790b4a1e99a",
+      actor_user_id: "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      action: "FAMILY_PERMISSIONS_UPDATED",
+      entity_type: "family_relationship",
+      entity_id: "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
+      metadata: {
+        permissions: {
+          receive_alerts: true,
+          can_view_medical: false,
+          can_manage_qr: true
+        }
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.167Z"
+    },
+    {
+      id: "f20ae6f1-92cc-417c-a0b9-cecbe6ed7251",
+      actor_user_id: "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      action: "FAMILY_LINK_ACCEPTED",
+      entity_type: "family_relationship",
+      entity_id: "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
+      metadata: {},
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.157Z"
+    },
+    {
+      id: "744cd40b-4ab7-457b-bfcf-482a8bb8f0f4",
+      actor_user_id: "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      action: "FAMILY_LINK_REQUESTED",
+      entity_type: "family_relationship",
+      entity_id: "29829f08-edc3-4b91-9ce8-09cdb637c3b8",
+      metadata: {
+        target_email: "sunita.mehta@example.com",
+        relationship_type: "Spouse"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.151Z"
+    },
+    {
+      id: "6cd6ad74-3ea6-4104-ad50-d10224b7ca58",
+      actor_user_id: "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      action: "USER_REGISTERED",
+      entity_type: "user",
+      entity_id: "b2daa43d-ff71-45dd-bbe2-04b46e9f6a56",
+      metadata: {
+        role: "individual"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.145Z"
+    },
+    {
+      id: "2683c978-8b14-4ae6-b84c-7b0ddfd92849",
+      actor_user_id: "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      action: "USER_REGISTERED",
+      entity_type: "user",
+      entity_id: "434eeaab-b420-4265-9e0f-cc7801c34ad6",
+      metadata: {
+        role: "individual"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.077Z"
+    },
+    {
+      id: "34667c7c-327b-4134-a49e-d605648977c5",
+      actor_user_id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      action: "QR_GENERATED",
+      entity_type: "qr_token",
+      entity_id: "1890580f-af68-4d6c-9744-0f3d59201fc4",
+      metadata: {
+        profile_id: "6e940852-ac76-42d3-b34c-3c137a7efcce",
+        public_token: "EMP-FF6C35B44E97"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.016Z"
+    },
+    {
+      id: "609d8964-1f13-4a2f-9125-672f4d8ab99d",
+      actor_user_id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      action: "QR_REVOKED",
+      entity_type: "qr_token",
+      entity_id: "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      metadata: {
+        public_token: "EMP-33FFC0DE0864"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.010Z"
+    },
+    {
+      id: "713a66f4-42b9-4940-a08f-5d8a91285fdf",
+      actor_user_id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      action: "QR_REACTIVATED",
+      entity_type: "qr_token",
+      entity_id: "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      metadata: {
+        public_token: "EMP-33FFC0DE0864"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.007Z"
+    },
+    {
+      id: "e8d0c308-f41d-4284-a3e9-b3de15d9c1c4",
+      actor_user_id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      action: "QR_SUSPENDED",
+      entity_type: "qr_token",
+      entity_id: "3ad57e22-1803-456d-8f41-f1055adf62c0",
+      metadata: {
+        public_token: "EMP-33FFC0DE0864"
+      },
+      ip_address: null,
+      created_at: "2026-10-19T19:41:12.000Z"
+    },
+    {
+      id: "ab2c2c61-50b7-44a8-a592-b380b8c2104f",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      entity_id: "3ad57e22-1803-456d-8f41-f1055adf62c0",
       metadata: {
-        public_token: "EMP-E624AB888E97",
-        ip: "::ffff:192.168.29.50"
+        public_token: "EMP-33FFC0DE0864",
+        ip: "127.0.0.1"
       },
-      ip_address: "::ffff:192.168.29.50",
-      created_at: "2026-10-19T18:07:05.077Z"
+      ip_address: "127.0.0.1",
+      created_at: "2026-10-19T19:41:11.995Z"
     },
     {
-      id: "3d40116d-547e-4263-8a24-f9ff8199be96",
-      actor_user_id: null,
-      action: "QR_SCANNED",
-      entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
-      metadata: {
-        public_token: "EMP-E624AB888E97",
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:55:39.335Z"
-    },
-    {
-      id: "07ddcbb3-1775-4350-87ef-3e4245602c4a",
-      actor_user_id: null,
-      action: "QR_SCANNED",
-      entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
-      metadata: {
-        public_token: "EMP-E624AB888E97",
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:55:39.330Z"
-    },
-    {
-      id: "28318b80-b47a-4815-8593-3949ee0a80a8",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
+      id: "6a71a52b-b8ba-4715-94eb-36e7339b4341",
+      actor_user_id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
+      action: "USER_REGISTERED",
       entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
+      entity_id: "06e36f6e-844c-4d2e-9208-e91c5efba401",
       metadata: {
-        ip: "::ffff:192.168.29.50"
+        role: "individual"
       },
-      ip_address: "::ffff:192.168.29.50",
-      created_at: "2026-10-19T17:51:21.225Z"
+      ip_address: null,
+      created_at: "2026-10-19T19:41:11.989Z"
     },
     {
-      id: "e4208cfc-a694-4ddd-ad71-40983f8662b3",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::ffff:192.168.29.50"
-      },
-      ip_address: "::ffff:192.168.29.50",
-      created_at: "2026-10-19T17:51:02.678Z"
-    },
-    {
-      id: "35197b7e-a95b-4b78-835b-1d1fded3a755",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::ffff:192.168.29.50"
-      },
-      ip_address: "::ffff:192.168.29.50",
-      created_at: "2026-10-19T17:47:04.284Z"
-    },
-    {
-      id: "bbf8bcbc-1f07-4e1f-8ddf-85850325a7db",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:20:07.953Z"
-    },
-    {
-      id: "722c5baf-a14f-447a-9b9f-1396fcbff9ff",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:19:53.759Z"
-    },
-    {
-      id: "eb144600-13ac-4cbd-a7f4-85668a95b60e",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:19:52.358Z"
-    },
-    {
-      id: "fdc27e88-8311-4ff0-a58f-61d3ec8a70fe",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:19:50.112Z"
-    },
-    {
-      id: "6e6d52e2-246b-4ab1-9687-b43e54ee90fa",
-      actor_user_id: "00000000-0000-0000-0000-000000000001",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000001",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:19:25.713Z"
-    },
-    {
-      id: "3ba11e1d-16de-4555-978b-0c70d896be3c",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:19:20.982Z"
-    },
-    {
-      id: "9aa2afab-1d61-4b50-81a9-42f0e7a7a387",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:19:06.603Z"
-    },
-    {
-      id: "a6442272-3587-434e-9cad-5e9bc2498c80",
-      actor_user_id: "00000000-0000-0000-0000-000000000001",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000001",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:18:58.184Z"
-    },
-    {
-      id: "ce42d3e7-9063-48e0-b78e-806e8f8e0c58",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:18:56.616Z"
-    },
-    {
-      id: "878d012a-9f6c-49ee-82af-490c617ab85f",
-      actor_user_id: null,
-      action: "QR_SCANNED",
-      entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
-      metadata: {
-        public_token: "EMP-E624AB888E97",
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:18:52.575Z"
-    },
-    {
-      id: "38a748b3-edd0-45c3-9521-fea45f351a9d",
-      actor_user_id: null,
-      action: "QR_SCANNED",
-      entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
-      metadata: {
-        public_token: "EMP-E624AB888E97",
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:18:52.568Z"
-    },
-    {
-      id: "364ca30a-c017-4492-a11c-78f8aaeaac8d",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:16:54.460Z"
-    },
-    {
-      id: "fcb58e84-1339-4af3-b072-d737e67cab9c",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:13:10.635Z"
-    },
-    {
-      id: "24e1d010-6fe9-47be-9f84-45e41a335bb7",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:12:51.128Z"
-    },
-    {
-      id: "91db9133-e26c-4013-aab5-52837e53c760",
-      actor_user_id: "00000000-0000-0000-0000-000000000001",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000001",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:12:32.685Z"
-    },
-    {
-      id: "d195e925-f81f-4628-ae14-b26faa1a9773",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:12:22.208Z"
-    },
-    {
-      id: "5d35c911-0f97-4032-8662-d389b12210f9",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:12:20.722Z"
-    },
-    {
-      id: "19684afb-a385-4417-8e50-7c88e8723f3d",
-      actor_user_id: "00000000-0000-0000-0000-000000000001",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000001",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:12:19.674Z"
-    },
-    {
-      id: "2b9616d7-ec35-4b68-b5d6-49cd702cb972",
+      id: "5d58635e-a7b3-43df-a9ba-fe85bd882df3",
       actor_user_id: "00000000-0000-0000-0000-000000000020",
       action: "INCIDENT_ACKNOWLEDGED",
       entity_type: "emergency_incident",
-      entity_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
+      entity_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       metadata: {
         responder: "Anjali Verma (HR Lead) (company_admin)"
       },
       ip_address: null,
-      created_at: "2026-10-19T17:06:53.758Z"
+      created_at: "2026-10-19T19:41:11.916Z"
     },
     {
-      id: "a2a88e91-5e58-4110-b8b0-1ba3f44a7b7a",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000020",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:06:08.718Z"
-    },
-    {
-      id: "9c02bbb5-cf02-46be-ae73-3d4ba5cac4a7",
-      actor_user_id: null,
-      action: "EMERGENCY_ALERT_TRIGGERED",
-      entity_type: "emergency_incident",
-      entity_id: "bb1d707d-ad3c-40d4-b69a-e5fa5af67b0a",
-      metadata: {
-        incidentCode: "INC-MVFI9BMH-436B",
-        totalRecipients: 4,
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:05:23.256Z"
-    },
-    {
-      id: "9b1e0273-ab27-49f7-b4e3-08ccbb08cce8",
+      id: "b993cd66-6689-4c18-9db5-511c7424c004",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      entity_id: "4878a569-16a4-45ad-863d-9e1fb95c2ce9",
       metadata: {
-        public_token: "EMP-E624AB888E97",
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:05:04.266Z"
-    },
-    {
-      id: "511b41a5-da43-4c75-b557-bf30b5867c9c",
-      actor_user_id: null,
-      action: "QR_SCANNED",
-      entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
-      metadata: {
-        public_token: "EMP-E624AB888E97",
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:05:04.258Z"
-    },
-    {
-      id: "6e7628a3-d2f8-4bcf-8c7c-ae3583278200",
-      actor_user_id: "00000000-0000-0000-0000-000000000030",
-      action: "USER_LOGIN",
-      entity_type: "user",
-      entity_id: "00000000-0000-0000-0000-000000000030",
-      metadata: {
-        ip: "::1"
-      },
-      ip_address: "::1",
-      created_at: "2026-10-19T17:04:57.002Z"
-    },
-    {
-      id: "9041c0e5-fa18-40eb-9c1c-9b9cc3c5e6cf",
-      actor_user_id: "00000000-0000-0000-0000-000000000020",
-      action: "INCIDENT_ACKNOWLEDGED",
-      entity_type: "emergency_incident",
-      entity_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
-      metadata: {
-        responder: "Anjali Verma (HR Lead) (company_admin)"
-      },
-      ip_address: null,
-      created_at: "2026-10-19T17:03:15.295Z"
-    },
-    {
-      id: "12e3d6cb-aed2-40a0-be2b-610f27136355",
-      actor_user_id: null,
-      action: "QR_SCANNED",
-      entity_type: "qr_token",
-      entity_id: "baaa0a71-bd1f-444b-8b8e-d406e96cf362",
-      metadata: {
-        public_token: "EMP-75990CB34A55",
+        public_token: "EMP-25E6F6D9F291",
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.286Z"
+      created_at: "2026-10-19T19:41:11.905Z"
     },
     {
-      id: "e3a7781a-2c2b-4f26-9a3a-0074cfedcc89",
+      id: "060d3765-b1b0-4eb1-aa34-597bbea5d61d",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "DEPENDENT_PROFILE_CREATED",
       entity_type: "medical_profile",
-      entity_id: "0b4e09a3-c1b3-422c-bcbd-65bc96ff59d3",
+      entity_id: "fe4dbc39-29d6-4191-adbf-3700fa5889fa",
       metadata: {
         full_name: "Anvi Sharma",
         relationship_type: "Daughter (Dependent Child)",
-        qr_token: "EMP-75990CB34A55"
+        qr_token: "EMP-25E6F6D9F291"
       },
       ip_address: null,
-      created_at: "2026-10-19T17:03:15.282Z"
+      created_at: "2026-10-19T19:41:11.902Z"
     },
     {
-      id: "6c3e801a-7be9-4d81-9811-1823738a1b6a",
+      id: "64614ca3-4025-45ec-9187-67abd480dfae",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      entity_id: "c3e2b283-5297-4f36-b45f-3878f2da3349",
       metadata: {
-        public_token: "EMP-E624AB888E97",
+        public_token: "EMP-DD827E94CEDD",
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.277Z"
+      created_at: "2026-10-19T19:41:11.897Z"
     },
     {
-      id: "bb307e8a-5bca-4f79-b02b-66c72238eef4",
+      id: "fb8dd6f3-14bd-4e33-a50b-81bb3aeac856",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_REGENERATED",
       entity_type: "qr_token",
-      entity_id: "d5ff303d-9e9e-4ed9-bed8-5d417fab839e",
+      entity_id: "c3e2b283-5297-4f36-b45f-3878f2da3349",
       metadata: {
         profile_id: "00000000-0000-0000-0000-000000000040",
-        new_public_token: "EMP-E624AB888E97"
+        new_public_token: "EMP-DD827E94CEDD"
       },
       ip_address: null,
-      created_at: "2026-10-19T17:03:15.272Z"
+      created_at: "2026-10-19T19:41:11.891Z"
     },
     {
-      id: "7bc62ad4-e240-41ed-a912-c344c0657de9",
+      id: "1ff7f439-9917-4afa-894b-1db3f377a19d",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
@@ -32007,10 +31733,10 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.269Z"
+      created_at: "2026-10-19T19:41:11.887Z"
     },
     {
-      id: "27558f05-4ad9-45b0-8492-15fd0442ebc6",
+      id: "f789b076-2fb0-4e2d-b7a4-a4da6ed8dc36",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_REACTIVATED",
       entity_type: "qr_token",
@@ -32019,10 +31745,10 @@ var emp_local_data_default = {
         public_token: "EMP-RAHUL-789X"
       },
       ip_address: null,
-      created_at: "2026-10-19T17:03:15.266Z"
+      created_at: "2026-10-19T19:41:11.884Z"
     },
     {
-      id: "cec727a4-f507-4268-9e41-dde4ebf07874",
+      id: "632af6d4-c703-49ba-ab9a-aa8b4f9301d6",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "QR_SUSPENDED",
       entity_type: "qr_token",
@@ -32031,24 +31757,24 @@ var emp_local_data_default = {
         public_token: "EMP-RAHUL-789X"
       },
       ip_address: null,
-      created_at: "2026-10-19T17:03:15.259Z"
+      created_at: "2026-10-19T19:41:11.876Z"
     },
     {
-      id: "fc4dce58-7ca6-4493-805f-39367823e21c",
+      id: "8af339df-6ef6-4d44-ab3d-f8c8ac12ac65",
       actor_user_id: null,
       action: "EMERGENCY_ALERT_TRIGGERED",
       entity_type: "emergency_incident",
-      entity_id: "b9ab9e65-5ead-49bc-8ac2-d81014153784",
+      entity_id: "5153cdf5-fece-4c7d-b074-eeb3d0307757",
       metadata: {
-        incidentCode: "INC-MVFI6KV4-F8F3",
+        incidentCode: "INC-MVFNTP2I-5FD8",
         totalRecipients: 4,
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.253Z"
+      created_at: "2026-10-19T19:41:11.870Z"
     },
     {
-      id: "31cc07cf-bf56-45df-b3e8-a61e513580ff",
+      id: "d1e2fe96-a741-4c48-aca8-b00e326df536",
       actor_user_id: null,
       action: "QR_SCANNED",
       entity_type: "qr_token",
@@ -32058,22 +31784,22 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.226Z"
+      created_at: "2026-10-19T19:41:11.844Z"
     },
     {
-      id: "20bde645-3a8d-499b-8c8e-80b4ab77c5bb",
+      id: "8bf95b3b-69ed-4976-a4a3-943a159d7eef",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "CONTACT_ADDED",
       entity_type: "emergency_contact",
-      entity_id: "9ca2ac54-7e8a-4e86-ad42-05d611842b59",
+      entity_id: "b2361a0c-6269-42ee-b01e-9a124ac89605",
       metadata: {
         name: "Arun Verma"
       },
       ip_address: null,
-      created_at: "2026-10-19T17:03:15.222Z"
+      created_at: "2026-10-19T19:41:11.840Z"
     },
     {
-      id: "ae56117a-a0c1-456b-9638-6e1266d5a477",
+      id: "3aa4b4e5-bb0a-4ffc-858d-c703b4ea58b9",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "PROFILE_UPDATED",
       entity_type: "medical_profile",
@@ -32085,10 +31811,10 @@ var emp_local_data_default = {
         ]
       },
       ip_address: null,
-      created_at: "2026-10-19T17:03:15.218Z"
+      created_at: "2026-10-19T19:41:11.835Z"
     },
     {
-      id: "744f9d5b-8771-4725-a36e-6411d8bcc72e",
+      id: "534864f5-969f-438e-bc95-392a48f3ca76",
       actor_user_id: "00000000-0000-0000-0000-000000000001",
       action: "USER_LOGIN",
       entity_type: "user",
@@ -32097,10 +31823,10 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.206Z"
+      created_at: "2026-10-19T19:41:11.822Z"
     },
     {
-      id: "53159b5b-9397-46fb-ac35-908a50a36b2c",
+      id: "2c32e105-645e-4e56-b752-6fb6eb39715e",
       actor_user_id: "00000000-0000-0000-0000-000000000020",
       action: "USER_LOGIN",
       entity_type: "user",
@@ -32109,10 +31835,10 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.148Z"
+      created_at: "2026-10-19T19:41:11.760Z"
     },
     {
-      id: "6b74bd71-6603-4a71-ad7a-086cef95f815",
+      id: "6d56ac20-5b66-43cc-b658-664e106af968",
       actor_user_id: "00000000-0000-0000-0000-000000000030",
       action: "USER_LOGIN",
       entity_type: "user",
@@ -32121,7 +31847,7 @@ var emp_local_data_default = {
         ip: "127.0.0.1"
       },
       ip_address: "127.0.0.1",
-      created_at: "2026-10-19T17:03:15.084Z"
+      created_at: "2026-10-19T19:41:11.688Z"
     }
   ],
   subscriptions: [
@@ -32131,8 +31857,8 @@ var emp_local_data_default = {
       plan_tier: "enterprise",
       max_seats: 500,
       status: "active",
-      renews_at: "2027-10-19T17:03:14.999Z",
-      created_at: "2026-10-19T17:03:14.999Z"
+      renews_at: "2027-10-19T19:41:11.592Z",
+      created_at: "2026-10-19T19:41:11.592Z"
     }
   ]
 };
@@ -32550,26 +32276,69 @@ var repository = {
     return newOrg;
   },
   // Memberships
-  async getMembershipsByOrgId(orgId) {
-    return store.organization_memberships.filter((m) => m.organization_id === orgId);
-  },
-  async getMembershipByUserId(userId) {
-    return store.organization_memberships.find((m) => m.user_id === userId) || null;
-  },
   async createMembership(membershipData) {
-    const newMembership = {
+    const membership = {
       id: import_crypto.default.randomUUID(),
       organization_id: membershipData.organization_id,
       user_id: membershipData.user_id,
       role: membershipData.role || "employee",
       employee_id_number: membershipData.employee_id_number || null,
       department: membershipData.department || null,
+      status: membershipData.status || "active",
+      joined_at: (/* @__PURE__ */ new Date()).toISOString()
+    };
+    store.organization_memberships.push(membership);
+    saveLocalStore();
+    return membership;
+  },
+  async getMembershipsByOrgId(orgId) {
+    return store.organization_memberships.filter((m) => m.organization_id === orgId);
+  },
+  async getMembershipByUserId(userId) {
+    return store.organization_memberships.find((m) => m.user_id === userId) || null;
+  },
+  async getAllOrganizations() {
+    return store.organizations.map((org) => ({
+      id: org.id,
+      name: org.name,
+      slug: org.slug,
+      status: org.status,
+      emergency_phone: org.emergency_phone,
+      emergency_contact_name: org.emergency_contact_name,
+      emergency_instructions: org.emergency_instructions,
+      show_company_phone_on_qr: org.show_company_phone_on_qr
+    }));
+  },
+  async joinOrganization(userId, orgIdOrSlug, employeeId, department) {
+    const org = store.organizations.find((o) => o.id === orgIdOrSlug || o.slug === orgIdOrSlug);
+    if (!org) return { error: "Organization not found." };
+    store.organization_memberships = store.organization_memberships.filter((m) => m.user_id !== userId);
+    const membership = {
+      id: import_crypto.default.randomUUID(),
+      organization_id: org.id,
+      user_id: userId,
+      role: "employee",
+      employee_id_number: employeeId || null,
+      department: department || null,
       status: "active",
       joined_at: (/* @__PURE__ */ new Date()).toISOString()
     };
-    store.organization_memberships.push(newMembership);
+    store.organization_memberships.push(membership);
+    const profile = store.medical_profiles.find((p) => p.user_id === userId);
+    if (profile) {
+      profile.organization_id = org.id;
+    }
     saveLocalStore();
-    return newMembership;
+    return { membership, organization: org };
+  },
+  async leaveOrganization(userId) {
+    store.organization_memberships = store.organization_memberships.filter((m) => m.user_id !== userId);
+    const profile = store.medical_profiles.find((p) => p.user_id === userId);
+    if (profile) {
+      profile.organization_id = null;
+    }
+    saveLocalStore();
+    return true;
   },
   // Medical Profiles
   async getMedicalProfileByUserId(userId) {
@@ -32726,29 +32495,86 @@ var repository = {
       saveLocalStore();
     }
   },
-  // Family Members & Dependents
+  // Family Members & Dependents (Family Linking Hub)
   async getFamilyRelationships(sponsorUserId) {
-    const rels = store.family_relationships.filter((r) => r.sponsor_user_id === sponsorUserId);
+    const rels = store.family_relationships.filter(
+      (r) => (r.sponsor_user_id === sponsorUserId || r.linked_user_id === sponsorUserId) && r.invitation_status === "active"
+    );
     const result = [];
     for (const rel of rels) {
-      const profile = store.medical_profiles.find((p) => p.id === rel.family_profile_id);
-      const qr = store.qr_tokens.find((q) => q.profile_id === rel.family_profile_id && q.status !== "revoked");
-      if (profile) {
+      const isSponsor = rel.sponsor_user_id === sponsorUserId;
+      let targetProfile = null;
+      if (isSponsor) {
+        if (rel.linked_user_id) {
+          targetProfile = store.medical_profiles.find((p) => p.user_id === rel.linked_user_id);
+        }
+        if (!targetProfile && rel.family_profile_id) {
+          targetProfile = store.medical_profiles.find((p) => p.id === rel.family_profile_id);
+        }
+      } else {
+        targetProfile = store.medical_profiles.find((p) => p.user_id === rel.sponsor_user_id);
+      }
+      if (targetProfile) {
+        const qr = store.qr_tokens.find((q) => q.profile_id === targetProfile.id && q.status !== "revoked");
         result.push({
+          id: rel.id,
           relationship_id: rel.id,
-          id: profile.id,
-          full_name: profile.full_name,
+          profile_id: targetProfile.id,
+          name: targetProfile.full_name,
+          full_name: targetProfile.full_name,
           relationship_type: rel.relationship_type,
-          is_dependent: profile.is_dependent,
+          is_dependent: targetProfile.is_dependent,
           invitation_status: rel.invitation_status,
           invite_email: rel.invite_email,
           invite_phone: rel.invite_phone,
+          is_sponsor: isSponsor,
+          permissions: rel.permissions || {
+            receive_alerts: true,
+            can_view_medical: false,
+            can_manage_qr: targetProfile.is_dependent
+          },
           qr_status: qr ? qr.status : "not_generated",
           public_token: qr ? qr.public_token : null
         });
       }
     }
     return result;
+  },
+  async getPendingFamilyRequests(userId, email) {
+    return store.family_relationships.filter(
+      (r) => (r.linked_user_id === userId || email && r.invite_email?.toLowerCase() === email.toLowerCase()) && r.invitation_status === "pending_approval"
+    ).map((r) => {
+      const sponsorUser = store.users.find((u) => u.id === r.sponsor_user_id);
+      return {
+        relationship_id: r.id,
+        sponsor_name: sponsorUser ? sponsorUser.full_name : "EMP User",
+        sponsor_email: sponsorUser ? sponsorUser.email : null,
+        relationship_type: r.relationship_type,
+        created_at: r.created_at
+      };
+    });
+  },
+  async acceptFamilyRequest(relId, userId) {
+    const rel = store.family_relationships.find((r) => r.id === relId);
+    if (!rel) return null;
+    rel.linked_user_id = userId;
+    rel.invitation_status = "active";
+    saveLocalStore();
+    return rel;
+  },
+  async declineFamilyRequest(relId) {
+    const index = store.family_relationships.findIndex((r) => r.id === relId);
+    if (index === -1) return false;
+    store.family_relationships.splice(index, 1);
+    saveLocalStore();
+    return true;
+  },
+  async updateFamilyPermissions(relId, permissions) {
+    const rel = store.family_relationships.find((r) => r.id === relId);
+    if (!rel) return null;
+    rel.permissions = { ...rel.permissions || {}, ...permissions };
+    saveLocalStore();
+    return rel;
   },
   async createFamilyRelationship(data) {
     const rel = {
@@ -32759,6 +32585,12 @@ var repository = {
       invitation_status: data.invitation_status || "active",
       invite_email: data.invite_email || null,
       invite_phone: data.invite_phone || null,
+      linked_user_id: data.linked_user_id || null,
+      permissions: data.permissions || {
+        receive_alerts: true,
+        can_view_medical: false,
+        can_manage_qr: false
+      },
       created_at: (/* @__PURE__ */ new Date()).toISOString()
     };
     store.family_relationships.push(rel);
@@ -32771,6 +32603,15 @@ var repository = {
     store.family_relationships.splice(index, 1);
     saveLocalStore();
     return true;
+  },
+  async findRecentIncident(qrTokenId, maxSeconds = 60) {
+    const cutoff = Date.now() - maxSeconds * 1e3;
+    return store.emergency_incidents.find(
+      (i) => i.qr_token_id === qrTokenId && new Date(i.triggered_at).getTime() > cutoff
+    ) || null;
+  },
+  async getIncidentDeliveries(incidentId) {
+    return store.notification_deliveries.filter((d) => d.incident_id === incidentId);
   },
   // Emergency Incidents
   async createIncident(incidentData) {
@@ -33011,7 +32852,7 @@ router.post("/register", async (req, res) => {
       });
     }
     let profile = null;
-    if (userRole === "employee") {
+    if (userRole !== "company_admin" && userRole !== "super_admin") {
       profile = await repository.createMedicalProfile({
         user_id: user.id,
         organization_id: orgId,
@@ -34345,6 +34186,24 @@ router4.get("/:token", publicLimiter, async (req, res) => {
     res.status(500).json({ error: "Server error retrieving emergency details." });
   }
 });
+router4.get("/history/me", verifyAuth, async (req, res) => {
+  try {
+    const profile = await repository.getMedicalProfileByUserId(req.user.id);
+    if (!profile) return res.json({ incidents: [] });
+    const incidents = await repository.getIncidentsByProfileId(profile.id);
+    const enriched = [];
+    for (const inc of incidents) {
+      const deliveries = await repository.getIncidentDeliveries(inc.id);
+      enriched.push({
+        ...inc,
+        deliveries
+      });
+    }
+    res.json({ incidents: enriched });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to retrieve emergency history." });
+  }
+});
 router4.post("/:token/alert", alertTriggerLimiter, async (req, res) => {
   try {
     const { token } = req.params;
@@ -34355,6 +34214,18 @@ router4.post("/:token/alert", alertTriggerLimiter, async (req, res) => {
     }
     const profile = await repository.getMedicalProfileById(qrRecord.profile_id);
     if (!profile) return res.status(404).json({ error: "Profile not found." });
+    const existingRecent = await repository.findRecentIncident(qrRecord.id, 60);
+    if (existingRecent) {
+      return res.status(200).json({
+        success: true,
+        incident_id: existingRecent.id,
+        incident_code: existingRecent.incident_code,
+        status: "duplicate_prevented",
+        message: `An active emergency alert was already dispatched (${existingRecent.incident_code}). Responders and family contacts have already been notified.`,
+        recipients_notified: 0,
+        channels_summary: { sms: 0, email: 0, in_app: 1, push: 0 }
+      });
+    }
     const clientIp = req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "127.0.0.1";
     const incident = await repository.createIncident({
       profile_id: profile.id,
@@ -34545,6 +34416,90 @@ router5.post("/invite", verifyAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: "Failed to send family invitation." });
+  }
+});
+router5.get("/requests/pending", verifyAuth, async (req, res) => {
+  try {
+    const user = await repository.findUserById(req.user.id);
+    const requests = await repository.getPendingFamilyRequests(req.user.id, user?.email);
+    res.json({ pending_requests: requests });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to retrieve pending family requests." });
+  }
+});
+router5.post("/link-request", verifyAuth, async (req, res) => {
+  try {
+    const { target_email, relationship_type } = req.body;
+    if (!target_email || !relationship_type) {
+      return res.status(400).json({ error: "Target user email and relationship type are required." });
+    }
+    if (target_email.toLowerCase() === req.user.email.toLowerCase()) {
+      return res.status(400).json({ error: "You cannot link your own account to itself." });
+    }
+    const targetUser = await repository.findUserByEmail(target_email);
+    const sponsorProfile = await repository.getMedicalProfileByUserId(req.user.id);
+    const targetProfile = targetUser ? await repository.getMedicalProfileByUserId(targetUser.id) : null;
+    const rel = await repository.createFamilyRelationship({
+      sponsor_user_id: req.user.id,
+      linked_user_id: targetUser ? targetUser.id : null,
+      family_profile_id: targetProfile ? targetProfile.id : sponsorProfile ? sponsorProfile.id : null,
+      relationship_type,
+      invitation_status: targetUser ? "pending_approval" : "pending_invite",
+      invite_email: target_email.toLowerCase(),
+      permissions: {
+        receive_alerts: true,
+        can_view_medical: false,
+        can_manage_qr: false
+      }
+    });
+    await repository.logAuditEvent(req.user.id, "FAMILY_LINK_REQUESTED", "family_relationship", rel.id, {
+      target_email,
+      relationship_type
+    });
+    res.status(201).json({
+      success: true,
+      message: targetUser ? `Family link request sent to ${target_email}. Awaiting their authorization.` : `Invitation sent to ${target_email}. They will receive a link when creating their EMP account.`,
+      relationship: rel
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message || "Failed to submit link request." });
+  }
+});
+router5.post("/requests/:id/accept", verifyAuth, async (req, res) => {
+  try {
+    const rel = await repository.acceptFamilyRequest(req.params.id, req.user.id);
+    if (!rel) return res.status(404).json({ error: "Family request not found." });
+    await repository.logAuditEvent(req.user.id, "FAMILY_LINK_ACCEPTED", "family_relationship", req.params.id);
+    res.json({ success: true, message: "Family relationship successfully linked.", relationship: rel });
+  } catch (err) {
+    res.status(500).json({ error: err.message || "Failed to accept family link." });
+  }
+});
+router5.post("/requests/:id/decline", verifyAuth, async (req, res) => {
+  try {
+    const success = await repository.declineFamilyRequest(req.params.id);
+    if (!success) return res.status(404).json({ error: "Family request not found." });
+    await repository.logAuditEvent(req.user.id, "FAMILY_LINK_DECLINED", "family_relationship", req.params.id);
+    res.json({ success: true, message: "Family link request declined." });
+  } catch (err) {
+    res.status(500).json({ error: err.message || "Failed to decline family link." });
+  }
+});
+router5.put("/:relationshipId/permissions", verifyAuth, async (req, res) => {
+  try {
+    const { receive_alerts, can_view_medical, can_manage_qr } = req.body;
+    const updated = await repository.updateFamilyPermissions(req.params.relationshipId, {
+      receive_alerts,
+      can_view_medical,
+      can_manage_qr
+    });
+    if (!updated) return res.status(404).json({ error: "Relationship not found." });
+    await repository.logAuditEvent(req.user.id, "FAMILY_PERMISSIONS_UPDATED", "family_relationship", req.params.relationshipId, {
+      permissions: updated.permissions
+    });
+    res.json({ success: true, permissions: updated.permissions });
+  } catch (err) {
+    res.status(500).json({ error: err.message || "Failed to update permissions." });
   }
 });
 router5.delete("/:relationshipId", verifyAuth, async (req, res) => {
@@ -34964,9 +34919,93 @@ router7.get("/audit-logs", async (req, res) => {
 });
 var adminRoutes_default = router7;
 
+// server/routes/organizationRoutes.ts
+var import_express8 = __toESM(require_express2());
+var router8 = (0, import_express8.Router)();
+router8.get("/my-status", verifyAuth, async (req, res) => {
+  try {
+    const membership = await repository.getMembershipByUserId(req.user.id);
+    if (!membership) {
+      return res.json({
+        is_enrolled: false,
+        status: "independent",
+        organization: null,
+        membership: null
+      });
+    }
+    const org = await repository.getOrganizationById(membership.organization_id);
+    res.json({
+      is_enrolled: true,
+      status: membership.status,
+      membership,
+      organization: org ? {
+        id: org.id,
+        name: org.name,
+        slug: org.slug,
+        emergency_phone: org.emergency_phone,
+        emergency_contact_name: org.emergency_contact_name,
+        emergency_instructions: org.emergency_instructions,
+        show_company_phone_on_qr: org.show_company_phone_on_qr
+      } : null
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to retrieve organization status." });
+  }
+});
+router8.get("/available", async (_req, res) => {
+  try {
+    const list = await repository.getAllOrganizations();
+    res.json({ organizations: list });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to list organizations." });
+  }
+});
+router8.post("/join", verifyAuth, async (req, res) => {
+  try {
+    const { company_code, employee_id_number, department } = req.body;
+    if (!company_code) {
+      return res.status(400).json({ error: "Company code or organization identifier is required." });
+    }
+    const result = await repository.joinOrganization(
+      req.user.id,
+      company_code.trim(),
+      employee_id_number,
+      department
+    );
+    if (result.error || !result.membership || !result.organization) {
+      return res.status(404).json({ error: result.error || "Failed to join organization" });
+    }
+    await repository.logAuditEvent(req.user.id, "ORGANIZATION_JOINED", "organization_membership", result.membership.id, {
+      organization_name: result.organization.name,
+      employee_id_number
+    });
+    res.json({
+      success: true,
+      message: `Successfully joined ${result.organization.name}.`,
+      organization: result.organization,
+      membership: result.membership
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message || "Failed to join organization." });
+  }
+});
+router8.post("/leave", verifyAuth, async (req, res) => {
+  try {
+    await repository.leaveOrganization(req.user.id);
+    await repository.logAuditEvent(req.user.id, "ORGANIZATION_LEFT", "user", req.user.id);
+    res.json({
+      success: true,
+      message: "You have left the organization. Your personal emergency QR and medical profile remain fully active and independent."
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message || "Failed to leave organization." });
+  }
+});
+var organizationRoutes_default = router8;
+
 // server/app.ts
 import_dotenv.default.config();
-var app = (0, import_express8.default)();
+var app = (0, import_express9.default)();
 app.use((0, import_cors.default)({
   origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -34976,9 +35015,9 @@ app.use((req, res, next) => {
   if (req.body && typeof req.body === "object") {
     return next();
   }
-  import_express8.default.json({ limit: "10mb" })(req, res, (err) => {
+  import_express9.default.json({ limit: "10mb" })(req, res, (err) => {
     if (err) return next(err);
-    import_express8.default.urlencoded({ extended: true, limit: "10mb" })(req, res, next);
+    import_express9.default.urlencoded({ extended: true, limit: "10mb" })(req, res, next);
   });
 });
 var healthHandler = (req, res) => {
@@ -34998,11 +35037,12 @@ var routes = [
   { prefix: "/emergency", router: emergencyRoutes_default },
   { prefix: "/family", router: familyRoutes_default },
   { prefix: "/company", router: companyRoutes_default },
-  { prefix: "/admin", router: adminRoutes_default }
+  { prefix: "/admin", router: adminRoutes_default },
+  { prefix: "/organization", router: organizationRoutes_default }
 ];
-routes.forEach(({ prefix, router: router8 }) => {
-  app.use(`/api${prefix}`, router8);
-  app.use(prefix, router8);
+routes.forEach(({ prefix, router: router9 }) => {
+  app.use(`/api${prefix}`, router9);
+  app.use(prefix, router9);
 });
 app.use((err, req, res, next) => {
   console.error("[Unhandled Server Error]", err);

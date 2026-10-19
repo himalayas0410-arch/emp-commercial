@@ -128,15 +128,22 @@ export const AuthView: React.FC<AuthViewProps> = ({ onOpenPublicScan }) => {
               </div>
 
               <div className="emp-form-group">
-                <label className="emp-label">Account Role *</label>
+                <label className="emp-label">Account Profile Type *</label>
                 <select
                   value={role}
                   onChange={e => setRole(e.target.value as any)}
                   className="emp-select"
                 >
-                  <option value="employee">Enrolled Employee</option>
-                  <option value="company_admin">Company HR Administrator</option>
+                  <option value="employee">Corporate Employee (Company Workplace)</option>
+                  <option value="student">Student / Academic Institution</option>
+                  <option value="individual">Independent User (Personal / Family Member)</option>
+                  <option value="company_admin">Company HR Administrator (Register Organization)</option>
                 </select>
+                <div style={{ fontSize: '0.75rem', color: 'var(--teal-700)', marginTop: '4px' }}>
+                  {role === 'company_admin'
+                    ? 'Registers an organization with HR Duty-of-Care command tools.'
+                    : 'Independent signup. No HR invite required. You can join a company anytime later.'}
+                </div>
               </div>
 
               {role === 'company_admin' && (
@@ -167,14 +174,14 @@ export const AuthView: React.FC<AuthViewProps> = ({ onOpenPublicScan }) => {
           )}
 
           <div className="emp-form-group">
-            <label className="emp-label">Work Email Address *</label>
+            <label className="emp-label">Email Address *</label>
             <input
               type="email"
               required
               value={email}
               onChange={e => setEmail(e.target.value)}
               className="emp-input"
-              placeholder="name@company.com"
+              placeholder="e.g. rahul.sharma@example.com"
             />
           </div>
 

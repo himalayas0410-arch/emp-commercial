@@ -261,4 +261,282 @@ describe('EMP Commercial Full-Stack API Test Suite', () => {
       expect(logsRes.body.audit_logs.length).toBeGreaterThanOrEqual(1);
     });
   });
+
+  describe('Scenario G: Direct Independent User Registration (No HR Invite Required)', () => {
+    let independentToken = '';
+    let independentQrToken = '';
+
+    it('should allow an independent individual or student to register directly', async () => {
+      const regRes = await request(app)
+        .post('/api/auth/register')
+        .send({
+          email: 'priya.singh@example.com',
+          password: 'Pass@123User',
+          full_name: 'Priya Singh',
+          phone: '+91 98990 11223',
+          role: 'individual'
+        });
+
+      expect(regRes.status).toBe(201);
+      expect(regRes.body.token).toBeDefined();
+      expect(regRes.body.user.role).toBe('individual');
+      independentToken = regRes.body.token;
+
+      // Check that medical profile and personal QR token were created automatically
+      const profileRes = await request(app)
+        .get('/api/profiles/me')
+        .set('Authorization', `Bearer ${independentToken}`);
+
+      expect(profileRes.status).toBe(200);
+      expect(profileRes.body.profile.full_name).toBe('Priya Singh');
+      expect(profileRes.body.qr_token).toBeDefined();
+      expect(profileRes.body.qr_token.status).toBe('active');
+      independentQrToken = profileRes.body.qr_token.public_token;
+    });
+
+    it('should allow direct independent QR to be scanned publicly', async () => {
+      const scanRes = await request(app).get(`/api/emergency/${independentQrToken}`);
+      expect(scanRes.status).toBe(200);
+      expect(scanRes.body.display_name).toBe('Priya Singh');
+      expect(scanRes.body.status).toBe('active');
+    });
+
+    it('should support full QR lifecycle: suspend, reactivate, revoke, and generate fresh', async () => {
+      // 1. Suspend
+      const suspendRes = await request(app)
+        .post('/api/qr/suspend')
+        .set('Authorization', `Bearer ${independentToken}`);
+      expect(suspendRes.status).toBe(200);
+      expect(suspendRes.body.qr_token.status).toBe('suspended');
+
+      // Public scan of suspended QR returns status: 'suspended' with 200
+      const scanSuspended = await request(app).get(`/api/emergency/${independentQrToken}`);
+      expect(scanSuspended.status).toBe(200);
+      expect(scanSuspended.body.status).toBe('suspended');
+
+      // 2. Reactivate
+      const reactivateRes = await request(app)
+        .post('/api/qr/reactivate')
+        .set('Authorization', `Bearer ${independentToken}`);
+      expect(reactivateRes.status).toBe(200);
+      expect(reactivateRes.body.qr_token.status).toBe('active');
+
+      // 3. Permanently Revoke
+      const revokeRes = await request(app)
+        .post('/api/qr/revoke')
+        .set('Authorization', `Bearer ${independentToken}`);
+      expect(revokeRes.status).toBe(200);
+      expect(revokeRes.body.qr_token.status).toBe('revoked');
+
+      // Public scan of revoked QR returns status: 'revoked' with 200
+      const scanRevoked = await request(app).get(`/api/emergency/${independentQrToken}`);
+      expect(scanRevoked.status).toBe(200);
+      expect(scanRevoked.body.status).toBe('revoked');
+
+      // 4. Generate Fresh Token
+      const genRes = await request(app)
+        .post('/api/qr/generate')
+        .set('Authorization', `Bearer ${independentToken}`);
+      expect(genRes.status).toBe(201);
+      expect(genRes.body.qr_token.status).toBe('active');
+      expect(genRes.body.qr_token.public_token).not.toBe(independentQrToken);
+    });
+  });
+
+  describe('Scenario H: Family Linking Hub (Existing Accounts & Permission Controls)', () => {
+    let userA_Token = '';
+    let userB_Token = '';
+    let linkRequestId = '';
+
+    beforeAll(async () => {
+      // Register User A
+      const regA = await request(app)
+        .post('/api/auth/register')
+        .send({
+          email: 'vikram.mehta@example.com',
+          password: 'Pass@123Mehta',
+          full_name: 'Vikram Mehta',
+          role: 'individual'
+        });
+      userA_Token = regA.body.token;
+
+      // Register User B
+      const regB = await request(app)
+        .post('/api/auth/register')
+        .send({
+          email: 'sunita.mehta@example.com',
+          password: 'Pass@123Sunita',
+          full_name: 'Sunita Mehta',
+          role: 'individual'
+        });
+      userB_Token = regB.body.token;
+    });
+
+    it('should allow User A to send a family link request to User B', async () => {
+      const sendReq = await request(app)
+        .post('/api/family/link-request')
+        .set('Authorization', `Bearer ${userA_Token}`)
+        .send({
+          target_email: 'sunita.mehta@example.com',
+          relationship_type: 'Spouse'
+        });
+
+      expect(sendReq.status).toBe(201);
+      expect(sendReq.body.success).toBe(true);
+      expect(sendReq.body.relationship.invitation_status).toBe('pending_approval');
+      linkRequestId = sendReq.body.relationship.id;
+    });
+
+    it('should show pending request in User B pending list and allow acceptance', async () => {
+      const pendingRes = await request(app)
+        .get('/api/family/requests/pending')
+        .set('Authorization', `Bearer ${userB_Token}`);
+
+      expect(pendingRes.status).toBe(200);
+      expect(pendingRes.body.pending_requests.length).toBeGreaterThanOrEqual(1);
+
+      // User B accepts
+      const acceptRes = await request(app)
+        .post(`/api/family/requests/${linkRequestId}/accept`)
+        .set('Authorization', `Bearer ${userB_Token}`);
+
+      expect(acceptRes.status).toBe(200);
+      expect(acceptRes.body.success).toBe(true);
+
+      // Both users now see the linked relationship
+      const famA = await request(app)
+        .get('/api/family')
+        .set('Authorization', `Bearer ${userA_Token}`);
+      expect(famA.body.family_members.some((m: any) => m.name === 'Sunita Mehta')).toBe(true);
+    });
+
+    it('should update granular family permissions', async () => {
+      const famA = await request(app)
+        .get('/api/family')
+        .set('Authorization', `Bearer ${userA_Token}`);
+      const rel = famA.body.family_members.find((m: any) => m.name === 'Sunita Mehta');
+
+      const permRes = await request(app)
+        .put(`/api/family/${rel.id}/permissions`)
+        .set('Authorization', `Bearer ${userA_Token}`)
+        .send({
+          receive_alerts: true,
+          can_view_medical: false,
+          can_manage_qr: true
+        });
+
+      expect(permRes.status).toBe(200);
+      expect(permRes.body.permissions.can_view_medical).toBe(false);
+      expect(permRes.body.permissions.can_manage_qr).toBe(true);
+    });
+  });
+
+  describe('Scenario I: Optional Organization System (Join & Leave)', () => {
+    let testUserToken = '';
+
+    beforeAll(async () => {
+      const reg = await request(app)
+        .post('/api/auth/register')
+        .send({
+          email: 'rohit.consultant@example.com',
+          password: 'Pass@123Rohit',
+          full_name: 'Rohit Consultant',
+          role: 'individual'
+        });
+      testUserToken = reg.body.token;
+    });
+
+    it('should report independent status initially', async () => {
+      const statusRes = await request(app)
+        .get('/api/organization/my-status')
+        .set('Authorization', `Bearer ${testUserToken}`);
+
+      expect(statusRes.status).toBe(200);
+      expect(statusRes.body.is_enrolled).toBe(false);
+      expect(statusRes.body.status).toBe('independent');
+    });
+
+    it('should join an organization by slug or code', async () => {
+      const joinRes = await request(app)
+        .post('/api/organization/join')
+        .set('Authorization', `Bearer ${testUserToken}`)
+        .send({
+          company_code: 'apex-global',
+          employee_id_number: 'APEX-EXT-9988',
+          department: 'Emergency IT'
+        });
+
+      expect(joinRes.status).toBe(200);
+      expect(joinRes.body.success).toBe(true);
+      expect(joinRes.body.organization.name).toBe('Apex Global Technologies');
+
+      const statusAfter = await request(app)
+        .get('/api/organization/my-status')
+        .set('Authorization', `Bearer ${testUserToken}`);
+      expect(statusAfter.body.is_enrolled).toBe(true);
+      expect(statusAfter.body.organization.emergency_phone).toBeDefined();
+    });
+
+    it('should leave an organization cleanly without losing medical profile or QR badge', async () => {
+      const leaveRes = await request(app)
+        .post('/api/organization/leave')
+        .set('Authorization', `Bearer ${testUserToken}`);
+
+      expect(leaveRes.status).toBe(200);
+      expect(leaveRes.body.success).toBe(true);
+
+      // Verify medical profile and QR code remain completely intact
+      const profRes = await request(app)
+        .get('/api/profiles/me')
+        .set('Authorization', `Bearer ${testUserToken}`);
+      expect(profRes.body.profile.full_name).toBe('Rohit Consultant');
+      expect(profRes.body.qr_token.status).toBe('active');
+    });
+  });
+
+  describe('Scenario J: Alert Idempotency & Delivery History', () => {
+    it('should prevent duplicate emergency incidents within 60 seconds', async () => {
+      // Get Rahul's current active token after regeneration
+      const curRes = await request(app)
+        .get('/api/profiles/me')
+        .set('Authorization', `Bearer ${employeeToken}`);
+      const activeToken = curRes.body.qr_token.public_token;
+
+      // First trigger
+      const firstTrigger = await request(app)
+        .post(`/api/emergency/${activeToken}/alert`)
+        .send({
+          location_address: 'CyberHub DLF Phase 2'
+        });
+
+      expect(firstTrigger.status).toBe(201);
+      expect(firstTrigger.body.success).toBe(true);
+      expect(firstTrigger.body.incident_code).toBeDefined();
+
+      // Second trigger immediately within 60s
+      const secondTrigger = await request(app)
+        .post(`/api/emergency/${activeToken}/alert`)
+        .send({
+          location_address: 'CyberHub DLF Phase 2'
+        });
+
+      expect(secondTrigger.status).toBe(200);
+      expect(secondTrigger.body.status).toBe('duplicate_prevented');
+      expect(secondTrigger.body.message).toContain('already dispatched');
+    });
+
+    it('should allow employee to retrieve real incident delivery logs', async () => {
+      const historyRes = await request(app)
+        .get('/api/emergency/history/me')
+        .set('Authorization', `Bearer ${employeeToken}`);
+
+      expect(historyRes.status).toBe(200);
+      expect(historyRes.body.incidents.length).toBeGreaterThanOrEqual(1);
+      const inc = historyRes.body.incidents[0];
+      expect(inc.incident_code).toBeDefined();
+      expect(inc.deliveries).toBeDefined();
+      expect(inc.deliveries.length).toBeGreaterThanOrEqual(1);
+    });
+  });
 });
+

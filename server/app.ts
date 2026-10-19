@@ -9,6 +9,7 @@ import emergencyRoutes from './routes/emergencyRoutes';
 import familyRoutes from './routes/familyRoutes';
 import companyRoutes from './routes/companyRoutes';
 import adminRoutes from './routes/adminRoutes';
+import organizationRoutes from './routes/organizationRoutes';
 
 dotenv.config();
 
@@ -53,6 +54,7 @@ const routes = [
   { prefix: '/family', router: familyRoutes },
   { prefix: '/company', router: companyRoutes },
   { prefix: '/admin', router: adminRoutes },
+  { prefix: '/organization', router: organizationRoutes },
 ];
 
 routes.forEach(({ prefix, router }) => {

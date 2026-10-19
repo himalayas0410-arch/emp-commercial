@@ -2,6 +2,7 @@ import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
 import { repository } from '../db/repository';
 import { notificationService } from '../services/notificationService';
+import { verifyAuth, AuthenticatedRequest } from '../middleware/auth';
 
 const router = Router();
 
@@ -131,6 +132,27 @@ router.get('/:token', publicLimiter, async (req, res) => {
   }
 });
 
+// User emergency incident history & delivery tracking
+router.get('/history/me', verifyAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const profile = await repository.getMedicalProfileByUserId(req.user!.id);
+    if (!profile) return res.json({ incidents: [] });
+
+    const incidents = await repository.getIncidentsByProfileId(profile.id);
+    const enriched = [];
+    for (const inc of incidents) {
+      const deliveries = await repository.getIncidentDeliveries(inc.id);
+      enriched.push({
+        ...inc,
+        deliveries
+      });
+    }
+    res.json({ incidents: enriched });
+  } catch (err: any) {
+    res.status(500).json({ error: 'Failed to retrieve emergency history.' });
+  }
+});
+
 // Trigger Emergency Alert
 router.post('/:token/alert', alertTriggerLimiter, async (req, res) => {
   try {
@@ -144,6 +166,20 @@ router.post('/:token/alert', alertTriggerLimiter, async (req, res) => {
 
     const profile = await repository.getMedicalProfileById(qrRecord.profile_id);
     if (!profile) return res.status(404).json({ error: 'Profile not found.' });
+
+    // Idempotency Mechanism: Check if an emergency alert was already triggered for this token in the last 60 seconds
+    const existingRecent = await repository.findRecentIncident(qrRecord.id, 60);
+    if (existingRecent) {
+      return res.status(200).json({
+        success: true,
+        incident_id: existingRecent.id,
+        incident_code: existingRecent.incident_code,
+        status: 'duplicate_prevented',
+        message: `An active emergency alert was already dispatched (${existingRecent.incident_code}). Responders and family contacts have already been notified.`,
+        recipients_notified: 0,
+        channels_summary: { sms: 0, email: 0, in_app: 1, push: 0 }
+      });
+    }
 
     const clientIp = (req.headers['x-forwarded-for'] as string) || req.socket?.remoteAddress || '127.0.0.1';
     // 1. Create unique emergency incident record

@@ -12,6 +12,8 @@ interface QRCardProps {
   onSuspend: () => Promise<void>;
   onReactivate: () => Promise<void>;
   onRegenerate: () => Promise<void>;
+  onRevoke?: () => Promise<void>;
+  onGenerate?: () => Promise<void>;
   onOpenPublicScan?: (token: string) => void;
 }
 
@@ -22,12 +24,15 @@ export const QRCard: React.FC<QRCardProps> = ({
   onSuspend,
   onReactivate,
   onRegenerate,
+  onRevoke,
+  onGenerate,
   onOpenPublicScan
 }) => {
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [showRegenModal, setShowRegenModal] = useState<boolean>(false);
+  const [showRevokeModal, setShowRevokeModal] = useState<boolean>(false);
 
   const publicToken = tokenData?.public_token || '';
   const status: QRStatus = tokenData?.status || 'not_generated';
@@ -71,6 +76,27 @@ export const QRCard: React.FC<QRCardProps> = ({
     try {
       await onRegenerate();
       setShowRegenModal(false);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const confirmRevoke = async () => {
+    if (!onRevoke) return;
+    setIsProcessing(true);
+    try {
+      await onRevoke();
+      setShowRevokeModal(false);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleGenerate = async () => {
+    if (!onGenerate) return;
+    setIsProcessing(true);
+    try {
+      await onGenerate();
     } finally {
       setIsProcessing(false);
     }
@@ -195,7 +221,30 @@ export const QRCard: React.FC<QRCardProps> = ({
               <span>Regenerate QR</span>
             </button>
 
-            {onOpenPublicScan && (
+            {onRevoke && status !== 'revoked' && (
+              <button
+                onClick={() => setShowRevokeModal(true)}
+                disabled={isProcessing}
+                className="emp-btn emp-btn-outline emp-btn-sm"
+                style={{ color: 'var(--red-700)', borderColor: 'rgba(220,38,38,0.3)' }}
+              >
+                <AlertTriangle size={15} />
+                <span>Permanently Revoke</span>
+              </button>
+            )}
+
+            {status === 'revoked' && onGenerate && (
+              <button
+                onClick={handleGenerate}
+                disabled={isProcessing}
+                className="emp-btn emp-btn-teal emp-btn-sm"
+              >
+                <RefreshCw size={15} />
+                <span>Generate Fresh QR Code</span>
+              </button>
+            )}
+
+            {onOpenPublicScan && status !== 'revoked' && (
               <button
                 onClick={() => onOpenPublicScan(publicToken)}
                 className="emp-btn emp-btn-ghost emp-btn-sm"
@@ -207,6 +256,38 @@ export const QRCard: React.FC<QRCardProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Confirmation Modal for Permanently Revoking */}
+      {showRevokeModal && (
+        <div className="emp-modal-overlay">
+          <div className="emp-modal-card" style={{ padding: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--red-600)', marginBottom: '1rem' }}>
+              <AlertTriangle size={24} />
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 800 }}>Permanently Revoke Emergency QR?</h3>
+            </div>
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+              Permanently revoking will immediately destroy public access for token <strong>{publicToken}</strong>. 
+              The old QR code will never be valid again. You can create a fresh QR replacement when needed.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
+              <button
+                onClick={() => setShowRevokeModal(false)}
+                className="emp-btn emp-btn-secondary"
+                disabled={isProcessing}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmRevoke}
+                className="emp-btn emp-btn-emergency"
+                disabled={isProcessing}
+              >
+                {isProcessing ? 'Revoking...' : 'Yes, Permanently Revoke'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Confirmation Modal for Regeneration */}
       {showRegenModal && (

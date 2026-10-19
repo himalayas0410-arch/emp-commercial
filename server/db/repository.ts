@@ -506,6 +506,22 @@ export const repository = {
   },
 
   // Memberships
+  async createMembership(membershipData: any) {
+    const membership = {
+      id: crypto.randomUUID(),
+      organization_id: membershipData.organization_id,
+      user_id: membershipData.user_id,
+      role: membershipData.role || 'employee',
+      employee_id_number: membershipData.employee_id_number || null,
+      department: membershipData.department || null,
+      status: membershipData.status || 'active',
+      joined_at: new Date().toISOString()
+    };
+    store.organization_memberships.push(membership);
+    saveLocalStore();
+    return membership;
+  },
+
   async getMembershipsByOrgId(orgId: string) {
     return store.organization_memberships.filter(m => m.organization_id === orgId);
   },
@@ -514,20 +530,56 @@ export const repository = {
     return store.organization_memberships.find(m => m.user_id === userId) || null;
   },
 
-  async createMembership(membershipData: any) {
-    const newMembership = {
+  async getAllOrganizations() {
+    return store.organizations.map(org => ({
+      id: org.id,
+      name: org.name,
+      slug: org.slug,
+      status: org.status,
+      emergency_phone: org.emergency_phone,
+      emergency_contact_name: org.emergency_contact_name,
+      emergency_instructions: org.emergency_instructions,
+      show_company_phone_on_qr: org.show_company_phone_on_qr
+    }));
+  },
+
+  async joinOrganization(userId: string, orgIdOrSlug: string, employeeId?: string, department?: string) {
+    const org = store.organizations.find(o => o.id === orgIdOrSlug || o.slug === orgIdOrSlug);
+    if (!org) return { error: 'Organization not found.' };
+
+    // Remove any previous membership
+    store.organization_memberships = store.organization_memberships.filter(m => m.user_id !== userId);
+
+    const membership = {
       id: crypto.randomUUID(),
-      organization_id: membershipData.organization_id,
-      user_id: membershipData.user_id,
-      role: membershipData.role || 'employee',
-      employee_id_number: membershipData.employee_id_number || null,
-      department: membershipData.department || null,
+      organization_id: org.id,
+      user_id: userId,
+      role: 'employee',
+      employee_id_number: employeeId || null,
+      department: department || null,
       status: 'active',
       joined_at: new Date().toISOString()
     };
-    store.organization_memberships.push(newMembership);
+    store.organization_memberships.push(membership);
+
+    // Link user's profile to organization
+    const profile = store.medical_profiles.find(p => p.user_id === userId);
+    if (profile) {
+      profile.organization_id = org.id;
+    }
+
     saveLocalStore();
-    return newMembership;
+    return { membership, organization: org };
+  },
+
+  async leaveOrganization(userId: string) {
+    store.organization_memberships = store.organization_memberships.filter(m => m.user_id !== userId);
+    const profile = store.medical_profiles.find(p => p.user_id === userId);
+    if (profile) {
+      profile.organization_id = null;
+    }
+    saveLocalStore();
+    return true;
   },
 
   // Medical Profiles
@@ -713,29 +765,95 @@ export const repository = {
     }
   },
 
-  // Family Members & Dependents
+  // Family Members & Dependents (Family Linking Hub)
   async getFamilyRelationships(sponsorUserId: string) {
-    const rels = store.family_relationships.filter(r => r.sponsor_user_id === sponsorUserId);
+    const rels = store.family_relationships.filter(
+      r => (r.sponsor_user_id === sponsorUserId || r.linked_user_id === sponsorUserId) && r.invitation_status === 'active'
+    );
     const result = [];
     for (const rel of rels) {
-      const profile = store.medical_profiles.find(p => p.id === rel.family_profile_id);
-      const qr = store.qr_tokens.find(q => q.profile_id === rel.family_profile_id && q.status !== 'revoked');
-      if (profile) {
+      const isSponsor = rel.sponsor_user_id === sponsorUserId;
+      let targetProfile = null;
+
+      if (isSponsor) {
+        if (rel.linked_user_id) {
+          targetProfile = store.medical_profiles.find(p => p.user_id === rel.linked_user_id);
+        }
+        if (!targetProfile && rel.family_profile_id) {
+          targetProfile = store.medical_profiles.find(p => p.id === rel.family_profile_id);
+        }
+      } else {
+        targetProfile = store.medical_profiles.find(p => p.user_id === rel.sponsor_user_id);
+      }
+
+      if (targetProfile) {
+        const qr = store.qr_tokens.find(q => q.profile_id === targetProfile.id && q.status !== 'revoked');
         result.push({
+          id: rel.id,
           relationship_id: rel.id,
-          id: profile.id,
-          full_name: profile.full_name,
+          profile_id: targetProfile.id,
+          name: targetProfile.full_name,
+          full_name: targetProfile.full_name,
           relationship_type: rel.relationship_type,
-          is_dependent: profile.is_dependent,
+          is_dependent: targetProfile.is_dependent,
           invitation_status: rel.invitation_status,
           invite_email: rel.invite_email,
           invite_phone: rel.invite_phone,
+          is_sponsor: isSponsor,
+          permissions: rel.permissions || {
+            receive_alerts: true,
+            can_view_medical: false,
+            can_manage_qr: targetProfile.is_dependent
+          },
           qr_status: qr ? qr.status : 'not_generated',
           public_token: qr ? qr.public_token : null
         });
       }
     }
     return result;
+  },
+
+  async getPendingFamilyRequests(userId: string, email?: string) {
+    return store.family_relationships
+      .filter(r => 
+        (r.linked_user_id === userId || (email && r.invite_email?.toLowerCase() === email.toLowerCase())) &&
+        r.invitation_status === 'pending_approval'
+      )
+      .map(r => {
+        const sponsorUser = store.users.find(u => u.id === r.sponsor_user_id);
+        return {
+          relationship_id: r.id,
+          sponsor_name: sponsorUser ? sponsorUser.full_name : 'EMP User',
+          sponsor_email: sponsorUser ? sponsorUser.email : null,
+          relationship_type: r.relationship_type,
+          created_at: r.created_at
+        };
+      });
+  },
+
+  async acceptFamilyRequest(relId: string, userId: string) {
+    const rel = store.family_relationships.find(r => r.id === relId);
+    if (!rel) return null;
+    rel.linked_user_id = userId;
+    rel.invitation_status = 'active';
+    saveLocalStore();
+    return rel;
+  },
+
+  async declineFamilyRequest(relId: string) {
+    const index = store.family_relationships.findIndex(r => r.id === relId);
+    if (index === -1) return false;
+    store.family_relationships.splice(index, 1);
+    saveLocalStore();
+    return true;
+  },
+
+  async updateFamilyPermissions(relId: string, permissions: any) {
+    const rel = store.family_relationships.find(r => r.id === relId);
+    if (!rel) return null;
+    rel.permissions = { ...(rel.permissions || {}), ...permissions };
+    saveLocalStore();
+    return rel;
   },
 
   async createFamilyRelationship(data: any) {
@@ -747,6 +865,12 @@ export const repository = {
       invitation_status: data.invitation_status || 'active',
       invite_email: data.invite_email || null,
       invite_phone: data.invite_phone || null,
+      linked_user_id: data.linked_user_id || null,
+      permissions: data.permissions || {
+        receive_alerts: true,
+        can_view_medical: false,
+        can_manage_qr: false
+      },
       created_at: new Date().toISOString()
     };
     store.family_relationships.push(rel);
@@ -760,6 +884,18 @@ export const repository = {
     store.family_relationships.splice(index, 1);
     saveLocalStore();
     return true;
+  },
+
+  async findRecentIncident(qrTokenId: string, maxSeconds: number = 60) {
+    const cutoff = Date.now() - maxSeconds * 1000;
+    return store.emergency_incidents.find(i => 
+      i.qr_token_id === qrTokenId && 
+      new Date(i.triggered_at).getTime() > cutoff
+    ) || null;
+  },
+
+  async getIncidentDeliveries(incidentId: string) {
+    return store.notification_deliveries.filter(d => d.incident_id === incidentId);
   },
 
   // Emergency Incidents
