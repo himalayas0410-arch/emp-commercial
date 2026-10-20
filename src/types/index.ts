@@ -196,7 +196,7 @@ export interface FamilyMemberItem {
   relationship_id: string;
   full_name: string;
   relationship_type: string;
-  is_dependent: boolean;
+  is_dependent?: boolean;
   invitation_status: 'active' | 'pending_invite' | 'pending_approval' | 'accepted' | 'rejected';
   invite_email?: string | null;
   invite_phone?: string | null;

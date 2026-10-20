@@ -14,19 +14,11 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
   const [loading, setLoading] = useState<boolean>(true);
 
   // Modal states
-  const [showDependentModal, setShowDependentModal] = useState<boolean>(false);
   const [showInviteModal, setShowInviteModal] = useState<boolean>(false);
   const [showLinkModal, setShowLinkModal] = useState<boolean>(false);
   const [showPermissionsModal, setShowPermissionsModal] = useState<FamilyMemberItem | null>(null);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [actionMessage, setActionMessage] = useState<string | null>(null);
-
-  // Dependent draft
-  const [depName, setDepName] = useState('');
-  const [depRelationship, setDepRelationship] = useState('Son (Dependent Child)');
-  const [depDob, setDepDob] = useState('');
-  const [depBlood, setDepBlood] = useState('Unknown');
-  const [depNotes, setDepNotes] = useState('');
 
   // Invite draft
   const [invName, setInvName] = useState('');
@@ -60,32 +52,6 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
       console.error('Failed to fetch family data:', err);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleCreateDependent = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!depName.trim()) return;
-
-    setSubmitting(true);
-    try {
-      await api.post('/family/dependent', {
-        full_name: depName,
-        relationship_type: depRelationship,
-        date_of_birth: depDob || null,
-        blood_group: depBlood,
-        emergency_notes: depNotes || null
-      });
-
-      await fetchFamilyData();
-      setShowDependentModal(false);
-      setDepName('');
-      setDepNotes('');
-      setActionMessage('Dependent profile and personal QR badge created successfully.');
-    } catch (err: any) {
-      alert('Error creating dependent: ' + err.message);
-    } finally {
-      setSubmitting(false);
     }
   };
 
@@ -163,7 +129,7 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
     setShowPermissionsModal(member);
     setPermAlerts(member.permissions?.receive_alerts ?? true);
     setPermMedical(member.permissions?.can_view_medical ?? false);
-    setPermManageQR(member.permissions?.can_manage_qr ?? member.is_dependent);
+    setPermManageQR(member.permissions?.can_manage_qr ?? false);
   };
 
   const handleSavePermissions = async () => {
@@ -209,7 +175,7 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
             <span>Family Linking Hub</span>
           </h2>
           <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
-            Each family member has their own independent account and unique QR code. Links allow mutual emergency alert broadcasting without exposing private medical histories.
+            Each family member maintains their own personal account and unique QR code. Links enable mutual emergency alert dispatching across your family network.
           </p>
         </div>
 
@@ -218,13 +184,9 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
             <Link2 size={15} />
             <span>Link Existing Account</span>
           </button>
-          <button onClick={() => setShowDependentModal(true)} className="emp-btn emp-btn-teal emp-btn-sm">
-            <UserPlus size={15} />
-            <span>Add Dependent</span>
-          </button>
-          <button onClick={() => setShowInviteModal(true)} className="emp-btn emp-btn-secondary emp-btn-sm">
+          <button onClick={() => setShowInviteModal(true)} className="emp-btn emp-btn-teal emp-btn-sm">
             <Send size={15} />
-            <span>Invite Adult</span>
+            <span>Invite Family Member</span>
           </button>
         </div>
       </div>
@@ -277,7 +239,7 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
           familyMembers.map(member => (
             <div key={member.relationship_id} className="emp-card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: 'var(--radius-md)', background: member.is_dependent ? 'var(--teal-50)' : 'var(--navy-50)', color: member.is_dependent ? 'var(--teal-700)' : 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, border: '1px solid var(--border-color)' }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: 'var(--radius-md)', background: 'var(--navy-50)', color: 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, border: '1px solid var(--border-color)' }}>
                   {member.full_name.charAt(0)}
                 </div>
 
@@ -286,9 +248,6 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                     <span>{member.full_name}</span>
                     <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)' }}>
                       • {member.relationship_type}
-                    </span>
-                    <span className={`emp-badge ${member.is_dependent ? 'emp-badge-active' : 'emp-badge-pending'}`} style={{ fontSize: '0.6875rem' }}>
-                      {member.is_dependent ? 'Dependent Profile' : 'Independent Account'}
                     </span>
                     <StatusBadge status={member.invitation_status === 'active' ? 'active' : 'pending'} size="sm" />
                     {member.invitation_status !== 'active' && (
@@ -322,30 +281,44 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                 {member.public_token && onOpenPublicScan && (
                   <button
                     onClick={() => onOpenPublicScan(member.public_token!)}
-                    className="emp-btn emp-btn-secondary emp-btn-sm"
+                    className="emp-btn emp-btn-outline emp-btn-sm"
+                    title="Simulate Public Scanner Page for this Member"
                   >
-                    <ExternalLink size={14} />
-                    <span>Preview QR</span>
+                    <QrCode size={14} />
+                    <span>View Emergency QR</span>
                   </button>
                 )}
 
                 <button
                   onClick={() => handleDeleteRelationship(member.relationship_id)}
-                  className="emp-btn emp-btn-ghost emp-btn-sm"
-                  title="Unlink family member"
+                  className="emp-btn emp-btn-outline emp-btn-sm"
+                  style={{ color: 'var(--red-600)', borderColor: 'rgba(220, 38, 38, 0.2)' }}
+                  title="Unlink Relationship"
                 >
-                  <Trash2 size={16} style={{ color: 'var(--red-600)' }} />
+                  <Trash2 size={14} />
                 </button>
               </div>
             </div>
           ))
         ) : (
-          <div className="emp-card" style={{ textAlign: 'center', padding: '3rem 1.5rem' }}>
-            <Heart size={44} style={{ color: 'var(--red-600)', margin: '0 auto 1rem' }} />
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 800 }}>No Linked Family Members</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginTop: '4px' }}>
+          <div className="emp-card" style={{ padding: '3rem 1.5rem', textAlign: 'center' }}>
+            <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'var(--navy-50)', color: 'var(--navy-700)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+              <Heart size={24} />
+            </div>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--navy-900)' }}>No Family Members Linked Yet</h3>
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', maxWidth: '420px', margin: '0.5rem auto 1.5rem' }}>
               EMP allows independent family accounts to link together into a unified emergency broadcast network.
             </p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem' }}>
+              <button onClick={() => setShowLinkModal(true)} className="emp-btn emp-btn-outline emp-btn-sm">
+                <Link2 size={15} />
+                <span>Link Existing Account</span>
+              </button>
+              <button onClick={() => setShowInviteModal(true)} className="emp-btn emp-btn-teal emp-btn-sm">
+                <Send size={15} />
+                <span>Invite Family Member</span>
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -354,21 +327,18 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
       {showLinkModal && (
         <div className="emp-modal-overlay">
           <div className="emp-modal-card" style={{ padding: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Link2 size={18} style={{ color: 'var(--teal-600)' }} />
-              <span>Link Existing EMP Account</span>
-            </h3>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, marginBottom: '0.5rem' }}>Link Existing EMP Account</h3>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-              Connect with a relative who already uses EMP Commercial. They will receive a link request to approve on their dashboard.
+              Enter the email address of a family member who already registered on EMP Commercial. They will receive a link authorization request.
             </p>
 
             <form onSubmit={handleLinkExisting}>
               <div className="emp-form-group">
-                <label className="emp-label">Family Member's Registered Email *</label>
+                <label className="emp-label">Their Registered Email *</label>
                 <input
                   type="email"
                   required
-                  placeholder="e.g. pooja.sharma@example.com"
+                  placeholder="e.g. spouse@example.com"
                   value={linkEmail}
                   onChange={e => setLinkEmail(e.target.value)}
                   className="emp-input"
@@ -382,11 +352,13 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                   onChange={e => setLinkRelationship(e.target.value)}
                   className="emp-select"
                 >
-                  <option value="Spouse">Spouse / Partner</option>
-                  <option value="Parent">Parent / Guardian</option>
-                  <option value="Child (Adult)">Adult Child</option>
-                  <option value="Sibling">Brother / Sister</option>
-                  <option value="Relative">Other Family Member</option>
+                  <option value="Spouse">Spouse</option>
+                  <option value="Parent">Parent</option>
+                  <option value="Child">Child</option>
+                  <option value="Sibling">Sibling</option>
+                  <option value="Guardian">Guardian</option>
+                  <option value="Partner">Partner</option>
+                  <option value="Emergency Contact">Emergency Contact</option>
                 </select>
               </div>
 
@@ -394,8 +366,8 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                 <button type="button" onClick={() => setShowLinkModal(false)} className="emp-btn emp-btn-secondary">
                   Cancel
                 </button>
-                <button type="submit" disabled={submitting} className="emp-btn emp-btn-teal">
-                  <span>{submitting ? 'Sending Request...' : 'Send Link Request'}</span>
+                <button type="submit" disabled={submitting} className="emp-btn emp-btn-primary">
+                  <span>{submitting ? 'Submitting...' : 'Send Link Request'}</span>
                 </button>
               </div>
             </form>
@@ -403,88 +375,13 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
         </div>
       )}
 
-      {/* Modal 2: Add Dependent Profile */}
-      {showDependentModal && (
-        <div className="emp-modal-overlay">
-          <div className="emp-modal-card" style={{ padding: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, marginBottom: '0.5rem' }}>Add Dependent Profile</h3>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-              For children or dependents under your legal guardianship. Automatically creates their own independent medical profile and separate emergency QR code.
-            </p>
-
-            <form onSubmit={handleCreateDependent}>
-              <div className="emp-form-group">
-                <label className="emp-label">Full Name *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Aarav Sharma"
-                  value={depName}
-                  onChange={e => setDepName(e.target.value)}
-                  className="emp-input"
-                />
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div className="emp-form-group">
-                  <label className="emp-label">Relationship *</label>
-                  <select
-                    value={depRelationship}
-                    onChange={e => setDepRelationship(e.target.value)}
-                    className="emp-select"
-                  >
-                    <option value="Son (Dependent Child)">Son (Dependent Child)</option>
-                    <option value="Daughter (Dependent Child)">Daughter (Dependent Child)</option>
-                    <option value="Elderly Parent">Elderly Parent (Dependent)</option>
-                    <option value="Ward">Legal Ward</option>
-                  </select>
-                </div>
-
-                <div className="emp-form-group">
-                  <label className="emp-label">Blood Group</label>
-                  <select
-                    value={depBlood}
-                    onChange={e => setDepBlood(e.target.value)}
-                    className="emp-select"
-                  >
-                    {['Unknown', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map(bg => (
-                      <option key={bg} value={bg}>{bg}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="emp-form-group">
-                <label className="emp-label">Emergency Medical Notes</label>
-                <textarea
-                  rows={2}
-                  value={depNotes}
-                  onChange={e => setDepNotes(e.target.value)}
-                  className="emp-textarea"
-                  placeholder="e.g. Severe peanut allergy. Carries EpiPen Jr."
-                />
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
-                <button type="button" onClick={() => setShowDependentModal(false)} className="emp-btn emp-btn-secondary">
-                  Cancel
-                </button>
-                <button type="submit" disabled={submitting} className="emp-btn emp-btn-teal">
-                  <span>{submitting ? 'Creating...' : 'Enroll & Generate QR'}</span>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Modal 3: Invite Adult Member */}
+      {/* Modal 2: Invite Family Member */}
       {showInviteModal && (
         <div className="emp-modal-overlay">
           <div className="emp-modal-card" style={{ padding: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, marginBottom: '0.5rem' }}>Invite Adult Family Member</h3>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, marginBottom: '0.5rem' }}>Invite Family Member</h3>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-              Invite an adult relative to create their own independent EMP account.
+              Invite a relative to create their own independent EMP account.
             </p>
 
             <form onSubmit={handleSendInvite}>
@@ -507,34 +404,38 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                   onChange={e => setInvRelationship(e.target.value)}
                   className="emp-select"
                 >
-                  <option value="Spouse">Spouse / Wife</option>
-                  <option value="Husband">Husband</option>
+                  <option value="Spouse">Spouse</option>
                   <option value="Parent">Parent</option>
+                  <option value="Child">Child</option>
                   <option value="Sibling">Sibling</option>
-                  <option value="Adult Child">Adult Child</option>
+                  <option value="Guardian">Guardian</option>
+                  <option value="Partner">Partner</option>
+                  <option value="Emergency Contact">Emergency Contact</option>
                 </select>
               </div>
 
-              <div className="emp-form-group">
-                <label className="emp-label">Email Address</label>
-                <input
-                  type="email"
-                  placeholder="pooja.sharma@example.com"
-                  value={invEmail}
-                  onChange={e => setInvEmail(e.target.value)}
-                  className="emp-input"
-                />
-              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="emp-form-group">
+                  <label className="emp-label">Email Address</label>
+                  <input
+                    type="email"
+                    placeholder="e.g. pooja@example.com"
+                    value={invEmail}
+                    onChange={e => setInvEmail(e.target.value)}
+                    className="emp-input"
+                  />
+                </div>
 
-              <div className="emp-form-group">
-                <label className="emp-label">Phone Number</label>
-                <input
-                  type="tel"
-                  placeholder="+91 98111 55566"
-                  value={invPhone}
-                  onChange={e => setInvPhone(e.target.value)}
-                  className="emp-input"
-                />
+                <div className="emp-form-group">
+                  <label className="emp-label">Mobile Phone (SMS)</label>
+                  <input
+                    type="tel"
+                    placeholder="+91 98111 22334"
+                    value={invPhone}
+                    onChange={e => setInvPhone(e.target.value)}
+                    className="emp-input"
+                  />
+                </div>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
@@ -550,16 +451,18 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
         </div>
       )}
 
-      {/* Modal 4: Configure Permissions */}
+      {/* Modal 3: Manage Permissions */}
       {showPermissionsModal && (
         <div className="emp-modal-overlay">
-          <div className="emp-modal-card" style={{ padding: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Shield size={18} style={{ color: 'var(--teal-600)' }} />
-              <span>Family Sharing Permissions</span>
-            </h3>
+          <div className="emp-modal-card" style={{ padding: '1.5rem', maxWidth: '440px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
+              <Shield size={20} style={{ color: 'var(--teal-600)' }} />
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 800 }}>
+                Permissions: {showPermissionsModal.full_name}
+              </h3>
+            </div>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-              Granular consent controls for <strong>{showPermissionsModal.full_name}</strong>.
+              Configure what access and alerts are shared between your accounts:
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -572,10 +475,10 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                 />
                 <div>
                   <div style={{ fontWeight: 700, fontSize: '0.9375rem', color: 'var(--navy-900)' }}>
-                    Receive Urgent Emergency Alerts
+                    Receive Emergency Alerts
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    Notify this member immediately via SMS and Push when my emergency QR is scanned.
+                    Automatically notify this family member via SMS, WhatsApp, and email whenever your emergency QR is scanned.
                   </div>
                 </div>
               </label>
@@ -593,24 +496,6 @@ export const FamilyManager: React.FC<FamilyManagerProps> = ({ onOpenPublicScan }
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                     Allow viewing approved emergency health summary from their personal Family Hub.
-                  </div>
-                </div>
-              </label>
-
-              <label style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', cursor: 'pointer' }}>
-                <input
-                  type="checkbox"
-                  checked={permManageQR}
-                  onChange={e => setPermManageQR(e.target.checked)}
-                  disabled={!showPermissionsModal.is_dependent}
-                  style={{ width: '18px', height: '18px', marginTop: '2px' }}
-                />
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.9375rem', color: 'var(--navy-900)' }}>
-                    Manage Dependent QR Badge (Guardianship)
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    Allow suspending, reactivating, and printing this member's QR code (applicable to minor dependents).
                   </div>
                 </div>
               </label>

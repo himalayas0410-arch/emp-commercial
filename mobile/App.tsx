@@ -68,18 +68,11 @@ function MainApp() {
   // Family Linking Hub State
   const [familyMembers, setFamilyMembers] = useState<any[]>([]);
   const [pendingFamilyRequests, setPendingFamilyRequests] = useState<any[]>([]);
-  const [showDependentModal, setShowDependentModal] = useState(false);
   const [showInviteModal, setShowInviteModal] = useState(false);
   const [showLinkModal, setShowLinkModal] = useState(false);
   const [showPermissionsModal, setShowPermissionsModal] = useState<any | null>(null);
 
   // Family Drafts
-  const [depName, setDepName] = useState('');
-  const [depRel, setDepRel] = useState('Child');
-  const [depDob, setDepDob] = useState('');
-  const [depBlood, setDepBlood] = useState('O+');
-  const [depNotes, setDepNotes] = useState('');
-
   const [invName, setInvName] = useState('');
   const [invRel, setInvRel] = useState('Spouse');
   const [invEmail, setInvEmail] = useState('');
@@ -749,40 +742,7 @@ function MainApp() {
     }
   };
 
-  // Add Dependent Profile (child/senior with dedicated QR code)
-  const handleCreateDependent = async () => {
-    if (!depName.trim()) {
-      return Alert.alert('Required', 'Please enter dependent full name.');
-    }
-    try {
-      const res = await fetch(`${apiUrl}/family/dependent`, {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          full_name: depName.trim(),
-          relationship_type: depRel,
-          date_of_birth: depDob || null,
-          blood_group: depBlood,
-          emergency_notes: depNotes || null
-        })
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setShowDependentModal(false);
-        setDepName('');
-        setDepNotes('');
-        setDepDob('');
-        if (token) fetchProfile(token, apiUrl);
-        Alert.alert('Dependent Enrolled', `${data.dependent?.full_name || 'Dependent'} enrolled with dedicated emergency QR code!`);
-      } else {
-        Alert.alert('Error', data.error || 'Failed to enroll dependent');
-      }
-    } catch (e: any) {
-      Alert.alert('Error', e.message);
-    }
-  };
-
-  // Invite Adult Family Member (invitation via email/SMS)
+  // Invite Family Member (invitation via email/SMS)
   const handleSendInvite = async () => {
     if (!invName.trim() || (!invEmail.trim() && !invPhone.trim())) {
       return Alert.alert('Required', 'Full Name and Email or Phone number are required.');
@@ -847,7 +807,7 @@ function MainApp() {
     setShowPermissionsModal(member);
     setPermAlerts(member.permissions?.receive_alerts ?? true);
     setPermMedical(member.permissions?.can_view_medical ?? false);
-    setPermManageQR(member.permissions?.can_manage_qr ?? member.is_dependent);
+    setPermManageQR(member.permissions?.can_manage_qr ?? false);
   };
 
   // Save Permissions
@@ -1834,32 +1794,25 @@ function MainApp() {
               </View>
             )}
 
-            {/* Header and 3 Family Hub Actions */}
+            {/* Header and 2 Family Hub Actions */}
             <View style={styles.card}>
               <Text style={styles.cardTitle}>Family Linking Hub</Text>
               <Text style={{ color: '#64748B', fontSize: 12, marginTop: 2, marginBottom: 12 }}>
-                Link independent adult family accounts or add dependent children with dedicated QR badges.
+                Link or invite family accounts so you receive each other's emergency alerts without exposing private medical records.
               </Text>
-              <View style={{ flexDirection: 'row', gap: 6 }}>
+              <View style={{ flexDirection: 'row', gap: 8 }}>
                 <TouchableOpacity
                   onPress={() => setShowLinkModal(true)}
                   style={[styles.actionBtn, { backgroundColor: '#0F172A', paddingVertical: 10 }]}
                 >
-                  <Text style={[styles.actionBtnText, { fontSize: 11 }]}>🔗 Link Account</Text>
+                  <Text style={[styles.actionBtnText, { fontSize: 11.5 }]}>🔗 Link Account</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   onPress={() => setShowInviteModal(true)}
-                  style={[styles.actionBtn, { backgroundColor: '#0284C7', paddingVertical: 10 }]}
-                >
-                  <Text style={[styles.actionBtnText, { fontSize: 11 }]}>✉️ Invite Adult</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  onPress={() => setShowDependentModal(true)}
                   style={[styles.actionBtn, { backgroundColor: '#0D9488', paddingVertical: 10 }]}
                 >
-                  <Text style={[styles.actionBtnText, { fontSize: 11 }]}>➕ Add Dependent</Text>
+                  <Text style={[styles.actionBtnText, { fontSize: 11.5 }]}>✉️ Invite Family</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -1874,7 +1827,7 @@ function MainApp() {
                 <View style={[styles.card, { alignItems: 'center', paddingVertical: 24 }]}>
                   <Text style={{ color: '#64748B', fontSize: 13 }}>No family members connected yet.</Text>
                   <Text style={{ color: '#94A3B8', fontSize: 11, marginTop: 4 }}>
-                    Use the buttons above to link your spouse, parents, or dependents.
+                    Use the buttons above to link your spouse, parents, or family members.
                   </Text>
                 </View>
               ) : (
@@ -1889,7 +1842,7 @@ function MainApp() {
                             {member.full_name || member.invite_email || 'Family Member'}
                           </Text>
                           <Text style={{ color: '#64748B', fontSize: 11.5, marginTop: 2 }}>
-                            {member.relationship_type} • {member.is_dependent ? 'Dependent Profile' : 'Independent Account'}
+                            {member.relationship_type} • Family Member
                           </Text>
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
@@ -2117,7 +2070,7 @@ function MainApp() {
             <View style={styles.card}>
               <Text style={styles.cardTitle}>Simulate QR Scan (Any Token)</Text>
               <Text style={{ color: '#64748B', fontSize: 11.5, marginTop: 2, marginBottom: 8 }}>
-                Test your own, a family dependent's, or any custom QR token:
+                Test your own, a family member's, or any custom QR token:
               </Text>
               <View style={{ flexDirection: 'row', gap: 8 }}>
                 <TextInput
@@ -2495,84 +2448,7 @@ function MainApp() {
         </View>
       </Modal>
 
-      {/* MODAL 6: Add Dependent (with Dedicated QR Code) */}
-      <Modal visible={showDependentModal} transparent animationType="slide">
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Add Family Dependent</Text>
-            <Text style={{ color: '#64748B', fontSize: 12, marginBottom: 12 }}>
-              Creates an independent medical profile and dedicated QR badge managed under your account:
-            </Text>
-            <Text style={styles.inputLabel}>Full Name *</Text>
-            <TextInput
-              style={[styles.input, { backgroundColor: '#F8FAFC', color: '#0F172A', borderColor: '#CBD5E1', marginBottom: 10 }]}
-              value={depName}
-              onChangeText={setDepName}
-              placeholder="e.g. Aarav Sharma"
-              placeholderTextColor="#94A3B8"
-            />
-            <Text style={styles.inputLabel}>Relationship</Text>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
-              {['Child', 'Elderly Parent', 'Spouse', 'Other'].map(r => (
-                <TouchableOpacity
-                  key={r}
-                  onPress={() => setDepRel(r)}
-                  style={{
-                    paddingHorizontal: 8,
-                    paddingVertical: 5,
-                    borderRadius: 6,
-                    backgroundColor: depRel === r ? '#F0FDFA' : '#F1F5F9',
-                    borderWidth: 1,
-                    borderColor: depRel === r ? '#0D9488' : '#E2E8F0'
-                  }}
-                >
-                  <Text style={{ fontSize: 11, fontWeight: '700', color: depRel === r ? '#0D9488' : '#0F172A' }}>{r}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-
-            <Text style={styles.inputLabel}>Blood Group</Text>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
-              {BLOOD_GROUPS.map(bg => (
-                <TouchableOpacity
-                  key={bg}
-                  onPress={() => setDepBlood(bg)}
-                  style={{
-                    paddingHorizontal: 8,
-                    paddingVertical: 4,
-                    borderRadius: 6,
-                    backgroundColor: depBlood === bg ? '#FEF2F2' : '#F1F5F9',
-                    borderWidth: 1,
-                    borderColor: depBlood === bg ? '#DC2626' : '#E2E8F0'
-                  }}
-                >
-                  <Text style={{ fontSize: 11, fontWeight: '700', color: depBlood === bg ? '#DC2626' : '#0F172A' }}>{bg}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-
-            <Text style={styles.inputLabel}>Emergency Notes (Optional)</Text>
-            <TextInput
-              style={[styles.input, { backgroundColor: '#F8FAFC', color: '#0F172A', borderColor: '#CBD5E1', marginBottom: 16 }]}
-              value={depNotes}
-              onChangeText={setDepNotes}
-              placeholder="e.g. Asthma, peanut allergy"
-              placeholderTextColor="#94A3B8"
-            />
-
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', gap: 10 }}>
-              <TouchableOpacity onPress={() => setShowDependentModal(false)} style={styles.cancelBtn}>
-                <Text style={{ color: '#0F172A', fontWeight: '600' }}>Cancel</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={handleCreateDependent} style={styles.saveBtn}>
-                <Text style={{ color: '#FFFFFF', fontWeight: '700' }}>Enroll & Mint QR</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
-
-      {/* MODAL 7: Link Existing User Account */}
+      {/* MODAL 6: Link Existing User Account */}
       <Modal visible={showLinkModal} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
